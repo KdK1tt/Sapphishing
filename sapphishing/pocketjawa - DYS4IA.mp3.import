@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ipldqycv1rxj"
+path="res://.godot/imported/pocketjawa - DYS4IA.mp3-84ef2562f42d0c9e5e165159e7fcf020.mp3str"
+
+[deps]
+
+source_file="res://pocketjawa - DYS4IA.mp3"
+dest_files=["res://.godot/imported/pocketjawa - DYS4IA.mp3-84ef2562f42d0c9e5e165159e7fcf020.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
