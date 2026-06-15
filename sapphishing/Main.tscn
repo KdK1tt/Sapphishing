@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ckyecbu34m1ew"]
 
 [ext_resource type="Texture2D" uid="uid://dctr3nihvionf" path="res://fishing pole tier 1.png" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://0mflxidcpn4d" path="res://main.gd" id="1_r0du0"]
 [ext_resource type="AudioStream" uid="uid://ipldqycv1rxj" path="res://pocketjawa - DYS4IA.mp3" id="2_uu6xs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uu6xs"]
@@ -16,6 +17,7 @@ gravity = Vector3(0, -10, 0)
 scale_max = 3.0
 
 [node name="Node2D" type="Node2D" unique_id=890535826]
+script = ExtResource("1_r0du0")
 
 [node name="Label" type="Label" parent="." unique_id=1469574145]
 top_level = true
@@ -38,18 +40,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.105882354, 0.0627451, 0.20784314, 1)
 
-[node name="Sparkles" type="GPUParticles2D" parent="ColorRect" unique_id=1976120548]
+[node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=714106354]
+stream = ExtResource("2_uu6xs")
+volume_db = -16.421
+autoplay = true
+
+[node name="Sparkles" type="GPUParticles2D" parent="." unique_id=1976120548]
 position = Vector2(670, 281)
 amount = 40
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_r0du0")
 
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=530710727]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530710727]
 position = Vector2(601, 241)
 scale = Vector2(2, 2)
 texture = ExtResource("1_glv2v")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=714106354]
-stream = ExtResource("2_uu6xs")
-volume_db = -16.421
-autoplay = true
+[node name="Click to Begin" type="Label" parent="." unique_id=619356012]
+visible = false
+offset_left = 509.0
+offset_top = 385.0
+offset_right = 684.0
+offset_bottom = 408.0
+text = "Click or Space to Begin"
+
+[node name="ShowPromptTimer" type="Timer" parent="Click to Begin" unique_id=662288668]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Click to Begin/ShowPromptTimer" to="." method="_on_show_prompt_timer_timeout"]
