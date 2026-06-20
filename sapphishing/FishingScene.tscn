@@ -91,8 +91,8 @@ text = "Press Space to cast!"
 label_settings = SubResource("LabelSettings_0xc70")
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
-position = Vector2(839, 88)
-scale = Vector2(0.7126082, 0.5677767)
+position = Vector2(894.3931, 132.13493)
+scale = Vector2(1.1453669, 0.91258085)
 texture = ExtResource("5_egw1k")
 
 [node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]
@@ -116,7 +116,7 @@ position = Vector2(608, 464)
 [node name="WaterShimmer" type="Polygon2D" parent="." unique_id=1415136021]
 material = SubResource("ShaderMaterial_ampfc")
 position = Vector2(-3, 2)
-polygon = PackedVector2Array(271, 437, 414, 474, 435, 502, 371, 534, 286, 540, 242, 607, 279, 635, 1137, 642, 1133, 525, 1009, 495, 947, 508, 892, 488, 906, 478, 866, 467, 869, 446, 761, 442, 722, 442, 706, 423, 772, 398, 614, 391, 465, 396, 380, 407)
+polygon = PackedVector2Array(271, 437, 414, 474, 435, 502, 356, 519, 286, 540, 256, 565, 242, 607, 279, 635, 1137, 642, 1133, 525, 1009, 495, 947, 508, 892, 488, 906, 478, 866, 467, 869, 446, 761, 442, 722, 442, 706, 423, 772, 398, 614, 391, 465, 396, 380, 407)
 
 [node name="Basket" type="Sprite2D" parent="." unique_id=441001432]
 position = Vector2(201.00002, 558)
