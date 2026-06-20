@@ -4,13 +4,46 @@
 [ext_resource type="Texture2D" uid="uid://7uy0s7armjpa" path="res://00015.png" id="2_egw1k"]
 [ext_resource type="Texture2D" uid="uid://bve6qicih0e4u" path="res://fishing_icons_32x32_54.png" id="3_0tsyy"]
 [ext_resource type="Texture2D" uid="uid://dctr3nihvionf" path="res://fishing pole tier 1.png" id="4_0mh4r"]
-[ext_resource type="Texture2D" uid="uid://cv8y1d6a26k6f" path="res://Coffee_AU.png" id="5_egw1k"]
+[ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="5_egw1k"]
+[ext_resource type="Texture2D" uid="uid://5swrn35svbsr" path="res://assets/Splatter_white.png" id="6_0tsyy"]
+[ext_resource type="Shader" uid="uid://d4fqyh4cffj4d" path="res://water_shader.gdshader" id="7_0mh4r"]
+[ext_resource type="Texture2D" uid="uid://r1d1a64fwryf" path="res://assets/buskert.png" id="8_ampfc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
 font_size = 23
 font_color = Color(0.6266101, 0.79658437, 0.9862196, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egw1k"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 42.159
+flatness = 0.16
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 300, 0)
+scale_min = 0.01
+scale_max = 0.01
+hue_variation_min = -0.04000002
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ampfc"]
+noise = SubResource("FastNoiseLite_0mh4r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ampfc"]
+shader = ExtResource("7_0mh4r")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_ampfc")
+shader_parameter/refraction_stretch = Vector2(1, 1)
+shader_parameter/refraction_strength = 0.02400000114
+shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
+shader_parameter/speed = 0.034000001615
+shader_parameter/wave_scale = 512.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampfc"]
+size = Vector2(25.1335, 65.71619)
 
 [node name="Node2D" type="Node2D" unique_id=660654378]
 script = ExtResource("1_v62h4")
@@ -26,6 +59,8 @@ stretch_mode = 3
 
 [node name="Bobber" type="TextureRect" parent="." unique_id=1561712798]
 visible = false
+light_mask = 4737
+visibility_layer = 131073
 offset_left = 665.0
 offset_top = 455.0
 offset_right = 705.0
@@ -33,26 +68,83 @@ offset_bottom = 495.0
 texture = ExtResource("3_0tsyy")
 
 [node name="Pole" type="TextureRect" parent="." unique_id=94924532]
-offset_left = 187.00002
-offset_top = 273.00003
-offset_right = 251.00002
-offset_bottom = 337.00003
+offset_left = 127.00001
+offset_top = 300.0
+offset_right = 191.0
+offset_bottom = 364.0
 scale = Vector2(2.7142856, 2.75)
 texture = ExtResource("4_0mh4r")
 
 [node name="Panel" type="Panel" parent="." unique_id=151346974]
 offset_right = 500.0
 offset_bottom = 80.0
+scale = Vector2(1.4368061, 0.7180157)
 
 [node name="StatusLabel" type="Label" parent="Panel" unique_id=400261725]
-layout_mode = 0
-offset_right = 346.0
-offset_bottom = 36.0
-text = "Press Space or Click to cast."
+layout_direction = 2
+layout_mode = 1
+offset_right = 305.0
+offset_bottom = 32.0
+scale = Vector2(0.6309281, 1.4617296)
+text = "Press Space to cast!"
 label_settings = SubResource("LabelSettings_0xc70")
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
-visible = false
-position = Vector2(554.00006, 509)
-scale = Vector2(0.3159664, 0.29714286)
+position = Vector2(839, 88)
+scale = Vector2(0.7126082, 0.5677767)
 texture = ExtResource("5_egw1k")
+
+[node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]
+top_level = true
+use_parent_material = true
+position = Vector2(797, 484)
+emitting = false
+amount = 12
+texture = ExtResource("6_0tsyy")
+lifetime = 0.47
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_sections = 5
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_egw1k")
+
+[node name="WaterSurface" type="Marker2D" parent="." unique_id=1004312198]
+position = Vector2(608, 464)
+
+[node name="WaterShimmer" type="Polygon2D" parent="." unique_id=1415136021]
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(-3, 2)
+polygon = PackedVector2Array(271, 437, 414, 474, 435, 502, 371, 534, 286, 540, 242, 607, 279, 635, 1137, 642, 1133, 525, 1009, 495, 947, 508, 892, 488, 906, 478, 866, 467, 869, 446, 761, 442, 722, 442, 706, 423, 772, 398, 614, 391, 465, 396, 380, 407)
+
+[node name="Basket" type="Sprite2D" parent="." unique_id=441001432]
+position = Vector2(201.00002, 558)
+scale = Vector2(0.09938961, 0.09938961)
+texture = ExtResource("8_ampfc")
+
+[node name="InventoryLabel" type="Label" parent="Basket" unique_id=651570462]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BasketClickArea" type="Area2D" parent="Basket" unique_id=1204055491]
+position = Vector2(-251.53548, 30.184238)
+scale = Vector2(21.013437, 8.379727)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket/BasketClickArea" unique_id=1532511257]
+visible = false
+position = Vector2(12.11898, -3.001709)
+scale = Vector2(1.5503105, 1.4799331)
+shape = SubResource("RectangleShape2D_ampfc")
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
+visible = false
+offset_left = 253.0
+offset_top = 272.0
+offset_right = 530.0
+offset_bottom = 591.0
+
+[node name="InventoryPopupLabel" type="Label" parent="InventoryPanel" unique_id=791594165]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 320.0
+mouse_filter = 0

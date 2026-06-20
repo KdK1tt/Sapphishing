@@ -62,7 +62,7 @@ offset_left = 509.0
 offset_top = 385.0
 offset_right = 684.0
 offset_bottom = 408.0
-text = "Click or Space to Begin"
+text = "Press Space to begin"
 
 [node name="ShowPromptTimer" type="Timer" parent="Click to Begin" unique_id=662288668]
 wait_time = 2.0
