@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5swrn35svbsr" path="res://assets/Splatter_white.png" id="6_0tsyy"]
 [ext_resource type="Shader" uid="uid://d4fqyh4cffj4d" path="res://water_shader.gdshader" id="7_0mh4r"]
 [ext_resource type="Texture2D" uid="uid://r1d1a64fwryf" path="res://assets/buskert.png" id="8_ampfc"]
+[ext_resource type="AudioStream" uid="uid://bvpmoqs4jfr7r" path="res://fishin_time_wip02.mp3" id="9_hwtv3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
 font_size = 23
@@ -148,3 +149,10 @@ layout_mode = 0
 offset_right = 280.0
 offset_bottom = 320.0
 mouse_filter = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=6274122]
+
+[node name="FishinTimeWip02" type="AudioStreamPlayer2D" parent="." unique_id=1875971704]
+position = Vector2(1045, 275)
+stream = ExtResource("9_hwtv3")
+autoplay = true

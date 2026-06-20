@@ -112,7 +112,7 @@ func _ready() -> void:
 	fish_reveal_start_position = fish_reveal.global_position
 	fish_reveal_start_scale = fish_reveal.scale
 	pole_rest_rotation = pole.rotation
-	status_label.text = "Press Space or Click to cast."
+	status_label.text = "Press Space to cast."
 	
 func toggle_inventory_panel() -> void:
 	if state == State.WAITING or state == State.BITE:
