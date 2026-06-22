@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://dsk5au6n1geep"]
+
+[ext_resource type="Texture2D" uid="uid://v0tbcbyanxwl" path="res://backdrop_selling_stall-has-outline.png" id="1_eia1e"]
+[ext_resource type="Script" uid="uid://bk65cjvwswxwi" path="res://Selling_Scene.gd" id="1_uuih2"]
+[ext_resource type="AudioStream" uid="uid://xubwxrdbgi8d" path="res://shopping_wip03.mp3" id="3_uuih2"]
+[ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="4_e8enu"]
+[ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="5_5fgph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuih2"]
+size = Vector2(48.27278, 105.67297)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8enu"]
+size = Vector2(3.5074263, 11.409588)
+
+[node name="Node2D" type="Node2D" unique_id=1626945183]
+script = ExtResource("1_uuih2")
+
+[node name="background" type="TextureRect" parent="." unique_id=1260980911]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(31.987598, 17.842842)
+mouse_filter = 2
+texture = ExtResource("1_eia1e")
+expand_mode = 1
+
+[node name="BasketClickArea" type="Area2D" parent="background" unique_id=929506769]
+z_index = 5
+position = Vector2(18.976103, 29.927965)
+scale = Vector2(0.083439134, 0.05326214)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/BasketClickArea" unique_id=520239933]
+z_index = 7
+position = Vector2(57.37256, 8.894775)
+scale = Vector2(1.5503103, 1.4799329)
+shape = SubResource("RectangleShape2D_uuih2")
+
+[node name="InventoryLabel" type="Label" parent="background" unique_id=368991316]
+visible = false
+layout_mode = 0
+offset_left = 13.630281
+offset_top = 30.54446
+offset_right = 53.63028
+offset_bottom = 53.54446
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="background" unique_id=1851743582]
+stream = ExtResource("3_uuih2")
+autoplay = true
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
+visible = false
+z_index = 5
+offset_left = 138.0
+offset_top = 95.0
+offset_right = 520.0
+offset_bottom = 456.0
+mouse_filter = 2
+
+[node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1929064917]
+z_index = 5
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 0
+
+[node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=90160618]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.1340001
+anchor_top = 0.163
+anchor_right = 1.1340001
+anchor_bottom = 0.163
+offset_left = -22.188019
+offset_top = -80.843
+offset_right = 334.81198
+offset_bottom = 296.15698
+mouse_filter = 2
+
+[node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1894641194]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 245.0
+offset_right = 366.0
+offset_bottom = 357.0
+mouse_filter = 2
+
+[node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=1987927654]
+z_index = 5
+layout_mode = 0
+offset_left = 14.0
+offset_top = 21.0
+offset_right = 293.0
+offset_bottom = 83.0
+
+[node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=660860404]
+z_index = 5
+layout_mode = 0
+offset_left = 15.0
+offset_top = 86.0
+offset_right = 228.0
+offset_bottom = 140.0
+
+[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=569346248]
+z_index = 5
+layout_mode = 0
+offset_left = 21.0
+offset_top = 166.0
+offset_right = 263.0
+offset_bottom = 333.0
+autowrap_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=1835299177]
+offset_left = 1098.0
+offset_top = 7.0
+offset_right = 1269.0
+offset_bottom = 30.0
+
+[node name="BackToFishing" type="Button" parent="." unique_id=1482450657]
+offset_left = 4.0
+offset_top = 667.0
+offset_right = 235.0
+offset_bottom = 712.0
+text = "Back to Fishing"
+
+[node name="DialoguePanel" type="Panel" parent="." unique_id=85343958]
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 621.0
+offset_bottom = 75.0
+
+[node name="DialogueLabel" type="Label" parent="DialoguePanel" unique_id=391609229]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 3.0
+offset_right = 513.0
+offset_bottom = 60.0
+
+[node name="ShopPanel" type="Panel" parent="." unique_id=1257402246]
+visible = false
+z_index = 1
+offset_left = 227.0
+offset_top = 216.0
+offset_right = 556.0
+offset_bottom = 591.0
+
+[node name="ShopRows" type="VBoxContainer" parent="ShopPanel" unique_id=521436393]
+z_index = 1
+layout_mode = 0
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 293.0
+offset_bottom = 344.0
+
+[node name="TackleBox" type="Sprite2D" parent="." unique_id=249144824]
+z_index = 1
+texture_filter = 1
+position = Vector2(531, 627)
+scale = Vector2(2.6818182, 2.1363637)
+texture = ExtResource("4_e8enu")
+
+[node name="TackleBoxClickArea" type="Area2D" parent="TackleBox" unique_id=1257419352]
+z_index = 2
+position = Vector2(-93.220345, -24.340425)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TackleBox/TackleBoxClickArea" unique_id=1030059881]
+z_index = 3
+position = Vector2(90.23734, 23.311188)
+scale = Vector2(16.159407, 5.6452165)
+shape = SubResource("RectangleShape2D_e8enu")
+
+[node name="TalkButton" type="Button" parent="." unique_id=408874908]
+visible = false
+z_index = 4
+offset_left = 1056.0
+offset_top = 674.0
+offset_right = 1269.0
+offset_bottom = 716.0
+text = "Talk"
+
+[node name="CustomerSprite" type="Sprite2D" parent="." unique_id=656938952]
+z_index = 3
+position = Vector2(357.5, 500.5)
+scale = Vector2(1.7460938, 1.7460938)
+texture = ExtResource("5_5fgph")

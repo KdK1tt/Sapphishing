@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bfndp6kh2eoc3"]
+
+[ext_resource type="Texture2D" uid="uid://bae0urhc8y8eu" path="res://backdrop_blurry_selling_stall-has-outline.png" id="1_08vf1"]
+[ext_resource type="Script" uid="uid://00r7r1kkfswo" path="res://Dialogue_Scene.gd" id="1_aay13"]
+[ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="2_efucv"]
+[ext_resource type="AudioStream" uid="uid://1kafk1nl3vq0" path="res://sweet_talk_wip03.mp3" id="4_gtste"]
+
+[node name="Node2D" type="Node2D" unique_id=1145667539]
+script = ExtResource("1_aay13")
+
+[node name="BackgroundBlur" type="TextureRect" parent="." unique_id=2048443529]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.66697127, 0.66697127)
+texture = ExtResource("1_08vf1")
+
+[node name="LeftCharacter" type="TextureRect" parent="." unique_id=994653770]
+offset_left = 73.0
+offset_top = 162.0
+offset_right = 751.5742
+offset_bottom = 717.0
+texture = ExtResource("2_efucv")
+stretch_mode = 4
+
+[node name="RightCharacter" type="TextureRect" parent="." unique_id=83709413]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialoguePanel" type="Panel" parent="." unique_id=1707063275]
+offset_left = 505.0
+offset_top = 416.0
+offset_right = 1284.0
+offset_bottom = 709.0
+
+[node name="SpeakerLabel" type="Label" parent="DialoguePanel" unique_id=869800314]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -34.0
+offset_right = 386.0
+offset_bottom = -11.0
+
+[node name="DialogueLabel" type="Label" parent="DialoguePanel" unique_id=1117528550]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 31.0
+offset_right = 729.0
+offset_bottom = 286.0
+autowrap_mode = 2
+
+[node name="NextButton" type="Button" parent="DialoguePanel" unique_id=1323970429]
+layout_mode = 0
+offset_left = 504.0
+offset_top = -414.0
+offset_right = 774.0
+offset_bottom = -335.0
+text = "Next"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=976247790]
+stream = ExtResource("4_gtste")
+autoplay = true
+parameters/looping = true

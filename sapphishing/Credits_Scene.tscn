@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c1b2qb2jk222r"]
+
+[ext_resource type="Script" uid="uid://b8766kk843n2x" path="res://Credits_Scene.gd" id="1_s6n57"]
+
+[node name="Node2D" type="Node2D" unique_id=1086555157]
+script = ExtResource("1_s6n57")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1491448934]
+offset_right = 1280.0
+offset_bottom = 715.0
+color = Color(0.19463652, 0.11387692, 0.22489682, 1)
+
+[node name="Label" type="Label" parent="." unique_id=81284836]
+z_index = 2
+offset_left = 345.0
+offset_top = 57.0
+offset_right = 1016.0
+offset_bottom = 652.0
+text = "Sapphishing
+
+A tiny VN / fishing minigame about magical trope fish,
+queer connection, and helping sapphics find the story they need.
+
+Created for Frame Jam With the Frame Fatales
+
+Producer
+serendiplays
+
+Narrative Designer
+quesarah7
+
+Art
+earthtoalice
+
+Programming
+Kdk1tt
+
+Music
+Melody / pocketjawa
+
+Thanks for playing, look for the full version soon!"
+
+[node name="Button" type="Button" parent="." unique_id=245498347]
+offset_left = 1114.0
+offset_top = 640.0
+offset_right = 1281.0
+offset_bottom = 717.0
+action_mode = 0
+text = "Restart"

@@ -47,7 +47,9 @@ color = Color(0.105882354, 0.0627451, 0.20784314, 1)
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=714106354]
 stream = ExtResource("2_uu6xs")
+volume_db = -5.571
 autoplay = true
+parameters/looping = true
 
 [node name="Sparkles" type="GPUParticles2D" parent="." unique_id=1976120548]
 position = Vector2(899, 385)

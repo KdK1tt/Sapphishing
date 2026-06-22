@@ -18,7 +18,6 @@ var fish_reveal_start_position: Vector2
 var fish_reveal_start_scale: Vector2
 var inventory_open := false
 var skip_reward_pause := false
-var discovered_fish := {}
 var discovery_skip_allowed := false
 
 
@@ -28,20 +27,20 @@ var discovery_skip_allowed := false
 var caught_fish = null
 
 var fish_pool = [
-	"Coffee Shop AU Fish",
-	"Flower Shop AU Fish",
-	"Friends to Lovers Fishes",
-	"Hurt Comfort Fish",
-	"Meet Cute Seafood",
-	"Power Couple Fishes",
-	"Secret Relationship Fish",
-	"Situationship Fish",
-	"Soulmates Fish",
+	"Coffee Shop AU",
+	"Flower Shop AU",
+	"Friends to Lovers",
+	"Hurt Comfort",
+	"Meet Cute",
+	"Power Couple",
+	"Secret Relationship",
+	"Situationship",
+	"Soulmates",
 ]
 
 # Future fish ideas:
 # Fake Dating Fish:
-# "When you have to keep up appearances and then catch feelings and it becomes Real Dating."
+# "When you have to k    eep up appearances and then catch feelings and it becomes Real Dating."
 #
 # Accidental Marriage Clam:
 # "You had too much to drink in Vegas and now you've woken up next to your crush with rings on your fingers."
@@ -58,10 +57,10 @@ var fish_pool = [
 @onready var pole = $Pole
 @onready var splash_particles = $SplashParticles
 @onready var water_surface = $WaterSurface
-@onready var basket = $Basket
-@onready var inventory_label = $Basket/InventoryLabel
+@onready var basket = $TackleBox
+@onready var inventory_label = $TackleBox/InventoryLabel
 @onready var inventory_panel = $InventoryPanel
-@onready var basket_click_area = $Basket/BasketClickArea
+@onready var basket_click_area = $TackleBox/BasketClickArea
 @onready var discovery_panel = $DiscoveryPanel
 @onready var discovery_name_label = $DiscoveryPanel/DiscoveryNameLabel
 @onready var discovery_description_label = $DiscoveryPanel/DiscoveryDescriptionLabel
@@ -73,6 +72,7 @@ var fish_pool = [
 @onready var preview_name_label = $InventoryPanel/FishPreview/PreviewNameLabel
 @onready var preview_value_label = $InventoryPanel/FishPreview/PreviewValueLabel
 @onready var preview_description = $InventoryPanel/FishPreview/PreviewDescription
+@onready var go_to_stall_button = $GoToStallButton
 
 
 #not in use yet
@@ -133,6 +133,19 @@ func show_fish_preview(fish_name: String) -> void:
 	preview_texture.texture = fish_data["texture"]
 
 	fish_preview_panel.visible = true
+	
+func wait_for_discovery_continue(min_seconds: float) -> void:
+	skip_reward_pause = false
+	discovery_skip_allowed = false
+
+	var elapsed := 0.0
+
+	while not skip_reward_pause:
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
+
+		if elapsed >= min_seconds:
+			discovery_skip_allowed = true
 
 
 func hide_fish_preview() -> void:
@@ -153,9 +166,9 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 
 	await tween.finished
 
-	status_label.text = "New fish discovered! Press Space after a moment."
+	status_label.text = "New fish discovered! Press Space when ready."
 
-	await wait_for_discovery_pause(3.0, 8.0)
+	await wait_for_discovery_continue(0.5)
 
 	var out_tween := create_tween()
 	out_tween.tween_property(discovery_panel, "modulate:a", 0.0, 0.25)
@@ -216,6 +229,7 @@ func _ready() -> void:
 	preview_name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_value_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_description.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	go_to_stall_button.pressed.connect(go_to_selling)
 
 	
 func toggle_inventory_panel() -> void:
@@ -347,12 +361,12 @@ func catch_fish() -> void:
 	var fish_name: String = fish_pool.pick_random()
 	caught_fish = GameState.get_fish_data(fish_name).duplicate()
 	caught_fish["name"] = fish_name
-	var is_new_fish := not discovered_fish.has(fish_name)
+	var is_new_fish = not GameState.has_discovered_fish(fish_name)
 
 	if is_new_fish:
-		discovered_fish[fish_name] = true
+		GameState.discover_fish(fish_name)
 
-	status_label.text = "Caught " + fish_name + ", adding to the fish basket!"
+	status_label.text = "Caught " + fish_name + ", adding to inventory!"
 
 	bobber.visible = false
 
@@ -391,7 +405,11 @@ func catch_fish() -> void:
 	fish_reveal.visible = false
 	add_fish_to_inventory(fish_name)
 
-	status_label.text = "Added to the fish basket! Press Space to cast again."
+	state = State.READY
+	bobber.visible = false
+	fish_reveal.visible = false
+
+	status_label.text = "Added to the inventory! Press Space to cast again."
 
 	reward_animating = false
 	skip_reward_pause = false
@@ -410,3 +428,6 @@ func reset_cast() -> void:
 	fish_reveal.modulate.a = 1.0
 
 	status_label.text = "Press Space to cast."
+
+func go_to_selling() -> void:
+	get_tree().change_scene_to_file("res://SellingScene.tscn")
