@@ -65,6 +65,7 @@ font_color = Color(1, 0.4392157, 1, 1)
 script = ExtResource("1_v62h4")
 
 [node name="Background" type="TextureRect" parent="." unique_id=410957344]
+texture_filter = 1
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,6 +118,7 @@ label_settings = SubResource("LabelSettings_0xc70")
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
 z_index = 3
+texture_filter = 1
 position = Vector2(642, 277.00003)
 scale = Vector2(1.9550782, 1.7363281)
 texture = ExtResource("5_egw1k")
@@ -124,6 +126,7 @@ texture = ExtResource("5_egw1k")
 [node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]
 top_level = true
 z_index = 2
+texture_filter = 1
 use_parent_material = true
 position = Vector2(797, 484)
 emitting = false
@@ -178,6 +181,7 @@ offset_bottom = 296.15698
 mouse_filter = 2
 
 [node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1145736346]
+texture_filter = 1
 layout_mode = 0
 offset_left = 255.0
 offset_top = 245.0
@@ -288,6 +292,7 @@ label_settings = SubResource("LabelSettings_tobc7")
 autowrap_mode = 2
 
 [node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
+texture_filter = 1
 layout_mode = 0
 offset_left = 272.0
 offset_top = -351.0

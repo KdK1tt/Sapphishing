@@ -54,6 +54,15 @@ func get_current_npc_order() -> Dictionary:
 
 func complete_current_npc_order() -> void:
 	npc_progress[current_customer] += 1
+	
+func has_more_current_customer_orders() -> bool:
+	if not StoryDat.npc_orders.has(current_customer):
+		return false
+
+	var orders: Array = StoryDat.npc_orders[current_customer]
+	var progress: int = npc_progress[current_customer]
+
+	return progress < orders.size()
 
 var fish_database := {
 "Flower Shop AU": {
