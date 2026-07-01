@@ -120,7 +120,7 @@ label_settings = SubResource("LabelSettings_0xc70")
 z_index = 3
 texture_filter = 1
 position = Vector2(642, 277.00003)
-scale = Vector2(1.9550782, 1.7363281)
+scale = Vector2(1.955, 1.955)
 texture = ExtResource("5_egw1k")
 
 [node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]

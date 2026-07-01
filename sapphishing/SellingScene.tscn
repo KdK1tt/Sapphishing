@@ -85,6 +85,7 @@ offset_top = 245.0
 offset_right = 366.0
 offset_bottom = 357.0
 mouse_filter = 2
+stretch_mode = 4
 
 [node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=1987927654]
 z_index = 5

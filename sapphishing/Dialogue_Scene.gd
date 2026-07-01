@@ -3,6 +3,7 @@ extends Node2D
 @onready var speaker_label = $DialoguePanel/SpeakerLabel
 @onready var dialogue_label = $DialoguePanel/DialogueLabel
 @onready var next_button = $DialoguePanel/NextButton
+@onready var dialogue_panel = $DialoguePanel
 
 var dialogue_lines: Array = []
 var dialogue_index := 0
@@ -25,6 +26,12 @@ func load_dialogue() -> void:
 		dialogue_lines = order["before_transaction"]
 
 	dialogue_index = 0
+	
+func set_speaker_label_color(color: Color) -> void:
+	speaker_label.add_theme_color_override("font_color", color)
+	speaker_label.add_theme_color_override("font_outline_color", Color("#ffffff"))
+	speaker_label.add_theme_constant_override("outline_size", 2)
+
 
 
 func show_current_line() -> void:
@@ -34,8 +41,27 @@ func show_current_line() -> void:
 
 	var line: Dictionary = dialogue_lines[dialogue_index]
 
+
 	speaker_label.text = line.get("speaker", "")
 	dialogue_label.text = line.get("text", "")
+
+	var speaker: String = line.get("speaker", "")
+	var active_npc: String = GameState.current_customer
+	
+	if speaker == "???" and active_npc == "Avery":
+		set_speaker_label_color(Color("#370076"))
+	elif speaker == "Avery":
+		set_speaker_label_color(Color("#370076"))
+	elif speaker == "???" and active_npc == "Sophia":
+		set_speaker_label_color(Color("#910030"))
+	elif speaker == "Sophia":
+		set_speaker_label_color(Color("#910030"))
+	elif speaker == "???" and active_npc == "Asani":
+		set_speaker_label_color(Color("#007639"))
+	elif speaker == "Asani":
+		set_speaker_label_color(Color("#007639"))
+	else:
+		set_speaker_label_color(Color("#222222"))
 
 	if dialogue_index == dialogue_lines.size() - 1:
 		if GameState.pending_dialogue_phase == "before":

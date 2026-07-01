@@ -63,6 +63,20 @@ func _on_basket_click_area_input_event(_viewport, event, _shape_idx) -> void:
 		print("Basket clicked!")
 		toggle_inventory_panel()
 		
+func update_default_dialogue_text() -> void:
+	var order: Dictionary = GameState.get_current_npc_order()
+	var required_fish: String = order.get("required_fish", "")
+
+	if GameState.customer_has_talked:
+		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
+	elif required_fish != "":
+		if GameState.get_fish_count(required_fish) <= 0:
+			dialogue_label.text = "You sell a few fish to passing customers.\n\nStill, you get the sense that someone is looking for: " + required_fish
+		else:
+			dialogue_label.text = "The air around the stall feels expectant..."
+	else:
+		dialogue_label.text = "The stall is open."
+		
 func toggle_shop_panel() -> void:
 	shop_panel.visible = not shop_panel.visible
 
@@ -72,7 +86,7 @@ func toggle_shop_panel() -> void:
 		update_shop_rows()
 		dialogue_label.text = "What would you like to buy?"
 	else:
-		dialogue_label.text = "Welcome! Click the basket to choose what to serve."
+		update_default_dialogue_text()              
 
 func update_money_label() -> void:
 	money_label.text = "Money: $" + str(GameState.money)
@@ -87,13 +101,11 @@ func toggle_inventory_panel() -> void:
 		dialogue_label.text = "Choose a fish to serve."
 	else:
 		fish_preview_panel.visible = false
-		dialogue_label.text = "Welcome! Click the basket to choose what to serve."
+		update_default_dialogue_text()
 
 func update_inventory_rows() -> void:
 	for child in inventory_rows.get_children():
 		child.queue_free()
-
-	fish_preview_panel.visible = false
 
 	if GameState.fish_inventory.is_empty():
 		var empty_label := Label.new()
@@ -102,25 +114,45 @@ func update_inventory_rows() -> void:
 		inventory_rows.add_child(empty_label)
 		return
 
+	var order: Dictionary = GameState.get_current_npc_order()
+	var required_fish: String = order.get("required_fish", "")
+	var story_sell_mode: bool = GameState.customer_has_talked
+	var customer_waiting_mode: bool = customer_waiting
+
 	for fish_name in GameState.fish_inventory.keys():
 		var count: int = GameState.fish_inventory[fish_name]
 		var fish_data := GameState.get_fish_data(fish_name)
 		var value: int = fish_data["value"]
 
 		var row := Button.new()
-		row.text = fish_name + " x" + str(count) + "  ($" + str(value) + ")"
 		row.custom_minimum_size = Vector2(500, 36)
-		row.mouse_filter = Control.MOUSE_FILTER_STOP
+		
 
-		row.mouse_entered.connect(func():
-			show_fish_preview(fish_name)
-		)
+		if story_sell_mode:
+			if fish_name == required_fish:
+				row.text = fish_name + " x" + str(count) + "  ($" + str(value) + ") - This is the fish!"
+				row.disabled = false
 
-		row.pressed.connect(func():
-			sell_selected_fish(fish_name)
-		)
+				row.pressed.connect(func():
+					sell_selected_fish(fish_name)
+				)
+			elif customer_waiting_mode:
+				if fish_name == required_fish:
+					row.text = fish_name + " x" + str(count) + "  - Talk first"
+					row.disabled = true
+			else:
+				row.text = fish_name + " x" + str(count)
+				row.disabled = true
+		else:
+			row.text = fish_name + " x" + str(count) + "  ($" + str(value) + ")"
+			row.disabled = false
+			row.pressed.connect(func():
+				sell_selected_fish(fish_name)
+			)
 
 		inventory_rows.add_child(row)
+
+
 		
 func update_shop_rows() -> void:
 	for child in shop_rows.get_children():
@@ -162,30 +194,39 @@ func buy_shop_item(item_name: String) -> void:
 	call_deferred("update_shop_rows")
 	
 
-	
+
 func sell_selected_fish(fish_name: String) -> void:
 	var order: Dictionary = GameState.get_current_npc_order()
-	var required_fish: String = order["required_fish"]
+	var required_fish: String = order.get("required_fish", "")
+	var story_sell_mode: bool = GameState.customer_has_talked
+
+	if GameState.get_fish_count(fish_name) <= 0:
+		dialogue_label.text = "You do not have " + fish_name + " right now."
+		update_inventory_rows()
+		return
+
+	if story_sell_mode and fish_name != required_fish:
+		dialogue_label.text = "This customer is looking for: " + required_fish
+		update_inventory_rows()
+		return
 
 	var value: int = GameState.sell_fish(fish_name)
 
 	if value <= 0:
 		dialogue_label.text = "Looks like we're out of " + fish_name + "!"
+		update_inventory_rows()
 		return
 
 	update_money_label()
 	call_deferred("update_inventory_rows")
 
-	# Correct story fish: continue Avery's story.
-	if fish_name == required_fish:
+	if story_sell_mode and fish_name == required_fish:
 		GameState.pending_dialogue_phase = "after"
 		GameState.pending_return_scene = "res://SellingScene.tscn"
-
 		get_tree().change_scene_to_file("res://DialogueScene.tscn")
 		return
 
-	# Wrong/non-story fish: still sell it, but do not advance story.
-	dialogue_label.text = "Sold " + fish_name + " for $" + str(value) + ".\n\nAvery still needs: " + required_fish
+	dialogue_label.text = "Sold " + fish_name + " for $" + str(value) + "."
 
 
 func show_fish_preview(fish_name: String) -> void:
@@ -220,14 +261,20 @@ func check_for_customer() -> void:
 		dialogue_label.text = "No customer order found."
 		return
 
-	# If the customer has already talked, do not replay their intro.
-	# Keep them present and wait for the player to serve the fish.
+	# MID-SCENE STORY SERVING MODE
 	if GameState.customer_has_talked:
 		customer_sprite.visible = true
 		customer_sprite.position = Vector2(1120, 560)
 		customer_sprite.modulate.a = 1.0
 		customer_waiting = false
 		talk_button.visible = false
+
+		if GameState.get_fish_count(required_fish) <= 0:
+			dialogue_label.text = "Oh no! You need " + required_fish + "!\n\nYou tell them to hang on just a sec while you go fishing."
+			inventory_panel.visible = false
+			shop_panel.visible = false
+			return
+
 		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
 
 		inventory_panel.visible = true
@@ -236,9 +283,9 @@ func check_for_customer() -> void:
 
 		return
 
-	# Customer only appears if you have the fish they need.
+	# PUBLIC / PRE-STORY MODE
 	if GameState.get_fish_count(required_fish) <= 0:
-		dialogue_label.text = "No customers right now.\n\nTry fishing for: " + required_fish
+		dialogue_label.text = "You start selling fish.\n\nBut, you get the sense that someone is looking for: " + required_fish
 		return
 
 	dialogue_label.text = "Someone may stop by soon..."
@@ -264,7 +311,7 @@ func check_for_customer() -> void:
 		return
 
 	if GameState.get_fish_count(required_fish) <= 0:
-		dialogue_label.text = "No customers right now.\n\nTry fishing for: " + required_fish
+		dialogue_label.text = "You sell a few fish to passing customers.\n\nStill, you get the sense that someone is looking for: " + required_fish
 		return
 
 	spawn_customer()
@@ -281,7 +328,7 @@ func spawn_customer() -> void:
 	customer_sprite.modulate.a = 0.0
 	customer_sprite.z_index = 20
 	talk_button.z_index = 80
-	talk_button.position = customer_sprite.position + Vector2(10, -190)
+	talk_button.position = customer_sprite.position + Vector2(20, -190)
 
 	# Adjust these to your stall layout.
 	customer_sprite.position = Vector2(1400, 560)
@@ -301,7 +348,7 @@ func spawn_customer() -> void:
 
 	talk_button.visible = true
 	talk_button.disabled = false
-	talk_button.position = customer_sprite.position + Vector2(-40, -120)
+	talk_button.position = customer_sprite.position + Vector2(10, -120)
 
 	dialogue_label.text = "A customer is waiting. Click Talk."
 	
