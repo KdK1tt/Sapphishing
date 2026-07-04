@@ -157,8 +157,8 @@ offset_bottom = 344.0
 [node name="TackleBox" type="Sprite2D" parent="." unique_id=249144824]
 z_index = 1
 texture_filter = 1
-position = Vector2(531, 627)
-scale = Vector2(2.6818182, 2.1363637)
+position = Vector2(533, 598)
+scale = Vector2(2.682, 2.682)
 texture = ExtResource("4_e8enu")
 
 [node name="TackleBoxClickArea" type="Area2D" parent="TackleBox" unique_id=1257419352]

@@ -20,8 +20,7 @@ var customer_has_talked := false
 
 
 func get_current_npc_order() -> Dictionary:
-	print("=== GET CURRENT NPC ORDER ===")
-	print("Current customer: ", current_customer)
+
 
 	if not StoryDat.npc_orders.has(current_customer):
 		print("StoryDat has no entry for: ", current_customer)
@@ -38,8 +37,9 @@ func get_current_npc_order() -> Dictionary:
 	var orders: Array = StoryDat.npc_orders[current_customer]
 	var progress: int = npc_progress[current_customer]
 
-	print("Progress: ", progress)
-	print("Orders available: ", orders.size())
+	
+
+
 
 	if progress >= orders.size():
 		print("No more orders for ", current_customer)
@@ -54,6 +54,13 @@ func get_current_npc_order() -> Dictionary:
 
 func complete_current_npc_order() -> void:
 	npc_progress[current_customer] += 1
+	
+func get_current_npc_theme() -> String:
+	if not StoryDat.npc_themes.has(current_customer):
+		print("No theme found for: ", current_customer)
+		return ""
+
+	return StoryDat.npc_themes[current_customer]
 	
 func has_more_current_customer_orders() -> bool:
 	if not StoryDat.npc_orders.has(current_customer):

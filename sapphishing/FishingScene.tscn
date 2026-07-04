@@ -45,7 +45,7 @@ shader_parameter/wave_scale = 500.0
 shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ampfc"]
-size = Vector2(33.475864, 105.67297)
+size = Vector2(39.04806, 146.9995)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
 font_size = 20
@@ -228,7 +228,7 @@ autoplay = true
 z_index = 2
 texture_filter = 1
 position = Vector2(379.3282, 607.65234)
-scale = Vector2(3.004464, 2.9311092)
+scale = Vector2(3.004, 3.004)
 texture = ExtResource("10_431q5")
 
 [node name="InventoryLabel" type="Label" parent="TackleBox" unique_id=651570462]
@@ -246,8 +246,8 @@ scale = Vector2(0.8468272, 0.3167827)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TackleBox/BasketClickArea" unique_id=1532511257]
 visible = false
 z_index = 4
-position = Vector2(45.902657, 8.894775)
-scale = Vector2(1.5503104, 1.479933)
+position = Vector2(24.918968, 44.07428)
+scale = Vector2(1.5503104, 1.4799333)
 shape = SubResource("RectangleShape2D_ampfc")
 
 [node name="WaterShimmer2" type="Polygon2D" parent="." unique_id=1748383982]

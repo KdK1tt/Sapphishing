@@ -4,9 +4,11 @@ extends Node2D
 @onready var dialogue_label = $DialoguePanel/DialogueLabel
 @onready var next_button = $DialoguePanel/NextButton
 @onready var dialogue_panel = $DialoguePanel
+@onready var song_player = $AudioStreamPlayer2D
 
 var dialogue_lines: Array = []
 var dialogue_index := 0
+
 
 
 func _ready() -> void:
@@ -15,10 +17,20 @@ func _ready() -> void:
 
 	load_dialogue()
 	show_current_line()
+	load_song()
+	
+func load_song() ->void:
+	var song_path: String = GameState.get_current_npc_theme()
+
+	if song_path != "":
+		var song_stream = load(song_path)
+		song_player.stream = song_stream
+		song_player.play()
 	 
 
 func load_dialogue() -> void:
 	var order: Dictionary = GameState.get_current_npc_order()
+	
 
 	if GameState.pending_dialogue_phase == "after":
 		dialogue_lines = order["after_transaction"]
