@@ -26,6 +26,8 @@ func _ready() -> void:
 	fish_preview_panel.visible = false
 	shop_panel.visible = false
 
+	
+
 	if not tackle_box_click_area.input_event.is_connected(_on_tackle_box_click_area_input_event):
 		tackle_box_click_area.input_event.connect(_on_tackle_box_click_area_input_event)
 
@@ -53,6 +55,13 @@ func _ready() -> void:
 	customer_sprite.visible = false
 
 	check_for_customer()
+	load_song()
+	
+func load_song() -> void:
+	if GameState.force_npc_music:
+		MusicManager.play_song(GameState.get_current_npc_theme())
+	else:
+		MusicManager.play_song("res://shopping_wip03.mp3")
 	
 func _on_tackle_box_click_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -136,10 +145,10 @@ func update_inventory_rows() -> void:
 				row.pressed.connect(func():
 					sell_selected_fish(fish_name)
 				)
-			elif customer_waiting_mode:
-				if fish_name == required_fish:
-					row.text = fish_name + " x" + str(count) + "  - Talk first"
-					row.disabled = true
+		elif customer_waiting_mode:
+			if fish_name == required_fish:
+				row.text = fish_name + " x" + str(count) + "  - Talk first"
+				row.disabled = true
 			else:
 				row.text = fish_name + " x" + str(count)
 				row.disabled = true
@@ -221,6 +230,9 @@ func sell_selected_fish(fish_name: String) -> void:
 	call_deferred("update_inventory_rows")
 
 	if story_sell_mode and fish_name == required_fish:
+		GameState.in_story_sale = true
+		GameState.hide_back_to_fishing_button = true
+		GameState.force_npc_music = true
 		GameState.pending_dialogue_phase = "after"
 		GameState.pending_return_scene = "res://SellingScene.tscn"
 		get_tree().change_scene_to_file("res://DialogueScene.tscn")
@@ -270,22 +282,32 @@ func check_for_customer() -> void:
 		talk_button.visible = false
 
 		if GameState.get_fish_count(required_fish) <= 0:
+			GameState.in_story_sale = true
+			GameState.hide_back_to_fishing_button = false
+			GameState.force_npc_music = true
+			GameState.customer_has_talked = true
+
 			dialogue_label.text = "Oh no! You need " + required_fish + "!\n\nYou tell them to hang on just a sec while you go fishing."
 			inventory_panel.visible = false
 			shop_panel.visible = false
+			back_to_fishing_button.visible = true
 			return
-
-		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
-
-		inventory_panel.visible = true
-		shop_panel.visible = false
-		update_inventory_rows()
+			
+		else:
+			GameState.in_story_sale = true
+			GameState.hide_back_to_fishing_button = true
+			GameState.force_npc_music = true
+			dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
+			inventory_panel.visible = true
+			shop_panel.visible = false
+			back_to_fishing_button.visible = false
+			update_inventory_rows()
 
 		return
 
 	# PUBLIC / PRE-STORY MODE
 	if GameState.get_fish_count(required_fish) <= 0:
-		dialogue_label.text = "You start selling fish.\n\nBut, you get the sense that someone is looking for: " + required_fish
+		dialogue_label.text = "You start selling fish.\n \nBut, you get the sense that someone is looking for: " + required_fish
 		return
 
 	dialogue_label.text = "Someone may stop by soon..."
@@ -302,14 +324,19 @@ func check_for_customer() -> void:
 		customer_sprite.position = Vector2(1120, 560)
 		customer_sprite.modulate.a = 1.0
 		talk_button.visible = false
-		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
 
+		if GameState.get_fish_count(required_fish) <= 0:
+			dialogue_label.text = "Oh no! You need " + required_fish + "!\n\nYou tell them to hang on just a sec while you go fishing."
+			inventory_panel.visible = false
+			shop_panel.visible = false
+			return
+
+		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
 		inventory_panel.visible = true
 		shop_panel.visible = false
 		update_inventory_rows()
-
 		return
-
+		
 	if GameState.get_fish_count(required_fish) <= 0:
 		dialogue_label.text = "You sell a few fish to passing customers.\n\nStill, you get the sense that someone is looking for: " + required_fish
 		return

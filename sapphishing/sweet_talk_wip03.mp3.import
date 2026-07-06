@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/sweet_talk_wip03.mp3-cb50a4e19e2489408175563f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

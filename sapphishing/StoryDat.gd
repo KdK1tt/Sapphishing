@@ -12,15 +12,15 @@ var npc_orders := {
 			"before_transaction": [
 				{
 					"speaker": "",
-					"text": "[You see a person approach, dressed from head to toe in the least form-fitting clothes imaginable. Baggy pants, puffy jacket with a collar that covers half their face, and the other half is obscured by large, dark sunglasses. The whole ensemble is topped off with a droopy bucket hat for good measure. \n It was almost giving 'three kids in a trench coat' vibes, if not for their height lacking just enough for that to be the case.]"
+					"text": "[ You see a person approach, dressed from head to toe in the least form-fitting clothes imaginable. Baggy pants, puffy jacket with a collar that covers half their face, and the other half is obscured by large, dark sunglasses. The whole ensemble is topped off with a droopy bucket hat for good measure. \n It was almost giving 'three kids in a trench coat' vibes, if not for their height lacking just enough for that to be the case. ]"
 				},
 				{
 					"speaker": "",
-					"text": "[Despite their best efforts to conceal their features, you can still catch the twitch of the muscles around their eyebrows indicating the rapidly shifty eyes behind the shades. Even though you haven't been in charge of this stall very long, you know enough to recognize what was happening here.]"
+					"text": "[ Despite their best efforts to conceal their features, you can still catch the twitch of the muscles around their eyebrows indicating the rapidly shifty eyes behind the shades. Even though you haven't been in charge of this stall very long, you know enough to recognize what was happening here. ]"
 				},
 				{
 					"speaker": "",
-					"text": "[Either this is someone who doesn't want to be seen perusing your merchandise, or you were about to get robbed.]"
+					"text": "[ Either this is someone who doesn't want to be seen perusing your merchandise, or you were about to get robbed. ]"
 				},
 				{
 					"speaker": "???",
@@ -40,7 +40,7 @@ var npc_orders := {
 				},
 				{
 					"speaker": "",
-					"text": "[Their eyebrows become even twitchier as they survey the menu. At least it didn't seem like you were getting robbed today.]"
+					"text": "[ Their eyebrows become even twitchier as they survey the menu. At least it didn't seem like you were getting robbed today. ]"
 				},
 				{
 					"speaker": "???",
@@ -86,7 +86,7 @@ var npc_orders := {
 				},
 				{
 					"speaker": "",
-					"text": "[For a moment, you wonder if you know this person personally, but they didn't give off the impression that they know you. But it was best not to think too hard on why you might recognize them. People have their reasons for keeping secrets, especially in queer spaces.] "
+					"text": "[ For a moment, you wonder if you know this person personally, but they didn't give off the impression that they know you. But it was best not to think too hard on why you might recognize them. People have their reasons for keeping secrets, especially in queer spaces. ] "
 				},
 				{
 					"speaker": "You",

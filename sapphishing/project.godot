@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://bbijgjufffu2t"
 StoryDat="*uid://corli4nklblap"
+MusicManager="*uid://72qeg01i8w83"
 
 [display]
 

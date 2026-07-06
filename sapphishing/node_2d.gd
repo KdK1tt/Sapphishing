@@ -40,7 +40,7 @@ var fish_pool = [
 
 # Future fish ideas:
 # Fake Dating Fish:
-# "When you have to k    eep up appearances and then catch feelings and it becomes Real Dating."
+# "When you have to keep up appearances and then catch feelings and it becomes Real Dating."
 #
 # Accidental Marriage Clam:
 # "You had too much to drink in Vegas and now you've woken up next to your crush with rings on your fingers."
@@ -122,6 +122,13 @@ func update_inventory_popup() -> void:
 		inventory_rows.add_child(row)
 
 	print("Inventory rows created: ", inventory_rows.get_child_count())
+	
+	
+func load_song() -> void:
+	if GameState.force_npc_music:
+		MusicManager.play_song(GameState.get_current_npc_theme())
+	else:
+		MusicManager.play_song("res://fishin_time_wip02.mp3")
 
 
 func show_fish_preview(fish_name: String) -> void:
@@ -222,6 +229,7 @@ func _ready() -> void:
 	status_label.text = "Press Space to cast."
 	inventory_panel.visible = false
 	fish_preview_panel.visible = false
+	load_song()
 	inventory_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	inventory_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fish_preview_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE

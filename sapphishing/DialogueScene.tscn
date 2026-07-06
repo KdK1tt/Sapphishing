@@ -61,5 +61,4 @@ text = "Next"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=976247790]
 stream = ExtResource("4_gtste")
-autoplay = true
 parameters/looping = true

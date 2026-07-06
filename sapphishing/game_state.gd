@@ -15,6 +15,9 @@ var current_customer := "Avery"
 var pending_dialogue_npc := ""
 var pending_dialogue_phase := "" # "before" or "after"
 var pending_return_scene := "res://SellingScene.tscn"
+var in_story_sale: bool = false
+var hide_back_to_fishing_button: bool = false
+var force_npc_music: bool = false
 
 var customer_has_talked := false
 
@@ -177,6 +180,8 @@ func buy_item(item_name: String) -> bool:
 func sell_fish(fish_name: String) -> int:
 	if not remove_fish(fish_name):
 		return 0
+		
+	
 
 	var value := get_fish_value(fish_name)
 	money += value
@@ -240,3 +245,6 @@ func get_inventory_text() -> String:
 		lines.append(fish_name + ": " + str(count) + "  ($" + str(value) + " each)")
 
 	return "\n".join(lines)
+	
+	
+	

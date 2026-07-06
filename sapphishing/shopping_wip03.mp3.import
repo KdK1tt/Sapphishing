@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/shopping_wip03.mp3-b03b4223ce4b5a9c61f7e78936
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
