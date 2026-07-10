@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://ckyecbu34m1ew"]
 
-[ext_resource type="Texture2D" uid="uid://dctr3nihvionf" path="res://fishing pole tier 1.png" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://0mflxidcpn4d" path="res://main.gd" id="1_r0du0"]
 [ext_resource type="AudioStream" uid="uid://ipldqycv1rxj" path="res://pocketjawa - DYS4IA.mp3" id="2_uu6xs"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uu6xs"]
-font_size = 42
-outline_size = 1
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://bp62xvblm7kc6" path="res://logo.png" id="3_r0du0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r0du0"]
 particle_flag_disable_z = true
@@ -22,28 +17,16 @@ font_size = 31
 [node name="Node2D" type="Node2D" unique_id=890535826]
 script = ExtResource("1_r0du0")
 
-[node name="Label" type="Label" parent="." unique_id=1469574145]
-top_level = true
-offset_left = 148.0
-offset_top = 314.0
-offset_right = 705.0
-offset_bottom = 480.0
-text = "Welcome to Sapphishing"
-label_settings = SubResource("LabelSettings_uu6xs")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1609893631]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 1298.0
-offset_bottom = 746.0
+offset_right = 1919.9999
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.105882354, 0.0627451, 0.20784314, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="." unique_id=714106354]
 stream = ExtResource("2_uu6xs")
@@ -52,27 +35,32 @@ autoplay = true
 parameters/looping = true
 
 [node name="Sparkles" type="GPUParticles2D" parent="." unique_id=1976120548]
-position = Vector2(899, 385)
+position = Vector2(1556, 260)
 amount = 40
 lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_r0du0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530710727]
-position = Vector2(845, 347.00848)
-scale = Vector2(2.7187495, 2.2809846)
-texture = ExtResource("1_glv2v")
-
 [node name="Click to Begin" type="Label" parent="." unique_id=619356012]
-offset_left = 832.0
-offset_top = 592.0
-offset_right = 1207.0
-offset_bottom = 653.0
+offset_left = 571.00006
+offset_top = 705.0
+offset_right = 946.00006
+offset_bottom = 766.0
+scale = Vector2(1.259804, 1.259804)
 text = "Press Space to begin"
 label_settings = SubResource("LabelSettings_r0du0")
+metadata/_edit_use_anchors_ = true
 
 [node name="ShowPromptTimer" type="Timer" parent="Click to Begin" unique_id=662288668]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1854594225]
+offset_left = -9.0
+offset_top = -201.0
+offset_right = 1911.0
+offset_bottom = 879.0
+texture = ExtResource("3_r0du0")
+stretch_mode = 4
 
 [connection signal="timeout" from="Click to Begin/ShowPromptTimer" to="." method="_on_show_prompt_timer_timeout"]

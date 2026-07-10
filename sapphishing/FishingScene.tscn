@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dry075uunf0fw"]
 
-[ext_resource type="Script" uid="uid://m0vqt0scox6n" path="res://node_2d.gd" id="1_v62h4"]
+[ext_resource type="Script" uid="uid://dt54q3a3fonta" path="res://fishing_scene.gd" id="1_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://bd5choaa3c066" path="res://backdrop_fishing.png" id="2_vw2ue"]
 [ext_resource type="Texture2D" uid="uid://bve6qicih0e4u" path="res://fishing_icons_32x32_54.png" id="3_0tsyy"]
 [ext_resource type="Texture2D" uid="uid://dctr3nihvionf" path="res://fishing pole tier 1.png" id="4_0mh4r"]
@@ -62,7 +62,8 @@ font_size = 25
 font_color = Color(1, 0.4392157, 1, 1)
 
 [node name="Node2D" type="Node2D" unique_id=660654378]
-script = ExtResource("1_v62h4")
+scale = Vector2(1.486626, 1.486626)
+script = ExtResource("1_hwtv3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=410957344]
 texture_filter = 1
@@ -70,24 +71,25 @@ clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 5.0
 offset_right = 1920.0
-offset_bottom = 1085.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.66780627, 0.6717849)
+scale = Vector2(0.6714171, 0.67059463)
 texture = ExtResource("2_vw2ue")
-stretch_mode = 6
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Bobber" type="TextureRect" parent="." unique_id=1561712798]
 light_mask = 4737
 visibility_layer = 131073
 z_index = 2
-offset_left = 925.0
-offset_top = 405.0
-offset_right = 980.8333
-offset_bottom = 445.0
+offset_left = 930.96716
+offset_top = 407.63446
+offset_right = 986.8005
+offset_bottom = 447.63446
 texture = ExtResource("3_0tsyy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Pole" type="TextureRect" parent="." unique_id=94924532]
 z_index = 3
@@ -99,24 +101,33 @@ offset_bottom = 312.0
 scale = Vector2(3.9991288, 4.051749)
 texture = ExtResource("4_0mh4r")
 flip_h = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=151346974]
 z_index = 1
 offset_right = 500.0
 offset_bottom = 80.0
 scale = Vector2(1.4368061, 0.7180157)
+metadata/_edit_use_anchors_ = true
 
 [node name="StatusLabel" type="Label" parent="Panel" unique_id=400261725]
 z_index = 5
 layout_direction = 2
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019662963
+anchor_top = 0.08197329
+anchor_right = 0.019662963
+anchor_bottom = 0.20697327
 offset_right = 305.0
 offset_bottom = 32.0
 scale = Vector2(0.6309281, 1.4617296)
 text = "Press Space to cast!"
 label_settings = SubResource("LabelSettings_0xc70")
+metadata/_edit_use_anchors_ = true
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
+visible = false
 z_index = 3
 texture_filter = 1
 position = Vector2(642, 277.00003)
@@ -128,7 +139,7 @@ top_level = true
 z_index = 2
 texture_filter = 1
 use_parent_material = true
-position = Vector2(797, 484)
+position = Vector2(961, 531)
 emitting = false
 amount = 12
 texture = ExtResource("6_0tsyy")
@@ -148,7 +159,8 @@ z_index = 2
 material = SubResource("ShaderMaterial_ampfc")
 position = Vector2(65, -37.000004)
 scale = Vector2(1, 0.9795539)
-polygon = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
+polygon = PackedVector2Array(388, 500.22775, 346, 539.05884, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 768, 559.43835, 768, 533.91656, 806, 497.16513, 771, 454.28845, 710, 368.53516, 690, 365.47253, 676, 315.44974, 649, 296.05316, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 477, 329.74197, 482, 366.4934, 441, 378.74387, 425, 428.76666)
+uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
 visible = false
@@ -255,14 +267,14 @@ z_index = 2
 material = SubResource("ShaderMaterial_ampfc")
 position = Vector2(277, -53)
 scale = Vector2(1, 0.9595258)
-polygon = PackedVector2Array(556, 249.08139, 563, 276.1781, 542, 294.93735, 545, 322.0341, 564, 305.35916, 572, 295.97955, 572, 288.68427, 583, 284.51553, 603, 285.55774, 623, 267.84064, 616, 240.74393, 598, 220.94247, 566.8545, 228.52025)
+polygon = PackedVector2Array(556, 249.08139, 563, 276.1781, 542, 294.93735, 564, 305.35916, 583, 284.51553, 603, 285.55774, 616, 240.74393, 598, 220.94247)
 
 [node name="WaterShimmer3" type="Polygon2D" parent="." unique_id=1452866567]
 z_index = 2
 material = SubResource("ShaderMaterial_ampfc")
 position = Vector2(-92, -63)
 scale = Vector2(1, 0.9206898)
-polygon = PackedVector2Array(542, 245.95483, 547, 265.7563, 550, 282.43118, 572, 288.68427, 574, 272.00937, 586, 253.07112, 578, 227.00371)
+polygon = PackedVector2Array(542, 245.95483, 550, 282.43118, 572, 288.68427, 586, 253.07112, 578, 227.00371)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
 visible = false
@@ -314,3 +326,4 @@ offset_top = 672.0
 offset_right = 186.0
 offset_bottom = 723.0
 text = "Let's Go Sell"
+metadata/_edit_use_anchors_ = true

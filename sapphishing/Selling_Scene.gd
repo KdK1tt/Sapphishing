@@ -276,7 +276,7 @@ func check_for_customer() -> void:
 	# MID-SCENE STORY SERVING MODE
 	if GameState.customer_has_talked:
 		customer_sprite.visible = true
-		customer_sprite.position = Vector2(1120, 560)
+		customer_sprite.position = Vector2(1120, 720)
 		customer_sprite.modulate.a = 1.0
 		customer_waiting = false
 		talk_button.visible = false
@@ -285,7 +285,7 @@ func check_for_customer() -> void:
 			GameState.in_story_sale = true
 			GameState.hide_back_to_fishing_button = false
 			GameState.force_npc_music = true
-			GameState.customer_has_talked = true
+			GameState.customer_has_talked = true  
 
 			dialogue_label.text = "Oh no! You need " + required_fish + "!\n\nYou tell them to hang on just a sec while you go fishing."
 			inventory_panel.visible = false
@@ -321,7 +321,7 @@ func check_for_customer() -> void:
 	# Re-check after the delay.
 	if GameState.customer_has_talked:
 		customer_sprite.visible = true
-		customer_sprite.position = Vector2(1120, 560)
+		customer_sprite.position = Vector2(1120, 720)
 		customer_sprite.modulate.a = 1.0
 		talk_button.visible = false
 
@@ -357,9 +357,9 @@ func spawn_customer() -> void:
 	talk_button.z_index = 80
 	talk_button.position = customer_sprite.position + Vector2(20, -190)
 
-	# Adjust these to your stall layout.
-	customer_sprite.position = Vector2(1400, 560)
-	var target_position := Vector2(900, 560)
+
+	customer_sprite.position = Vector2(1400, 720)
+	var target_position := Vector2(900, 720)
 
 	dialogue_label.text = order["intro"] if order.has("intro") else "A customer approaches..."
 
@@ -369,7 +369,7 @@ func spawn_customer() -> void:
 	tween.tween_property(customer_sprite, "modulate:a", 1.0, 0.8)
 
 	await tween.finished
-
+ 
 	customer_arriving = false
 	customer_waiting = true
 
