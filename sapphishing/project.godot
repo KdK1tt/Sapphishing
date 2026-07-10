@@ -26,6 +26,11 @@ MusicManager="*uid://72qeg01i8w83"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 start_game={
