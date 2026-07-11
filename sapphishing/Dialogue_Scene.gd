@@ -1,8 +1,19 @@
 extends Node2D
 
+#TODO FOR KITT:
+	#Switch DialogueBackground based on the active speaker
+		#- if speaker is the player, hide DialogueBackground and show PlayerDialogueBackground
+	#Change text colour (not outline) of SpeakerLabel to:
+		#- #46BBFF when Avery (including as "???") is speaking
+		#- #F0F7FF when Narrator is speaking
+	#Shrink + dim/darken LeftCharacter when not the one speaking
+
+@onready var character_portrait = $LeftCharacter
+# Dialogue Panel
 @onready var speaker_label = $DialoguePanel/SpeakerLabel
 @onready var dialogue_label = $DialoguePanel/DialogueLabel
 @onready var next_button = $DialoguePanel/NextButton
+@onready var dialogue_background = $DialoguePanel/DialogueBackground
 @onready var dialogue_panel = $DialoguePanel
 
 var dialogue_lines: Array = []
