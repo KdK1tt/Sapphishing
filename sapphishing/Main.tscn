@@ -41,10 +41,10 @@ lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_r0du0")
 
 [node name="Click to Begin" type="Label" parent="." unique_id=619356012]
-offset_left = 1508.0
-offset_top = 999.0
-offset_right = 1814.0
-offset_bottom = 1043.0
+offset_left = 1499.0
+offset_top = 993.0
+offset_right = 1805.0
+offset_bottom = 1037.0
 scale = Vector2(1.259804, 1.259804)
 text = "Press Space to begin"
 label_settings = SubResource("LabelSettings_r0du0")
