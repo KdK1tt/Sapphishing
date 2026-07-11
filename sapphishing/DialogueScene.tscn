@@ -6,24 +6,22 @@
 [ext_resource type="AudioStream" uid="uid://1kafk1nl3vq0" path="res://sweet_talk_wip03.mp3" id="4_gtste"]
 
 [node name="Node2D" type="Node2D" unique_id=1145667539]
-scale = Vector2(1.4925268, 1.4925268)
 script = ExtResource("1_aay13")
 
 [node name="BackgroundBlur" type="TextureRect" parent="." unique_id=2048443529]
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
-scale = Vector2(0.6686959, 0.6686959)
 texture = ExtResource("1_08vf1")
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftCharacter" type="TextureRect" parent="." unique_id=994653770]
 texture_filter = 1
-offset_left = 53.60038
-offset_top = 163.48116
-offset_right = 732.1744
-offset_bottom = 842.0551
-scale = Vector2(0.82291055, 0.82291055)
+offset_left = -259.00003
+offset_top = 95.99999
+offset_right = -3.0000305
+offset_bottom = 352.0
+scale = Vector2(4.22, 4.22)
 texture = ExtResource("2_efucv")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
@@ -34,37 +32,40 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialoguePanel" type="Panel" parent="." unique_id=1707063275]
-offset_left = 505.0
-offset_top = 416.0
-offset_right = 1284.0
-offset_bottom = 709.0
+offset_left = 643.0
+offset_top = 604.0
+offset_right = 1895.7102
+offset_bottom = 1061.0
 metadata/_edit_use_anchors_ = true
 
 [node name="SpeakerLabel" type="Label" parent="DialoguePanel" unique_id=869800314]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 391.0
-offset_bottom = 39.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025544615
+anchor_top = 0.03501094
+anchor_right = 0.35363325
+anchor_bottom = 0.12269067
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueLabel" type="Label" parent="DialoguePanel" unique_id=1117528550]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 71.0
-offset_right = 727.0
-offset_bottom = 286.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035922114
+anchor_top = 0.15536106
+anchor_right = 0.9778946
+anchor_bottom = 0.9693654
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="NextButton" type="Button" parent="DialoguePanel" unique_id=1323970429]
-layout_mode = 0
-offset_left = 504.0
-offset_top = -414.0
-offset_right = 774.0
-offset_bottom = -335.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7982692
+anchor_top = -1.2910285
+anchor_right = 1.0138019
+anchor_bottom = -1.1181619
 text = "Next"
 metadata/_edit_use_anchors_ = true
 

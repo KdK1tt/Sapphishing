@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsk5au6n1geep"]
 
-[ext_resource type="Texture2D" uid="uid://v0tbcbyanxwl" path="res://backdrop_selling_stall-has-outline.png" id="1_eia1e"]
 [ext_resource type="Script" uid="uid://bk65cjvwswxwi" path="res://Selling_Scene.gd" id="1_uuih2"]
+[ext_resource type="Texture2D" uid="uid://8ytj4so8u2jp" path="res://assets/set/backdrop_selling_stall-has-outline.png" id="2_5fgph"]
 [ext_resource type="AudioStream" uid="uid://xubwxrdbgi8d" path="res://shopping_wip03.mp3" id="3_uuih2"]
 [ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="4_e8enu"]
 [ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="5_5fgph"]
@@ -20,7 +20,7 @@ texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
-texture = ExtResource("1_eia1e")
+texture = ExtResource("2_5fgph")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -113,18 +113,18 @@ offset_bottom = 333.0
 autowrap_mode = 2
 
 [node name="MoneyLabel" type="Label" parent="." unique_id=1835299177]
-offset_left = 1098.0
-offset_top = 7.0
-offset_right = 1269.0
-offset_bottom = 30.0
+offset_left = 1737.0
+offset_top = 8.0
+offset_right = 1908.0
+offset_bottom = 31.0
 metadata/_edit_use_anchors_ = true
 
 [node name="BackToFishing" type="Button" parent="." unique_id=1482450657]
-offset_left = 26.000015
-offset_top = 993.0001
-offset_right = 257.0
-offset_bottom = 1038.0001
-scale = Vector2(1.6061245, 1.6061245)
+offset_left = 15.0
+offset_top = 1016.0
+offset_right = 139.0
+offset_bottom = 1047.0
+scale = Vector2(1.615, 1.615)
 text = "Back to Fishing"
 metadata/_edit_use_anchors_ = true
 
@@ -174,7 +174,7 @@ texture = ExtResource("4_e8enu")
 
 [node name="TackleBoxClickArea" type="Area2D" parent="TackleBox" unique_id=1257419352]
 z_index = 2
-position = Vector2(-93.220345, -24.340425)
+position = Vector2(-88.91809, -24.422155)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TackleBox/TackleBoxClickArea" unique_id=1030059881]
 z_index = 3
