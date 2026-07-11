@@ -3,17 +3,84 @@
 [ext_resource type="Texture2D" uid="uid://bae0urhc8y8eu" path="res://backdrop_blurry_selling_stall-has-outline.png" id="1_08vf1"]
 [ext_resource type="Script" uid="uid://00r7r1kkfswo" path="res://Dialogue_Scene.gd" id="1_aay13"]
 [ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="2_efucv"]
+[ext_resource type="Texture2D" uid="uid://8ytj4so8u2jp" path="res://assets/set/backdrop_selling_stall-has-outline.png" id="3_1ener"]
 [ext_resource type="AudioStream" uid="uid://1kafk1nl3vq0" path="res://sweet_talk_wip03.mp3" id="4_gtste"]
+[ext_resource type="Shader" uid="uid://bbl64bcgcl118" path="res://shaders/bg-blur.gdshader" id="4_l8rlb"]
+[ext_resource type="Texture2D" uid="uid://cv26rral788pv" path="res://assets/ui/scene_selling/textbox/dialogue_box_blue-purple.png" id="6_56tns"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="7_7atq0"]
+[ext_resource type="FontFile" uid="uid://chf4aogbere46" path="res://assets/font/OpenDyslexic-Bold.otf" id="8_6pxmj"]
+[ext_resource type="Texture2D" uid="uid://0xcncxokttd8" path="res://assets/ui/scene_selling/buttons/dialogue-next.png" id="9_l4ahj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqyq0"]
+shader = ExtResource("4_l8rlb")
+shader_parameter/lod = 4.00000019
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rebxy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cpghu"]
+font = ExtResource("7_7atq0")
+font_size = 52
+outline_size = 24
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_yt8w0"]
+base_font = ExtResource("8_6pxmj")
+variation_embolden = 0.55
+spacing_glyph = -3
+spacing_space = -2
+spacing_bottom = -3
+
+[sub_resource type="LabelSettings" id="LabelSettings_xxykx"]
+resource_local_to_scene = true
+resource_name = "DialogueFont"
+font = SubResource("FontVariation_yt8w0")
+font_size = 26
+outline_size = 24
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el4xc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bp1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ktdt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1ciq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l33r"]
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("7_7atq0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_56tns"]
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 56
+font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1145667539]
 script = ExtResource("1_aay13")
 
 [node name="BackgroundBlur" type="TextureRect" parent="." unique_id=2048443529]
+visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_08vf1")
 metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundNoBlur" type="TextureRect" parent="." unique_id=1727462390]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_1ener")
+
+[node name="BlurObject" type="ColorRect" parent="BackgroundNoBlur" unique_id=1874199840]
+material = SubResource("ShaderMaterial_tqyq0")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
 [node name="LeftCharacter" type="TextureRect" parent="." unique_id=994653770]
 texture_filter = 1
@@ -32,42 +99,97 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DialoguePanel" type="Panel" parent="." unique_id=1707063275]
-offset_left = 643.0
-offset_top = 604.0
-offset_right = 1895.7102
-offset_bottom = 1061.0
-metadata/_edit_use_anchors_ = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rebxy")
+
+[node name="NpcDialogueBackground" type="TextureRect" parent="DialoguePanel" unique_id=1138847945]
+texture_filter = 1
+layout_mode = 0
+offset_right = 455.0
+offset_bottom = 256.0
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("6_56tns")
 
 [node name="SpeakerLabel" type="Label" parent="DialoguePanel" unique_id=869800314]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.025544615
-anchor_top = 0.03501094
-anchor_right = 0.35363325
-anchor_bottom = 0.12269067
+anchor_left = 0.3890625
+anchor_top = 0.50555557
+anchor_right = 0.49564028
+anchor_bottom = 0.56077474
+offset_right = 53.525
+offset_bottom = 35.0
+rotation = -0.2707156
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
+text = "Narrator"
+label_settings = SubResource("LabelSettings_cpghu")
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DialogueLabel" type="Label" parent="DialoguePanel" unique_id=1117528550]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.035922114
-anchor_top = 0.15536106
-anchor_right = 0.9778946
-anchor_bottom = 0.9693654
-autowrap_mode = 2
+anchor_left = 0.42760417
+anchor_top = 0.5740741
+anchor_right = 0.81041664
+anchor_bottom = 0.8462963
+offset_right = 1.0
+offset_bottom = 23.0
+text = "You almost don't recognize the approaching customer, in that you DO recognize them, but they're not usually so recognizable when you see them like this in person. "
+label_settings = SubResource("LabelSettings_xxykx")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="NextButton" type="Button" parent="DialoguePanel" unique_id=1323970429]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.7982692
-anchor_top = -1.2910285
-anchor_right = 1.0138019
-anchor_bottom = -1.1181619
-text = "Next"
+anchor_left = 1.5513941
+anchor_top = -0.4549174
+anchor_right = 1.813677
+anchor_bottom = -0.28945822
+offset_left = -1532.6769
+offset_top = 1394.3108
+offset_right = -1820.4999
+offset_bottom = 1333.6149
+theme_override_styles/normal = SubResource("StyleBoxEmpty_el4xc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7bp1j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ktdt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q1ciq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3l33r")
+icon = ExtResource("9_l4ahj")
+icon_alignment = 2
+expand_icon = true
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="DialoguePanel/NextButton" unique_id=1350444331]
+texture_filter = 2
+layout_mode = 0
+offset_left = -12.999817
+offset_top = 49.000015
+offset_right = 142.61786
+offset_bottom = 134.00002
+rotation = -0.17430344
+text = "Next"
+label_settings = SubResource("LabelSettings_56tns")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton2" type="TextureButton" parent="DialoguePanel" unique_id=366578634]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1557.0002
+offset_top = 904.0001
+offset_right = 1585.0002
+offset_bottom = 932.0001
+scale = Vector2(4.22, 4.22)
+texture_normal = ExtResource("9_l4ahj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=976247790]
 stream = ExtResource("4_gtste")
