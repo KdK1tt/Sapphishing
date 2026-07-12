@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dry075uunf0fw"]
 
 [ext_resource type="Script" uid="uid://dt54q3a3fonta" path="res://fishing_scene.gd" id="1_hwtv3"]
-[ext_resource type="Texture2D" uid="uid://bd5choaa3c066" path="res://backdrop_fishing.png" id="2_vw2ue"]
+[ext_resource type="Texture2D" uid="uid://d2sr12n6fyift" path="res://assets/set/backdrop_fishing-NO_PROPS.png" id="2_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://qvesrrt4sujy" path="res://assets/prop/bobber.png" id="3_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://bqhc4mw8rtvvg" path="res://assets/prop/fishing_rod-basic.png" id="4_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="5_egw1k"]
 [ext_resource type="Texture2D" uid="uid://5swrn35svbsr" path="res://assets/Splatter_white.png" id="6_0tsyy"]
 [ext_resource type="Shader" uid="uid://d4fqyh4cffj4d" path="res://water_shader.gdshader" id="7_0mh4r"]
 [ext_resource type="AudioStream" uid="uid://bvpmoqs4jfr7r" path="res://fishin_time_wip02.mp3" id="9_hwtv3"]
-[ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="10_431q5"]
+[ext_resource type="Texture2D" uid="uid://q2pmky5gcya" path="res://assets/prop/tackle_box.png" id="9_vw2ue"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
 font_size = 30
@@ -45,7 +45,7 @@ shader_parameter/wave_scale = 500.0
 shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ampfc"]
-size = Vector2(39.04806, 146.9995)
+size = Vector2(233.69624, 266.93585)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
 font_size = 20
@@ -74,26 +74,20 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vw2ue")
+texture = ExtResource("2_hwtv3")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Bobber" type="TextureRect" parent="." unique_id=1561712798]
-light_mask = 4737
-visibility_layer = 131073
-z_index = 2
-texture_filter = 1
-offset_left = 1230.0001
-offset_top = 355.00003
-offset_right = 1258.0001
-offset_bottom = 383.00003
-scale = Vector2(4.22, 4.22)
-texture = ExtResource("3_hwtv3")
-metadata/_edit_use_anchors_ = true
+[node name="DefaultView" type="Control" parent="." unique_id=1127429938]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Pole" type="TextureRect" parent="." unique_id=94924532]
+[node name="Pole" type="TextureRect" parent="DefaultView" unique_id=94924532]
 z_index = 3
 texture_filter = 1
+layout_mode = 0
 offset_left = 1209.0
 offset_top = 266.0
 offset_right = 1337.0
@@ -102,7 +96,28 @@ scale = Vector2(4.22, 4.22)
 texture = ExtResource("4_hwtv3")
 metadata/_edit_use_anchors_ = true
 
+[node name="Bobber" type="TextureRect" parent="DefaultView" unique_id=1561712798]
+light_mask = 4737
+visibility_layer = 131073
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 1230.0001
+offset_top = 355.00003
+offset_right = 1258.0001
+offset_bottom = 383.00003
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("3_hwtv3")
+metadata/_edit_use_anchors_ = true
+
+[node name="PropContainer" type="Control" parent="." unique_id=1171801572]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Panel" type="Panel" parent="." unique_id=151346974]
+visible = false
 z_index = 1
 offset_right = 500.0
 offset_bottom = 80.0
@@ -158,7 +173,7 @@ z_index = 2
 material = SubResource("ShaderMaterial_ampfc")
 position = Vector2(86.23039, -110.75454)
 scale = Vector2(1.5195655, 1.5447793)
-polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 350.60657, 540.3714, 360, 567.60535, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 782.30896, 599.2795, 763.22455, 577.91724, 763.8826, 537.78204, 771.7796, 519.0091, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
+polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 307.1731, 616.1104, 334.1545, 595.39545, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 819.16156, 608.3423, 843.5106, 596.0428, 869.1759, 593.4534, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
 uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
@@ -235,30 +250,27 @@ position = Vector2(1045, 275)
 stream = ExtResource("9_hwtv3")
 autoplay = true
 
-[node name="TackleBox" type="Sprite2D" parent="." unique_id=16664044]
+[node name="BasketClickArea" type="Area2D" parent="." unique_id=1204055491]
+z_index = 5
+
+[node name="TackleBox" type="Sprite2D" parent="BasketClickArea" unique_id=16664044]
 z_index = 2
 texture_filter = 1
-position = Vector2(568, 895.99994)
 scale = Vector2(4.22, 4.22)
-texture = ExtResource("10_431q5")
+texture = ExtResource("9_vw2ue")
+offset = Vector2(227.48819, 127.96211)
 
-[node name="InventoryLabel" type="Label" parent="TackleBox" unique_id=651570462]
+[node name="InventoryLabel" type="Label" parent="BasketClickArea/TackleBox" unique_id=651570462]
 visible = false
 offset_left = 16.81585
 offset_top = -19.00003
 offset_right = 56.81585
 offset_bottom = 3.9999695
 
-[node name="BasketClickArea" type="Area2D" parent="TackleBox" unique_id=1204055491]
-z_index = 5
-position = Vector2(-23.877495, -17.255035)
-scale = Vector2(0.8468272, 0.3167827)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TackleBox/BasketClickArea" unique_id=1532511257]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasketClickArea" unique_id=1532511257]
 z_index = 4
-position = Vector2(24.918968, 44.07428)
-scale = Vector2(1.5503104, 1.4799333)
+position = Vector2(627.99994, 856)
+rotation = -0.42569792
 shape = SubResource("RectangleShape2D_ampfc")
 
 [node name="WaterShimmer2" type="Polygon2D" parent="." unique_id=1748383982]
@@ -275,6 +287,7 @@ position = Vector2(131, 4)
 polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
+visible = false
 z_index = 5
 offset_left = 478.0
 offset_top = 780.0
