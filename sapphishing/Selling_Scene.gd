@@ -2,20 +2,20 @@ extends Node2D
 
 @onready var inventory_panel = $InventoryPanel
 @onready var inventory_rows = $InventoryPanel/InventoryRows
-@onready var basket_click_area = $background/BasketClickArea
+@onready var basket_click_area = $DefaultView/BasketClickArea
 @onready var fish_preview_panel = $InventoryPanel/FishPreview
 @onready var preview_texture = $InventoryPanel/FishPreview/PreviewTexture
-@onready var preview_name_label = $InventoryPanel/FishPreview/PreviewNameLabel
+@onready var preview_name_label = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewNameLabel
 @onready var preview_value_label = $InventoryPanel/FishPreview/PreviewValueLabel
-@onready var preview_description = $InventoryPanel/FishPreview/PreviewDescription
-@onready var money_label = $MoneyLabel
-@onready var dialogue_label = $DialoguePanel/DialogueLabel
-@onready var back_to_fishing_button = $BackToFishing
+@onready var preview_description = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewDescription
+@onready var money_label = $InventoryPanel/MoneyIcon/MoneyLabel
+@onready var dialogue_label = $DefaultView/DialoguePanel/DialogueLabel
+@onready var back_to_fishing_button = $DefaultView/BackToFishing
 @onready var shop_rows = $ShopPanel/ShopRows
 @onready var shop_panel = $ShopPanel
 @onready var tackle_box_click_area = $TackleBox/TackleBoxClickArea
-@onready var talk_button = $TalkButton
-@onready var customer_sprite = $CustomerSprite
+@onready var talk_button = $DefaultView/TalkButton
+@onready var customer_sprite = $DefaultView/CustomerSprite
 
 
 var customer_waiting := false
@@ -98,11 +98,12 @@ func toggle_shop_panel() -> void:
 		update_default_dialogue_text()              
 
 func update_money_label() -> void:
-	money_label.text = "Money: $" + str(GameState.money)
+	money_label.text = str(GameState.money)
 	
 		
 func toggle_inventory_panel() -> void:
 	inventory_panel.visible = not inventory_panel.visible
+	back_to_fishing_button.visible = not back_to_fishing_button.visible
 
 	if inventory_panel.visible:
 		shop_panel.visible = false
