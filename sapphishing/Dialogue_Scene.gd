@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var character_portrait = $LeftCharacter
 # Dialogue Panel
-@onready var speaker_label = $DialoguePanel/SpeakerLabel
+@onready var speaker_label = $DialoguePanel/DialogueBackground/SpeakerLabel
 @onready var dialogue_label = $DialoguePanel/DialogueLabel
 @onready var next_button = $DialoguePanel/NextButton
 @onready var dialogue_background = $DialoguePanel/DialogueBackground
