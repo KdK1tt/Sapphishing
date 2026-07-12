@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://00r7r1kkfswo" path="res://Dialogue_Scene.gd" id="1_aay13"]
 [ext_resource type="Texture2D" uid="uid://8ytj4so8u2jp" path="res://assets/set/backdrop_selling_stall-has-outline.png" id="3_1ener"]
 [ext_resource type="AudioStream" uid="uid://1kafk1nl3vq0" path="res://sweet_talk_wip03.mp3" id="4_gtste"]
-[ext_resource type="Shader" path="res://shaders/bg-blur.gdshader" id="4_l8rlb"]
+[ext_resource type="Shader" uid="uid://bbl64bcgcl118" path="res://shaders/bg-blur.gdshader" id="4_l8rlb"]
 [ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="5_7atq0"]
 [ext_resource type="Texture2D" uid="uid://bajd5ckmiy63w" path="res://assets/portrait/silhouette_purple-blue_NEW.png" id="6_7atq0"]
 [ext_resource type="Texture2D" uid="uid://cv26rral788pv" path="res://assets/ui/scene_selling/textbox/dialogue_box_blue-purple.png" id="6_56tns"]
-[ext_resource type="FontFile" path="res://assets/font/Cute Dino.otf" id="7_7atq0"]
-[ext_resource type="Texture2D" path="res://assets/ui/scene_selling/textbox/dialogue_box_black-FLIPPED.png" id="7_56tns"]
-[ext_resource type="FontFile" path="res://assets/font/OpenDyslexic-Bold.otf" id="8_6pxmj"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="7_7atq0"]
+[ext_resource type="Texture2D" uid="uid://c4wvmcl041u0u" path="res://assets/ui/scene_selling/textbox/dialogue_box_black-FLIPPED.png" id="7_56tns"]
 [ext_resource type="Texture2D" uid="uid://0xcncxokttd8" path="res://assets/ui/scene_selling/buttons/dialogue-next.png" id="9_l4ahj"]
+[ext_resource type="LabelSettings" uid="uid://dir8kbnjp6id3" path="res://assets/font/DialogueText.tres" id="10_6pxmj"]
+[ext_resource type="LabelSettings" uid="uid://bbyqrcfne6jit" path="res://assets/font/ButtonText.tres" id="12_l4ahj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqyq0"]
 shader = ExtResource("4_l8rlb")
@@ -26,21 +27,6 @@ font_color = Color(0.9411765, 0.96862745, 1, 1)
 outline_size = 24
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[sub_resource type="FontVariation" id="FontVariation_yt8w0"]
-base_font = ExtResource("8_6pxmj")
-spacing_glyph = -6
-spacing_space = -6
-spacing_bottom = -14
-
-[sub_resource type="LabelSettings" id="LabelSettings_xxykx"]
-resource_local_to_scene = true
-resource_name = "DialogueFont"
-font = SubResource("FontVariation_yt8w0")
-font_size = 32
-font_color = Color(0.9411765, 0.96862745, 1, 1)
-outline_size = 24
-outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_el4xc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bp1j"]
@@ -50,17 +36,6 @@ outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1ciq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l33r"]
-
-[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
-base_font = ExtResource("7_7atq0")
-
-[sub_resource type="LabelSettings" id="LabelSettings_56tns"]
-resource_name = "ButtonText"
-font = SubResource("FontVariation_l8rlb")
-font_size = 48
-font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
-outline_size = 42
-outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1145667539]
 script = ExtResource("1_aay13")
@@ -175,7 +150,7 @@ anchor_top = 0.5740741
 anchor_right = 0.8078125
 anchor_bottom = 0.8675926
 text = "You almost don't recognize the approaching customer, in that you DO recognize them, but they're not usually so recognizable when you see them like this in person. "
-label_settings = SubResource("LabelSettings_xxykx")
+label_settings = ExtResource("10_6pxmj")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -211,23 +186,10 @@ offset_right = -8.394196
 offset_bottom = 27.927002
 rotation = -0.12452092
 text = "Next"
-label_settings = SubResource("LabelSettings_56tns")
+label_settings = ExtResource("12_l4ahj")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="DialoguePanel/NextButton" unique_id=1350444331]
-texture_filter = 2
-layout_mode = 0
-offset_left = -12.999817
-offset_top = 49.000015
-offset_right = 142.61786
-offset_bottom = 134.00002
-rotation = -0.17430344
-text = "Next"
-label_settings = SubResource("LabelSettings_56tns")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="NextButton2" type="TextureButton" parent="DialoguePanel" unique_id=366578634]
 visible = false
