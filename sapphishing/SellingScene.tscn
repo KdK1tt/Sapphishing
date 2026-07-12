@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="4_1gsf5"]
 [ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="4_e8enu"]
 [ext_resource type="Texture2D" uid="uid://dx58t2slpawaq" path="res://assets/ui/scene_selling/buttons/go_fishing.png" id="4_tlc3f"]
-[ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="5_5fgph"]
 [ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="5_fmo5r"]
 [ext_resource type="Texture2D" uid="uid://c2pd0ha718ymy" path="res://assets/ui/scene_selling/buttons/fish_inventory-sell_button-starburst.png" id="5_iwjhy"]
 [ext_resource type="LabelSettings" uid="uid://bbyqrcfne6jit" path="res://assets/font/ButtonText.tres" id="5_ppyp5"]
+[ext_resource type="Texture2D" uid="uid://btbhq0il65l1t" path="res://assets/ui/scene_selling/icons/story_prompt-purple-blue.png" id="6_4r25k"]
 [ext_resource type="Texture2D" uid="uid://pl1ewoti1lkg" path="res://assets/ui/scene_selling/textbox/fish_description_box.png" id="6_iwjhy"]
 [ext_resource type="LabelSettings" uid="uid://dir8kbnjp6id3" path="res://assets/font/DialogueText.tres" id="7_4r25k"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="8_hkxb1"]
@@ -30,6 +30,16 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gsf5"]
 
+[sub_resource type="Gradient" id="Gradient_io54k"]
+offsets = PackedFloat32Array(0.21104816, 1)
+colors = PackedColorArray(0.050980393, 0.08235294, 0.1254902, 1, 0.0533, 0.085258335, 0.13, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nqtkk"]
+gradient = SubResource("Gradient_io54k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
 [sub_resource type="FontVariation" id="FontVariation_l8rlb"]
 base_font = ExtResource("5_fmo5r")
 spacing_bottom = -8
@@ -45,6 +55,35 @@ outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuih2"]
 size = Vector2(228.00002, 354.54626)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nris"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io54k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqtkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myd0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmg37"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkxb1"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+line_spacing = -5.955
+font = SubResource("FontVariation_l8rlb")
+font_size = 39
+font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8yhwy"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 80
+font_color = Color(0.25, 0.57500005, 1, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlc3f"]
 
@@ -172,6 +211,16 @@ alignment = 0
 icon_alignment = 1
 expand_icon = true
 
+[node name="Shadow" type="TextureRect" parent="DefaultView/BackToFishing" unique_id=1436208720]
+layout_mode = 0
+offset_left = -320.3621
+offset_top = -365.9526
+offset_right = -78.62196
+offset_bottom = -197.67697
+rotation = -3.1415927
+pivot_offset = Vector2(256, 258.99994)
+texture = SubResource("GradientTexture2D_nqtkk")
+
 [node name="BackToFishingIcon" type="TextureRect" parent="DefaultView/BackToFishing" unique_id=735171469]
 texture_filter = 1
 layout_mode = 0
@@ -215,23 +264,77 @@ z_index = 7
 position = Vector2(1046, 841.72687)
 shape = SubResource("RectangleShape2D_uuih2")
 
-[node name="CustomerSprite" type="Sprite2D" parent="DefaultView" unique_id=656938952]
-z_index = 3
-texture_filter = 1
-position = Vector2(568, 720.00006)
-scale = Vector2(2.804444, 2.804444)
-texture = ExtResource("5_5fgph")
-
 [node name="TalkButton" type="Button" parent="DefaultView" unique_id=408874908]
 z_index = 4
 layout_mode = 0
-offset_left = 1056.0
-offset_top = 674.0
-offset_right = 1269.0
-offset_bottom = 716.0
-text = "Talk"
+offset_left = 1355.0
+offset_top = 325.0
+offset_right = 1694.0
+offset_bottom = 673.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3nris")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io54k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nqtkk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_myd0k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmg37")
+
+[node name="Shadow" type="TextureRect" parent="DefaultView/TalkButton" unique_id=956874029]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -97.0
+offset_right = 406.0
+offset_bottom = 415.0
+rotation = -3.1415927
+pivot_offset = Vector2(256, 258.99994)
+texture = SubResource("GradientTexture2D_nqtkk")
+
+[node name="CustomerSprite" type="Sprite2D" parent="DefaultView/TalkButton" unique_id=656938952]
+z_index = 3
+texture_filter = 1
+position = Vector2(164.00002, 173)
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("6_4r25k")
+flip_h = true
+
+[node name="TalkLabel2" type="Label" parent="DefaultView/TalkButton" unique_id=1742800495]
+z_index = 4
+texture_filter = 2
+layout_mode = 0
+offset_left = -40.48706
+offset_top = 6.822693
+offset_right = 268.51294
+offset_bottom = 139.05453
+rotation = -0.15735391
+text = "A customer
+Approaches..."
+label_settings = SubResource("LabelSettings_hkxb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBackground" type="ColorRect" parent="DefaultView/TalkButton/TalkLabel2" unique_id=1484198457]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 29.587917
+offset_top = 64.02076
+offset_right = 250.67642
+offset_bottom = 95.901924
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="TalkLabel1" type="Label" parent="DefaultView/TalkButton" unique_id=910953198]
+z_index = 4
+texture_filter = 2
+layout_mode = 0
+offset_left = 43.999992
+offset_top = 108.00001
+offset_right = 273.0409
+offset_bottom = 206.5957
+rotation = 0.13911235
+text = "Talk!"
+label_settings = SubResource("LabelSettings_8yhwy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
+visible = false
 z_index = 5
 offset_right = 1920.0
 offset_bottom = 1080.0
