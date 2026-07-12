@@ -15,7 +15,7 @@ extends Node2D
 @onready var shop_panel = $ShopPanel
 @onready var tackle_box_click_area = $TackleBox/TackleBoxClickArea
 @onready var talk_button = $DefaultView/TalkButton
-@onready var customer_sprite = $DefaultView/CustomerSprite
+@onready var customer_sprite = $DefaultView/TalkButton/CustomerSprite
 
 
 var customer_waiting := false
