@@ -58,7 +58,6 @@ var fish_pool = [
 @onready var splash_particles = $SplashParticles
 @onready var water_surface = $WaterSurface
 @onready var basket = $TackleBox
-@onready var inventory_label = $TackleBox/InventoryLabel
 @onready var inventory_panel = $InventoryPanel
 @onready var basket_click_area = $TackleBox/BasketClickArea
 @onready var discovery_panel = $DiscoveryPanel
@@ -217,7 +216,6 @@ func show_splash(pos: Vector2) -> void:
 
 func _ready() -> void:
 	state = State.READY
-	inventory_label.text = ""
 	inventory_panel.visible = false
 	basket_click_area.input_event.connect(_on_basket_click_area_input_event)
 	cast_position = water_surface.global_position

@@ -3,11 +3,149 @@
 [ext_resource type="Script" uid="uid://bk65cjvwswxwi" path="res://Selling_Scene.gd" id="1_uuih2"]
 [ext_resource type="Texture2D" uid="uid://8ytj4so8u2jp" path="res://assets/set/backdrop_selling_stall-has-outline.png" id="2_5fgph"]
 [ext_resource type="AudioStream" uid="uid://xubwxrdbgi8d" path="res://shopping_wip03.mp3" id="3_uuih2"]
+[ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="4_1gsf5"]
 [ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="4_e8enu"]
-[ext_resource type="Texture2D" uid="uid://dex54v4h3mqab" path="res://Avery_Blue.png" id="5_5fgph"]
+[ext_resource type="Texture2D" uid="uid://dx58t2slpawaq" path="res://assets/ui/scene_selling/buttons/go_fishing.png" id="4_tlc3f"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="5_fmo5r"]
+[ext_resource type="Texture2D" uid="uid://c2pd0ha718ymy" path="res://assets/ui/scene_selling/buttons/fish_inventory-sell_button-starburst.png" id="5_iwjhy"]
+[ext_resource type="LabelSettings" uid="uid://bbyqrcfne6jit" path="res://assets/font/ButtonText.tres" id="5_ppyp5"]
+[ext_resource type="Texture2D" uid="uid://btbhq0il65l1t" path="res://assets/ui/scene_selling/icons/story_prompt-purple-blue.png" id="6_4r25k"]
+[ext_resource type="Texture2D" uid="uid://pl1ewoti1lkg" path="res://assets/ui/scene_selling/textbox/fish_description_box.png" id="6_iwjhy"]
+[ext_resource type="LabelSettings" uid="uid://dir8kbnjp6id3" path="res://assets/font/DialogueText.tres" id="7_4r25k"]
+[ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="8_hkxb1"]
+[ext_resource type="Texture2D" uid="uid://tg1toqxsm5hm" path="res://assets/ui/scene_selling/textbox/textbox-fish_inventory.png" id="9_8yhwy"]
+[ext_resource type="Texture2D" uid="uid://buhh7ckj0crtx" path="res://assets/ui/money.png" id="10_71p5w"]
+[ext_resource type="Texture2D" uid="uid://doiofrp35u2u4" path="res://assets/ui/scene_selling/buttons/back_arrow.png" id="13_4r25k"]
+[ext_resource type="Texture2D" uid="uid://c7f4ckorpq40m" path="res://assets/ui/scene_selling/icons/indicator-click_here.png" id="17_hkxb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdr2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8mnx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dpaso"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dypy5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1vj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gsf5"]
+
+[sub_resource type="Gradient" id="Gradient_io54k"]
+offsets = PackedFloat32Array(0.21104816, 1)
+colors = PackedColorArray(0.050980393, 0.08235294, 0.1254902, 1, 0.0533, 0.085258335, 0.13, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nqtkk"]
+gradient = SubResource("Gradient_io54k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("5_fmo5r")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gsf5"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 42
+font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuih2"]
-size = Vector2(2566.549, 4516.37)
+size = Vector2(228.00002, 354.54626)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nris"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io54k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqtkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myd0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmg37"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hkxb1"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+line_spacing = -5.955
+font = SubResource("FontVariation_l8rlb")
+font_size = 39
+font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8yhwy"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 80
+font_color = Color(0.25, 0.57500005, 1, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlc3f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7sbiq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7bmbq"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 42
+font_color = Color(0.54509807, 0.78039217, 1, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4r25k"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 40
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4r25k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkxb1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8yhwy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71p5w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bmbq"]
+
+[sub_resource type="FontVariation" id="FontVariation_sw82l"]
+base_font = ExtResource("5_fmo5r")
+variation_embolden = 0.25
+
+[sub_resource type="LabelSettings" id="LabelSettings_jy4nh"]
+font = SubResource("FontVariation_sw82l")
+font_size = 72
+font_color = Color(0.9647059, 0.6117647, 0.3372549, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw82l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jy4nh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5cnv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tkyty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ll77t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sw82l"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 52
+font_color = Color(0.11372549, 0.7529412, 0.3529412, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8enu"]
 size = Vector2(3.5074263, 11.409588)
@@ -24,111 +162,18 @@ texture = ExtResource("2_5fgph")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="BasketClickArea" type="Area2D" parent="background" unique_id=929506769]
-z_index = 5
-position = Vector2(18.976103, 29.927965)
-scale = Vector2(0.083439134, 0.05326214)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background/BasketClickArea" unique_id=520239933]
-visible = false
-z_index = 7
-position = Vector2(13339.35, 15396.903)
-scale = Vector2(1.5503103, 1.4799329)
-shape = SubResource("RectangleShape2D_uuih2")
-
-[node name="InventoryLabel" type="Label" parent="background" unique_id=368991316]
-visible = false
-layout_mode = 0
-offset_left = 13.630281
-offset_top = 30.54446
-offset_right = 53.63028
-offset_bottom = 53.54446
-
 [node name="song_player_selling" type="AudioStreamPlayer2D" parent="background" unique_id=1851743582]
 stream = ExtResource("3_uuih2")
 
-[node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
-visible = false
-z_index = 5
-offset_left = 138.0
-offset_top = 95.0
-offset_right = 520.0
-offset_bottom = 456.0
-mouse_filter = 2
-
-[node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1929064917]
-z_index = 5
-layout_mode = 0
+[node name="DefaultView" type="Control" parent="." unique_id=1695428958]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 0
 
-[node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=90160618]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.1340001
-anchor_top = 0.163
-anchor_right = 1.1340001
-anchor_bottom = 0.163
-offset_left = -22.188019
-offset_top = -80.843
-offset_right = 334.81198
-offset_bottom = 296.15698
-mouse_filter = 2
-
-[node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1894641194]
-texture_filter = 1
+[node name="DialoguePanel" type="Panel" parent="DefaultView" unique_id=85343958]
+visible = false
 layout_mode = 0
-offset_left = 255.0
-offset_top = 245.0
-offset_right = 366.0
-offset_bottom = 357.0
-mouse_filter = 2
-stretch_mode = 4
-
-[node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=1987927654]
-z_index = 5
-layout_mode = 0
-offset_left = 14.0
-offset_top = 21.0
-offset_right = 293.0
-offset_bottom = 83.0
-
-[node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=660860404]
-z_index = 5
-layout_mode = 0
-offset_left = 15.0
-offset_top = 86.0
-offset_right = 228.0
-offset_bottom = 140.0
-
-[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=569346248]
-z_index = 5
-layout_mode = 0
-offset_left = 21.0
-offset_top = 166.0
-offset_right = 263.0
-offset_bottom = 333.0
-autowrap_mode = 2
-
-[node name="MoneyLabel" type="Label" parent="." unique_id=1835299177]
-offset_left = 1737.0
-offset_top = 8.0
-offset_right = 1908.0
-offset_bottom = 31.0
-metadata/_edit_use_anchors_ = true
-
-[node name="BackToFishing" type="Button" parent="." unique_id=1482450657]
-offset_left = 15.0
-offset_top = 1016.0
-offset_right = 139.0
-offset_bottom = 1047.0
-scale = Vector2(1.615, 1.615)
-text = "Back to Fishing"
-metadata/_edit_use_anchors_ = true
-
-[node name="DialoguePanel" type="Panel" parent="." unique_id=85343958]
 offset_left = 2.0
 offset_top = 7.0
 offset_right = 612.0
@@ -136,7 +181,7 @@ offset_bottom = 82.0
 scale = Vector2(1.2176195, 1.5537802)
 metadata/_edit_use_anchors_ = true
 
-[node name="DialogueLabel" type="Label" parent="DialoguePanel" unique_id=391609229]
+[node name="DialogueLabel" type="Label" parent="DefaultView/DialoguePanel" unique_id=391609229]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.029508196
@@ -149,23 +194,348 @@ offset_right = 513.0
 offset_bottom = 60.0
 metadata/_edit_use_anchors_ = true
 
-[node name="ShopPanel" type="Panel" parent="." unique_id=1257402246]
-z_index = 1
-offset_left = 227.0
-offset_top = 216.0
-offset_right = 556.0
-offset_bottom = 591.0
-scale = Vector2(1.4448837, 1.3862026)
-
-[node name="ShopRows" type="VBoxContainer" parent="ShopPanel" unique_id=521436393]
-z_index = 1
+[node name="BackToFishing" type="Button" parent="DefaultView" unique_id=1482450657]
+texture_filter = 1
 layout_mode = 0
-offset_left = 19.0
-offset_top = 14.0
-offset_right = 293.0
-offset_bottom = 344.0
+offset_left = 6.0
+offset_top = 946.0
+offset_right = 176.0
+offset_bottom = 1071.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wdr2p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c8mnx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dpaso")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_dypy5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q1vj0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1gsf5")
+alignment = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Shadow" type="TextureRect" parent="DefaultView/BackToFishing" unique_id=1436208720]
+layout_mode = 0
+offset_left = -320.3621
+offset_top = -365.9526
+offset_right = -78.62196
+offset_bottom = -197.67697
+rotation = -3.1415927
+pivot_offset = Vector2(256, 258.99994)
+texture = SubResource("GradientTexture2D_nqtkk")
+
+[node name="BackToFishingIcon" type="TextureRect" parent="DefaultView/BackToFishing" unique_id=735171469]
+texture_filter = 1
+layout_mode = 0
+offset_left = -49.0
+offset_top = -56.0
+offset_right = 187.0
+offset_bottom = 180.0
+texture = ExtResource("4_tlc3f")
+
+[node name="LabelOutlineColourPatch2" type="ColorRect" parent="DefaultView/BackToFishing" unique_id=1904564088]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 88.0
+offset_right = 158.0
+offset_bottom = 101.0
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="LabelOutlineColourPatch" type="ColorRect" parent="DefaultView/BackToFishing" unique_id=1111725525]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 47.0
+offset_right = 58.0
+offset_bottom = 60.0
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="BackToFishingLabel" type="Label" parent="DefaultView/BackToFishing" unique_id=2053356044]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 32.0
+offset_right = 169.0
+offset_bottom = 111.0
+text = "Go
+fishing"
+label_settings = SubResource("LabelSettings_1gsf5")
+
+[node name="BasketClickArea" type="Area2D" parent="DefaultView" unique_id=929506769]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefaultView/BasketClickArea" unique_id=520239933]
+z_index = 7
+position = Vector2(1046, 841.72687)
+shape = SubResource("RectangleShape2D_uuih2")
+
+[node name="TalkButton" type="Button" parent="DefaultView" unique_id=408874908]
+z_index = 4
+layout_mode = 0
+offset_left = 1355.0
+offset_top = 325.0
+offset_right = 1694.0
+offset_bottom = 673.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3nris")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io54k")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nqtkk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_myd0k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmg37")
+
+[node name="Shadow" type="TextureRect" parent="DefaultView/TalkButton" unique_id=956874029]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -97.0
+offset_right = 406.0
+offset_bottom = 415.0
+rotation = -3.1415927
+pivot_offset = Vector2(256, 258.99994)
+texture = SubResource("GradientTexture2D_nqtkk")
+
+[node name="CustomerSprite" type="Sprite2D" parent="DefaultView/TalkButton" unique_id=656938952]
+z_index = 3
+texture_filter = 1
+position = Vector2(164.00002, 173)
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("6_4r25k")
+flip_h = true
+
+[node name="TalkLabel2" type="Label" parent="DefaultView/TalkButton" unique_id=1742800495]
+z_index = 4
+texture_filter = 2
+layout_mode = 0
+offset_left = -40.48706
+offset_top = 6.822693
+offset_right = 268.51294
+offset_bottom = 139.05453
+rotation = -0.15735391
+text = "A customer
+Approaches..."
+label_settings = SubResource("LabelSettings_hkxb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBackground" type="ColorRect" parent="DefaultView/TalkButton/TalkLabel2" unique_id=1484198457]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 29.587917
+offset_top = 64.02076
+offset_right = 250.67642
+offset_bottom = 95.901924
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="TalkLabel1" type="Label" parent="DefaultView/TalkButton" unique_id=910953198]
+z_index = 4
+texture_filter = 2
+layout_mode = 0
+offset_left = 43.999992
+offset_top = 108.00001
+offset_right = 273.0409
+offset_bottom = 206.5957
+rotation = 0.13911235
+text = "Talk!"
+label_settings = SubResource("LabelSettings_8yhwy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
+visible = false
+z_index = 5
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tlc3f")
+
+[node name="InventoryGradient" type="TextureRect" parent="InventoryPanel" unique_id=1785935432]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_1gsf5")
+
+[node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=90160618]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7sbiq")
+
+[node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=660860404]
+z_index = 5
+layout_mode = 0
+offset_left = 15.0
+offset_top = 86.0
+offset_right = 228.0
+offset_bottom = 140.0
+
+[node name="SellButtonBackground" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1779790967]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 700.0
+offset_right = 1401.0
+offset_bottom = 1240.0
+texture = ExtResource("5_iwjhy")
+
+[node name="PreviewDescriptionBackground" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1504243346]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_iwjhy")
+
+[node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview/PreviewDescriptionBackground" unique_id=1987927654]
+z_index = 5
+layout_mode = 0
+offset_left = 600.0
+offset_top = 821.0
+offset_right = 1056.0
+offset_bottom = 888.0
+text = "Flower Shop AU"
+label_settings = SubResource("LabelSettings_7bmbq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview/PreviewDescriptionBackground" unique_id=569346248]
+z_index = 5
+layout_mode = 0
+offset_left = 600.0
+offset_top = 863.0
+offset_right = 1141.0
+offset_bottom = 1071.0
+text = "It's not serious or anything but you could really use a hug and a cuddle from a pretty femme until you feel better and you know what? You deserve it."
+label_settings = ExtResource("7_4r25k")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PreviewCountLabel" type="Label" parent="InventoryPanel/FishPreview/PreviewDescriptionBackground" unique_id=1861809190]
+texture_filter = 2
+layout_mode = 0
+offset_left = 593.0
+offset_top = 770.0
+offset_right = 641.0
+offset_bottom = 807.0
+rotation = -0.13931558
+text = "x3"
+label_settings = SubResource("LabelSettings_4r25k")
+
+[node name="SellButton" type="Button" parent="InventoryPanel/FishPreview" unique_id=132687773]
+texture_filter = 2
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 933.0
+offset_right = 1303.0
+offset_bottom = 1018.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4r25k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hkxb1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8yhwy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_71p5w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7bmbq")
+
+[node name="SellButtonLabel" type="Label" parent="InventoryPanel/FishPreview/SellButton" unique_id=1789224603]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 13.0
+offset_right = 137.0
+offset_bottom = 92.0
+text = "Sell"
+label_settings = SubResource("LabelSettings_jy4nh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1894641194]
+texture_filter = 1
+layout_mode = 0
+offset_left = 585.0
+offset_top = 301.0
+offset_right = 1119.0
+offset_bottom = 839.8108
+mouse_filter = 2
+texture = ExtResource("8_hkxb1")
+stretch_mode = 4
+
+[node name="InventoryBackground" type="TextureRect" parent="InventoryPanel" unique_id=1741280196]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("9_8yhwy")
+
+[node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1929064917]
+z_index = 5
+layout_mode = 0
+offset_left = 95.0
+offset_top = 652.0
+offset_right = 135.0
+offset_bottom = 692.0
+mouse_filter = 0
+
+[node name="InventoryCloseButton" type="Button" parent="InventoryPanel" unique_id=897279174]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 218.0
+offset_right = 235.0
+offset_bottom = 319.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sw82l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jy4nh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l5cnv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tkyty")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ll77t")
+
+[node name="InventoryCloseIcon" type="TextureRect" parent="InventoryPanel/InventoryCloseButton" unique_id=1923125537]
+texture_filter = 1
+layout_mode = 0
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 99.0
+offset_bottom = 107.0
+texture = ExtResource("13_4r25k")
+
+[node name="CloseLabelOutlinePatch" type="ColorRect" parent="InventoryPanel/InventoryCloseButton" unique_id=194386768]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 39.0
+offset_right = 68.0
+offset_bottom = 69.0
+rotation = -0.20383829
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="InventoryCloseLabel" type="Label" parent="InventoryPanel/InventoryCloseButton" unique_id=1708654227]
+layout_mode = 0
+offset_left = 44.99999
+offset_top = 33.0
+offset_right = 177.99998
+offset_bottom = 94.0
+rotation = -0.1191659
+text = "Back"
+label_settings = ExtResource("5_ppyp5")
+
+[node name="MoneyIcon" type="TextureRect" parent="InventoryPanel" unique_id=1070728924]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1818.0
+offset_top = 962.0
+offset_right = 1936.0
+offset_bottom = 1080.0
+texture = ExtResource("10_71p5w")
+
+[node name="MoneyLabel" type="Label" parent="InventoryPanel/MoneyIcon" unique_id=1835299177]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.41525373
+anchor_top = 0.28813547
+anchor_right = 0.4063576
+anchor_bottom = 0.81228846
+text = "35"
+label_settings = SubResource("LabelSettings_sw82l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InventoryClickHereArrow" type="TextureRect" parent="." unique_id=1128754840]
+texture_filter = 1
+offset_left = 971.0
+offset_top = 535.0
+offset_right = 1089.0
+offset_bottom = 653.0
+texture = ExtResource("17_hkxb1")
 
 [node name="TackleBox" type="Sprite2D" parent="." unique_id=249144824]
+visible = false
 z_index = 1
 texture_filter = 1
 position = Vector2(745, 868)
@@ -182,18 +552,19 @@ position = Vector2(90.23734, 23.311188)
 scale = Vector2(16.159407, 5.6452165)
 shape = SubResource("RectangleShape2D_e8enu")
 
-[node name="TalkButton" type="Button" parent="." unique_id=408874908]
+[node name="ShopPanel" type="Panel" parent="." unique_id=1257402246]
 visible = false
-z_index = 4
-offset_left = 1056.0
-offset_top = 674.0
-offset_right = 1269.0
-offset_bottom = 716.0
-text = "Talk"
+z_index = 1
+offset_left = 227.0
+offset_top = 216.0
+offset_right = 556.0
+offset_bottom = 591.0
+scale = Vector2(1.4448837, 1.3862026)
 
-[node name="CustomerSprite" type="Sprite2D" parent="." unique_id=656938952]
-z_index = 3
-texture_filter = 1
-position = Vector2(568, 720.00006)
-scale = Vector2(2.804444, 2.804444)
-texture = ExtResource("5_5fgph")
+[node name="ShopRows" type="VBoxContainer" parent="ShopPanel" unique_id=521436393]
+z_index = 1
+layout_mode = 0
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 293.0
+offset_bottom = 344.0

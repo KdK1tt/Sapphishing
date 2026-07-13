@@ -1,0 +1,16 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bbyqrcfne6jit"]
+
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="1_qumf1"]
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("1_qumf1")
+spacing_bottom = -8
+
+[resource]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 50
+font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
