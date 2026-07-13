@@ -25,8 +25,13 @@
 [ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="19_nmqsw"]
 [ext_resource type="Texture2D" uid="uid://nogdau36fm2r" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-catch.png" id="21_als8v"]
 [ext_resource type="Texture2D" uid="uid://37xmvoe84ukt" path="res://assets/ui/scene_fishing/buttons/fish_catch-new_starburst.png" id="22_rds0p"]
+[ext_resource type="Texture2D" uid="uid://topj5fxutc60" path="res://assets/ui/scene_fishing/textbox/shop_upgrades-tackle_box.png" id="24_g72re"]
 [ext_resource type="Texture2D" uid="uid://dorj5ej8fw4o5" path="res://assets/ui/prompt-spacebar.png" id="24_rds0p"]
+[ext_resource type="Texture2D" uid="uid://buhh7ckj0crtx" path="res://assets/ui/money.png" id="25_lllwo"]
+[ext_resource type="Texture2D" uid="uid://bvunnqmntd1py" path="res://assets/ui/scene_fishing/icons/upgrade-rod-beginner.png" id="26_k1wj7"]
 [ext_resource type="Texture2D" uid="uid://b6w1llknanv2j" path="res://assets/ui/scene_fishing/buttons/to_stall-SMALL.png" id="26_va3sv"]
+[ext_resource type="Texture2D" uid="uid://dbsk6h1qt8n3n" path="res://assets/ui/scene_fishing/icons/upgrade-comfort-supportive_shoes.png" id="27_ggr6f"]
+[ext_resource type="Texture2D" uid="uid://dvrigsxweytpl" path="res://assets/ui/scene_fishing/icons/upgrade-bait-heart_worm.png" id="28_hpe1n"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -132,6 +137,19 @@ font_size = 56
 font_color = Color(0.64705884, 0.6901961, 0.9882353, 1)
 outline_size = 48
 outline_color = Color(0.08627451, 0.11372549, 0.14901961, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_fjeps"]
+base_font = ExtResource("17_5h3sk")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_8624m"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_fjeps")
+font_size = 52
+font_color = Color(0.11372549, 0.7529412, 0.3529412, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pp1tu"]
 font = ExtResource("17_5h3sk")
@@ -501,6 +519,105 @@ text = "Back"
 label_settings = SubResource("LabelSettings_als8v")
 
 [node name="ColorRect" type="ColorRect" parent="InventoryPanel/InventoryBackButton/InventoryBackButtonLabel" unique_id=1536012433]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 3.4072618
+offset_top = 4.5155916
+offset_right = 29.177387
+offset_bottom = 44.51559
+color = Color(0.08627451, 0.11372549, 0.14901961, 1)
+
+[node name="ShopPanel" type="CanvasGroup" parent="." unique_id=1586740328]
+
+[node name="ShopBgGradient" type="TextureRect" parent="ShopPanel" unique_id=1201288886]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("13_qbkyl")
+
+[node name="ShopBackground" type="TextureRect" parent="ShopPanel" unique_id=764270421]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("24_g72re")
+
+[node name="MoneyIcon" type="TextureRect" parent="ShopPanel" unique_id=949434314]
+texture_filter = 1
+offset_left = 1818.0
+offset_top = 962.0
+offset_right = 1936.0
+offset_bottom = 1080.0
+texture = ExtResource("25_lllwo")
+
+[node name="MoneyLabel" type="Label" parent="ShopPanel/MoneyIcon" unique_id=908627767]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.41525373
+anchor_top = 0.28813547
+anchor_right = 0.4063576
+anchor_bottom = 0.81228846
+text = "35"
+label_settings = SubResource("LabelSettings_8624m")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RodUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=703698077]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 430.0
+offset_right = 168.0
+offset_bottom = 458.0
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("26_k1wj7")
+
+[node name="ComfortUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=904061774]
+texture_filter = 1
+offset_left = 140.00002
+offset_top = 569.0
+offset_right = 168.00002
+offset_bottom = 597.0
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("27_ggr6f")
+
+[node name="BaitUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=1139369445]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 709.00006
+offset_right = 168.0
+offset_bottom = 737.00006
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("28_hpe1n")
+
+[node name="ShopRows" type="VBoxContainer" parent="ShopPanel" unique_id=1910624042]
+z_index = 1
+offset_left = 252.8001
+offset_top = 466.27246
+offset_right = 746.62665
+offset_bottom = 832.20703
+rotation = 0.06278212
+
+[node name="ShopBackButton" type="Button" parent="ShopPanel" unique_id=1209958232]
+texture_filter = 1
+offset_left = -8.0
+offset_top = 311.0
+offset_right = 206.0
+offset_bottom = 429.00003
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("19_7wprw")
+expand_icon = true
+
+[node name="ShopBackButtonLabel" type="Label" parent="ShopPanel/ShopBackButton" unique_id=940323809]
+texture_filter = 2
+layout_mode = 0
+offset_left = 65.00001
+offset_top = 50.000046
+offset_right = 197.0
+offset_bottom = 112.000046
+rotation = -0.13898832
+text = "Back"
+label_settings = SubResource("LabelSettings_als8v")
+
+[node name="ColorRect" type="ColorRect" parent="ShopPanel/ShopBackButton/ShopBackButtonLabel" unique_id=1412896827]
 show_behind_parent = true
 layout_mode = 0
 offset_left = 3.4072618
