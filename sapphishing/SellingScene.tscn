@@ -150,7 +150,7 @@ outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8enu"]
 size = Vector2(3.5074263, 11.409588)
 
-[node name="Node2D" type="Node2D" unique_id=1626945183]
+[node name="Node2D2" type="Node2D" unique_id=1626945183]
 script = ExtResource("1_uuih2")
 
 [node name="background" type="TextureRect" parent="." unique_id=1260980911]

@@ -20,8 +20,10 @@
 [ext_resource type="FontVariation" uid="uid://btboquei603hd" path="res://assets/font/opendyslexic-custom.tres" id="18_7wprw"]
 [ext_resource type="Texture2D" uid="uid://dpmfwu2ijct6b" path="res://assets/ui/scene_fishing/buttons/back_arrow.png" id="19_7wprw"]
 [ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="19_nmqsw"]
-[ext_resource type="Texture2D" uid="uid://c628mlcdu3h1j" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-catch-new.png" id="21_l0htd"]
-[ext_resource type="Texture2D" uid="uid://mx6ua0o2pdwc" path="res://assets/fish/friends_to_lovers_fishes.png" id="22_als8v"]
+[ext_resource type="Texture2D" uid="uid://nogdau36fm2r" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-catch.png" id="21_als8v"]
+[ext_resource type="Texture2D" uid="uid://37xmvoe84ukt" path="res://assets/ui/scene_fishing/buttons/fish_catch-new_starburst.png" id="22_rds0p"]
+[ext_resource type="Texture2D" uid="uid://0j13f3ck82eo" path="res://assets/fish/situationship_fish.png" id="23_d4fho"]
+[ext_resource type="Texture2D" uid="uid://dorj5ej8fw4o5" path="res://assets/ui/prompt-spacebar.png" id="24_rds0p"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -93,15 +95,12 @@ outline_color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wprw"]
 texture = ExtResource("13_qbkyl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
-font_size = 20
-outline_size = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_tobc7"]
-font_size = 17
-font_color = Color(0.8674346, 0.88230926, 0.85733706, 1)
-outline_size = 1
-shadow_size = 2
+[sub_resource type="LabelSettings" id="LabelSettings_pp1tu"]
+font = ExtResource("17_5h3sk")
+font_size = 64
+font_color = Color(0.9647059, 0.6117647, 0.3372549, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rds0p"]
 shader = ExtResource("15_iw5jq")
@@ -109,9 +108,36 @@ shader_parameter/shadow_only = false
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/blur_std = 3.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
+font = ExtResource("17_5h3sk")
+font_size = 50
+font_color = Color(0.54509807, 0.78039217, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_va3sv"]
+font = ExtResource("18_7wprw")
+font_size = 28
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 24
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_431q5"]
 font_size = 25
 font_color = Color(1, 0.4392157, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("17_5h3sk")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_d4fho"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 42
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 34
+outline_color = Color(0.07058824, 0.08235294, 0.15294118, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
 font_size = 30
@@ -385,6 +411,7 @@ offset_bottom = 44.51559
 color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
+visible = false
 z_index = 5
 texture_filter = 1
 offset_right = 1920.0
@@ -395,38 +422,89 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_7wprw")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("21_l0htd")
+texture = ExtResource("21_als8v")
 
-[node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
-z_index = 5
+[node name="DiscoveryNewStarburst" type="TextureRect" parent="DiscoveryPanel/DiscoveryTextBox" unique_id=110015881]
+show_behind_parent = true
 layout_mode = 0
-offset_left = 7.0
-offset_top = 19.0
-offset_right = 454.0
-offset_bottom = 89.0
-label_settings = SubResource("LabelSettings_vw2ue")
+offset_left = 351.00006
+offset_top = 489.0001
+offset_right = 479.00006
+offset_bottom = 617.0001
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("22_rds0p")
 
-[node name="DiscoveryDescriptionLabel" type="Label" parent="DiscoveryPanel" unique_id=162660082]
-z_index = 5
+[node name="DiscoveryNewLabel" type="Label" parent="DiscoveryPanel/DiscoveryTextBox" unique_id=1137053871]
+texture_filter = 2
 layout_mode = 0
-offset_left = 1.0
-offset_top = 74.0
-offset_right = 622.0
-offset_bottom = 144.0
-label_settings = SubResource("LabelSettings_tobc7")
-autowrap_mode = 2
+offset_left = 554.99994
+offset_top = 751.0002
+offset_right = 707.99994
+offset_bottom = 822.0002
+rotation = -0.63909876
+text = "New!"
+label_settings = SubResource("LabelSettings_pp1tu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="DiscoveryPanel/DiscoveryTextBox/DiscoveryNewLabel" unique_id=740165912]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 96.62294
+offset_top = 9.342277
+offset_right = 128.86177
+offset_bottom = 24.401848
+rotation = -0.0830889
+color = Color(0.78431374, 0.4509804, 0.3764706, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="DiscoveryPanel/DiscoveryTextBox/DiscoveryNewLabel" unique_id=1270662178]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 50.478027
+offset_top = 17.577816
+offset_right = 70.34433
+offset_bottom = 42.745296
+rotation = -0.0830889
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
 texture_filter = 1
 material = SubResource("ShaderMaterial_rds0p")
 layout_mode = 0
-offset_left = 606.0
+offset_left = 610.0
 offset_top = 19.0
-offset_right = 921.3498
-offset_bottom = 334.3498
+offset_right = 930.42126
+offset_bottom = 339.42123
 scale = Vector2(2.16902, 2.16902)
-texture = ExtResource("22_als8v")
+texture = ExtResource("23_d4fho")
 stretch_mode = 4
+
+[node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
+z_index = 5
+texture_filter = 2
+layout_mode = 0
+offset_left = 736.0
+offset_top = 730.0
+offset_right = 1183.0
+offset_bottom = 800.0
+text = "Hurt/Comfort"
+label_settings = SubResource("LabelSettings_vw2ue")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscoveryDescriptionLabel" type="Label" parent="DiscoveryPanel" unique_id=162660082]
+z_index = 5
+texture_filter = 2
+layout_mode = 0
+offset_left = 656.0
+offset_top = 782.0
+offset_right = 1259.0
+offset_bottom = 1005.0
+text = "It's not serious or anything but you could really use a hug and a cuddle from a pretty femme until you feel better and you know what? You deserve it"
+label_settings = SubResource("LabelSettings_va3sv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="DiscoveryHeaderLabel" type="Label" parent="DiscoveryPanel" unique_id=1083943715]
 layout_mode = 0
@@ -435,6 +513,27 @@ offset_top = -108.0
 offset_right = 276.0
 offset_bottom = -41.0
 label_settings = SubResource("LabelSettings_431q5")
+
+[node name="DiscoveryCloseButton" type="Button" parent="DiscoveryPanel" unique_id=926156611]
+layout_mode = 0
+offset_left = 1743.0
+offset_top = 1005.0
+offset_right = 1918.0
+offset_bottom = 1078.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("24_rds0p")
+expand_icon = true
+
+[node name="DiscoveryCloseButtonLabel" type="Label" parent="DiscoveryPanel/DiscoveryCloseButton" unique_id=988734673]
+texture_filter = 2
+layout_mode = 0
+offset_left = 61.0
+offset_top = 23.0
+offset_right = 178.0
+offset_bottom = 71.0
+rotation = -0.11233
+text = "Next"
+label_settings = SubResource("LabelSettings_d4fho")
 
 [node name="GoToStallButton" type="Button" parent="." unique_id=1081836556]
 offset_left = 8.0
