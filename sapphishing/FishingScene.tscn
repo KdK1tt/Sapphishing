@@ -20,6 +20,8 @@
 [ext_resource type="FontVariation" uid="uid://btboquei603hd" path="res://assets/font/opendyslexic-custom.tres" id="18_7wprw"]
 [ext_resource type="Texture2D" uid="uid://dpmfwu2ijct6b" path="res://assets/ui/scene_fishing/buttons/back_arrow.png" id="19_7wprw"]
 [ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="19_nmqsw"]
+[ext_resource type="Texture2D" uid="uid://c628mlcdu3h1j" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-catch-new.png" id="21_l0htd"]
+[ext_resource type="Texture2D" uid="uid://mx6ua0o2pdwc" path="res://assets/fish/friends_to_lovers_fishes.png" id="22_als8v"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -49,6 +51,12 @@ scale_max = 0.01
 hue_variation_min = -0.04000002
 hue_variation_max = -2.2351742e-08
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0htd"]
+shader = ExtResource("15_iw5jq")
+shader_parameter/shadow_only = false
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 0.4
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdsps"]
 texture = ExtResource("12_431q5")
 
@@ -57,13 +65,9 @@ texture = ExtResource("14_iw5jq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oeva1"]
 shader = ExtResource("15_iw5jq")
-shader_parameter/debug = false
-shader_parameter/border_scale = 1.0
-shader_parameter/shadow_offset = Vector2(0, 0)
-shader_parameter/color = Color(0.050980393, 0.08235294, 0.1254902, 1)
-shader_parameter/blur_amount = 5.0
-shader_parameter/shadow_scale = 1.5
-shader_parameter/disable_rotating = false
+shader_parameter/shadow_only = false
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 0.4
 
 [sub_resource type="LabelSettings" id="LabelSettings_151wr"]
 font = ExtResource("17_5h3sk")
@@ -86,6 +90,9 @@ font_color = Color(0.64705884, 0.6901961, 0.9882353, 1)
 outline_size = 48
 outline_color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wprw"]
+texture = ExtResource("13_qbkyl")
+
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
 font_size = 20
 outline_size = 1
@@ -95,6 +102,12 @@ font_size = 17
 font_color = Color(0.8674346, 0.88230926, 0.85733706, 1)
 outline_size = 1
 shadow_size = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rds0p"]
+shader = ExtResource("15_iw5jq")
+shader_parameter/shadow_only = false
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 3.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_431q5"]
 font_size = 25
@@ -253,11 +266,13 @@ polygon = PackedVector2Array(296, 1083, 264, 852, 375, 793, 513, 797, 587, 836, 
 visible = false
 z_index = 3
 texture_filter = 1
-position = Vector2(961, 406)
+material = SubResource("ShaderMaterial_l0htd")
+position = Vector2(1008, 499)
 scale = Vector2(2.9303126, 2.9303126)
 texture = ExtResource("5_egw1k")
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
+visible = false
 z_index = 5
 texture_filter = 1
 offset_right = 1920.0
@@ -370,12 +385,17 @@ offset_bottom = 44.51559
 color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
-visible = false
 z_index = 5
-offset_left = 478.0
-offset_top = 780.0
-offset_right = 1546.795
-offset_bottom = 1041.0
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7wprw")
+
+[node name="DiscoveryTextBox" type="TextureRect" parent="DiscoveryPanel" unique_id=1855492291]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("21_l0htd")
 
 [node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
 z_index = 5
@@ -398,11 +418,14 @@ autowrap_mode = 2
 
 [node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
 texture_filter = 1
+material = SubResource("ShaderMaterial_rds0p")
 layout_mode = 0
-offset_left = 272.0
-offset_top = -351.0
-offset_right = 660.36365
-offset_bottom = 9.0
+offset_left = 606.0
+offset_top = 19.0
+offset_right = 921.3498
+offset_bottom = 334.3498
+scale = Vector2(2.16902, 2.16902)
+texture = ExtResource("22_als8v")
 stretch_mode = 4
 
 [node name="DiscoveryHeaderLabel" type="Label" parent="DiscoveryPanel" unique_id=1083943715]

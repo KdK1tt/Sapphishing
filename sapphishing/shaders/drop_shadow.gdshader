@@ -1,102 +1,58 @@
-// version: 2.1
-// repository: https://github.com/TABmk/godot-2d-shadow-shader
-
 shader_type canvas_item;
+render_mode skip_vertex_transform;
 
-uniform bool debug = false;
-uniform float border_scale = 2.0;
-uniform vec2 shadow_offset = vec2(-10.0, -10.0);
-uniform vec4 color : source_color;
-uniform float blur_amount : hint_range(0.0, 5.0) = 0.0;
-uniform float shadow_scale = 1.5;
-uniform bool disable_rotating = false;
+uniform bool shadow_only = false;
+uniform vec4 shadow_color : source_color;
+uniform float blur_std = 0.4;
 
-varying flat vec4 modulate;
-varying flat float sprite_rotation;
+varying vec4 modulate;
+varying vec2 v_uv;
 
 void vertex() {
-    float final_scale = max(border_scale, border_scale * shadow_scale);
-    VERTEX.xy *= vec2(final_scale);
-    modulate = COLOR;
-    sprite_rotation = atan(MODEL_MATRIX[0][1], MODEL_MATRIX[0][0]);
+	vec2 texture_size = vec2(1.0, 1.0) / TEXTURE_PIXEL_SIZE;
+	
+	float padding = ceil(blur_std * 3.0);
+	VERTEX = VERTEX - texture_size * 0.5;
+	VERTEX = VERTEX * (vec2(1.0, 1.0) + padding * 2.0 * TEXTURE_PIXEL_SIZE);
+	VERTEX = VERTEX + texture_size * 0.5;
+	VERTEX = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+	
+	vec2 factor = (vec2(1, 1) + 2.0 * padding * TEXTURE_PIXEL_SIZE);
+	v_uv = factor * UV + vec2(0.5, 0.5) - 0.5 * factor;
+	
+	modulate = COLOR;
 }
 
-vec4 sample_texture_safe(sampler2D tex, vec2 uv) {
-    return (uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) 
-        ? vec4(0.0) 
-        : texture(tex, uv);
+vec4 padded_sample(sampler2D tex, vec2 uv) {
+	vec2 t = abs(uv - vec2(0.5, 0.5));
+	float b = (t.x >= 0.5 || t.y >= 0.5) ? 0.0 : 1.0;
+	return b * texture(tex, uv);
 }
 
-vec4 apply_gaussian_blur(sampler2D tex, vec2 uv, vec2 pixel_size) {
-    if (blur_amount <= 0.0) return sample_texture_safe(tex, uv);
-    
-    vec4 color_blur = vec4(0.0);
-    float total_weight = 0.0;
-    int kernel_size = int(blur_amount * 3.0);
-    
-    for (int x = -kernel_size; x <= kernel_size; x++) {
-        for (int y = -kernel_size; y <= kernel_size; y++) {
-            vec2 blur_offset = vec2(float(x), float(y)) * pixel_size;
-            float weight = exp(-0.5 * (float(x * x + y * y)) / (blur_amount * blur_amount));
-            color_blur += sample_texture_safe(tex, uv + blur_offset) * weight;
-            total_weight += weight;
-        }
-    }
-    
-    return total_weight > 0.0 ? color_blur / total_weight : vec4(0.0);
+float erf(float x) {
+	return 2.0 / sqrt(PI) * sign(x) * sqrt(1.0 - exp(-x*x)) * (sqrt(PI) / 2.0 + 31.0 * exp(-x*x) / 200.0 - 341.0 * exp(-2.0 * x * x) / 8000.0);
 }
 
-vec2 rotate_point(vec2 point, float angle) {
-    float s = sin(angle);
-    float c = cos(angle);
-    return vec2(
-        point.x * c - point.y * s,
-        point.x * s + point.y * c
-    );
-}
-
-float calculate_fade(float coord, float scale) {
-    if (coord < 0.0) {
-        return 1.0 + (coord / (scale - 1.0));
-    } else if (coord > 1.0) {
-        return 1.0 - ((coord - 1.0) / (scale - 1.0));
-    }
-    return 1.0;
-}
-
-vec4 process_texture(vec2 uv, sampler2D tex, bool is_main, vec2 pixel_size) {
-    if (is_main) {
-        return sample_texture_safe(tex, uv) * modulate;
-    }
-    
-    vec4 blurred = apply_gaussian_blur(tex, uv, pixel_size);
-    float fade_x = calculate_fade(uv.x, shadow_scale);
-    float fade_y = calculate_fade(uv.y, shadow_scale);
-    float fade = smoothstep(0.0, 1.0, min(fade_x, fade_y));
-    
-    return vec4(color.rgb, (blurred.a * color.a) * modulate.a * fade);
+float gaussian(float x) {
+	return 1.0 / sqrt(8.0) / blur_std + erf(x / sqrt(2.0) / blur_std) / sqrt(PI);
 }
 
 void fragment() {
-    float final_scale = max(border_scale, border_scale * shadow_scale);
-    vec2 scaled_uv = UV * final_scale - (0.5 * (final_scale - 1.0));
-    
-    vec4 main_texture = process_texture(scaled_uv, TEXTURE, true, TEXTURE_PIXEL_SIZE);
-    
-    vec2 adjusted_offset = disable_rotating ? shadow_offset : rotate_point(shadow_offset, -sprite_rotation);
-    vec2 shadow_uv = scaled_uv + adjusted_offset * TEXTURE_PIXEL_SIZE;
-    
-    vec4 shadow = process_texture(shadow_uv, TEXTURE, false, TEXTURE_PIXEL_SIZE);
-    
-    vec4 main_pm = vec4(main_texture.rgb * main_texture.a, main_texture.a);
-    vec4 shadow_pm = vec4(shadow.rgb * shadow.a, shadow.a);
-
-    vec4 out_pm = shadow_pm * (1.0 - main_pm.a) + main_pm;
-    vec4 res = vec4(
-        out_pm.rgb / max(out_pm.a, 0.0001),
-        out_pm.a
-    );
-
-    vec4 debug_layer = vec4(1.0, 0.0, 0.0, 0.3);
-    COLOR = mix(debug ? debug_layer : res, res, res.a);
+	float weight = 0.0;
+	vec2 coord = v_uv / TEXTURE_PIXEL_SIZE;
+	coord -= floor(coord);
+	float blur_radius = ceil(blur_std * 3.0);
+	
+	for (float x = -float(blur_radius); x <= float(blur_radius); ++x) {
+		for (float y = -float(blur_radius); y <= float(blur_radius); ++y) {
+			weight += (gaussian(-coord.x + x + 1.0) - gaussian(-coord.x + x))
+			    * (gaussian(-coord.y + y + 1.0) - gaussian(-coord.y + y))
+				* padded_sample(TEXTURE, v_uv + vec2(x, y) * TEXTURE_PIXEL_SIZE).a;
+		}
+	}
+	
+	vec4 c = padded_sample(TEXTURE, v_uv);
+	float e = shadow_only ? 0.0 : 1.0;
+	COLOR = c.a * e * c + (1.0 - c.a * e) * vec4(1.0, 1.0, 1.0, weight) * shadow_color;
+	COLOR *= modulate;
 }
