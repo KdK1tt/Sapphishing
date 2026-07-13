@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cqvoi7pfhqr48" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-inventory.png" id="14_iw5jq"]
 [ext_resource type="Shader" uid="uid://clhha66cym7hg" path="res://shaders/drop_shadow.gdshader" id="15_iw5jq"]
 [ext_resource type="Texture2D" uid="uid://dhrgo36cgfyu6" path="res://assets/fish/hurt_comfort_fish.png" id="15_oeva1"]
+[ext_resource type="Material" uid="uid://c354fimsurde7" path="res://shaders/drop_shadow_material.tres" id="16_d4fho"]
 [ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="17_5h3sk"]
 [ext_resource type="FontVariation" uid="uid://btboquei603hd" path="res://assets/font/opendyslexic-custom.tres" id="18_7wprw"]
 [ext_resource type="Texture2D" uid="uid://dpmfwu2ijct6b" path="res://assets/ui/scene_fishing/buttons/back_arrow.png" id="19_7wprw"]
@@ -24,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://37xmvoe84ukt" path="res://assets/ui/scene_fishing/buttons/fish_catch-new_starburst.png" id="22_rds0p"]
 [ext_resource type="Texture2D" uid="uid://0j13f3ck82eo" path="res://assets/fish/situationship_fish.png" id="23_d4fho"]
 [ext_resource type="Texture2D" uid="uid://dorj5ej8fw4o5" path="res://assets/ui/prompt-spacebar.png" id="24_rds0p"]
+[ext_resource type="Texture2D" uid="uid://b6w1llknanv2j" path="res://assets/ui/scene_fishing/buttons/to_stall-SMALL.png" id="26_va3sv"]
+[ext_resource type="LabelSettings" uid="uid://bbyqrcfne6jit" path="res://assets/font/ButtonText.tres" id="27_redbb"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -53,6 +56,28 @@ scale_max = 0.01
 hue_variation_min = -0.04000002
 hue_variation_max = -2.2351742e-08
 
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("17_5h3sk")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5n1s"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 48
+font_color = Color(0.27450982, 0.39607844, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2mdr"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 56
+font_color = Color(0.27450982, 0.39607844, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l0htd"]
 shader = ExtResource("15_iw5jq")
 shader_parameter/shadow_only = false
@@ -64,12 +89,6 @@ texture = ExtResource("12_431q5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5h3sk"]
 texture = ExtResource("14_iw5jq")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oeva1"]
-shader = ExtResource("15_iw5jq")
-shader_parameter/shadow_only = false
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/blur_std = 0.4
 
 [sub_resource type="LabelSettings" id="LabelSettings_151wr"]
 font = ExtResource("17_5h3sk")
@@ -102,12 +121,6 @@ font_color = Color(0.9647059, 0.6117647, 0.3372549, 1)
 outline_size = 32
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rds0p"]
-shader = ExtResource("15_iw5jq")
-shader_parameter/shadow_only = false
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/blur_std = 3.0
-
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
 font = ExtResource("17_5h3sk")
 font_size = 50
@@ -125,10 +138,6 @@ outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_431q5"]
 font_size = 25
 font_color = Color(1, 0.4392157, 1, 1)
-
-[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
-base_font = ExtResource("17_5h3sk")
-spacing_bottom = -8
 
 [sub_resource type="LabelSettings" id="LabelSettings_d4fho"]
 resource_local_to_scene = true
@@ -216,6 +225,14 @@ trail_sections = 5
 trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_egw1k")
 
+[node name="Stool" type="TextureRect" parent="Background" unique_id=961520205]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_tobc7")
+
 [node name="DefaultView" type="Control" parent="." unique_id=1127429938]
 layout_mode = 3
 anchors_preset = 0
@@ -257,21 +274,36 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Stool" type="TextureRect" parent="PropContainer" unique_id=961520205]
-z_index = 1
-texture_filter = 1
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("4_tobc7")
-
 [node name="TackleBoxClickArea" type="Area2D" parent="PropContainer" unique_id=278491331]
 
 [node name="TackleBox" type="Sprite2D" parent="PropContainer/TackleBoxClickArea" unique_id=240076912]
+z_index = -1
 texture_filter = 1
 scale = Vector2(4.22, 4.22)
 texture = ExtResource("9_vw2ue")
 offset = Vector2(227.48822, 127.96213)
+
+[node name="TackleBoxLabel" type="Label" parent="PropContainer/TackleBoxClickArea/TackleBox" unique_id=1300553842]
+texture_filter = 2
+offset_left = 101.895744
+offset_top = 171.32703
+offset_right = 326.89575
+offset_bottom = 216.32703
+rotation = -0.15760599
+scale = Vector2(0.237, 0.237)
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_g5n1s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="PropContainer/TackleBoxClickArea/TackleBox/TackleBoxLabel" unique_id=1813878550]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 43.18062
+offset_top = 14.961702
+offset_right = 174.13863
+offset_bottom = 35.29245
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/TackleBoxClickArea" unique_id=1865497840]
 polygon = PackedVector2Array(571, 991, 593, 1021, 758, 928, 768, 858, 671, 692, 493, 760, 489, 794)
@@ -280,10 +312,24 @@ polygon = PackedVector2Array(571, 991, 593, 1021, 758, 928, 768, 858, 671, 692, 
 z_index = 5
 
 [node name="FishBucket" type="Sprite2D" parent="PropContainer/FishBucketClickArea" unique_id=16664044]
+z_index = -1
 texture_filter = 1
 scale = Vector2(4.22, 4.22)
 texture = ExtResource("11_431q5")
 offset = Vector2(227.48819, 127.96211)
+
+[node name="FishBucketLabel" type="Label" parent="PropContainer/FishBucketClickArea/FishBucket" unique_id=999183857]
+texture_filter = 2
+offset_left = 115.876785
+offset_top = 238.15167
+offset_right = 251.86604
+offset_bottom = 292.15167
+rotation = -0.15760599
+scale = Vector2(0.237, 0.237)
+text = "Fish"
+label_settings = SubResource("LabelSettings_e2mdr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/FishBucketClickArea" unique_id=249239574]
 polygon = PackedVector2Array(296, 1083, 264, 852, 375, 793, 513, 797, 587, 836, 565, 1082)
@@ -333,12 +379,12 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_5h3sk")
 
 [node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1145736346]
 texture_filter = 1
-material = SubResource("ShaderMaterial_oeva1")
+material = ExtResource("16_d4fho")
 layout_mode = 0
-offset_left = 656.0
-offset_top = 165.99998
-offset_right = 912.0
-offset_bottom = 422.0
+offset_left = 781.0
+offset_top = 295.0
+offset_right = 1037.0
+offset_bottom = 551.0
 scale = Vector2(2.11, 2.11)
 mouse_filter = 2
 texture = ExtResource("15_oeva1")
@@ -469,7 +515,7 @@ color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
 texture_filter = 1
-material = SubResource("ShaderMaterial_rds0p")
+material = ExtResource("16_d4fho")
 layout_mode = 0
 offset_left = 610.0
 offset_top = 19.0
@@ -536,12 +582,28 @@ text = "Next"
 label_settings = SubResource("LabelSettings_d4fho")
 
 [node name="GoToStallButton" type="Button" parent="." unique_id=1081836556]
-offset_left = 8.0
-offset_top = 1021.0
-offset_right = 186.0
-offset_bottom = 1072.0
-text = "Set Up Shop"
-metadata/_edit_use_anchors_ = true
+texture_filter = 1
+offset_left = -51.0
+offset_top = 886.0
+offset_right = 202.0
+offset_bottom = 1122.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("26_va3sv")
+expand_icon = true
+
+[node name="GoToStallButtonLabel" type="Label" parent="GoToStallButton" unique_id=1726590858]
+texture_filter = 2
+layout_mode = 0
+offset_left = 97.99999
+offset_top = 95.0
+offset_right = 257.0
+offset_bottom = 194.0
+rotation = -0.16020273
+text = "Set up
+Shop"
+label_settings = ExtResource("27_redbb")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="." unique_id=151346974]
 visible = false

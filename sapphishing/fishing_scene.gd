@@ -52,16 +52,16 @@ var fish_pool = [
 # Mutual Pining Fish:
 # "You know you should just talk to each other about your feelings. Will you? Ha ha, don't be ridiculous."
 
-@onready var bobber = $Bobber
+@onready var bobber = $DefaultView/Bobber
 @onready var status_label = $Panel/StatusLabel
 @onready var fish_reveal = $FishReveal
-@onready var pole = $Pole
-@onready var splash_particles = $SplashParticles
-@onready var water_surface = $WaterSurface
-@onready var basket = $TackleBox
-@onready var inventory_label = $TackleBox/InventoryLabel
+@onready var pole = $DefaultView/Pole
+@onready var splash_particles = $Background/SplashParticles
+@onready var water_surface = $Background/WaterSurface
+@onready var basket = $PropContainer/FishBucketClickArea/FishBucket
+# @onready var inventory_label = $TackleBox/InventoryLabel
 @onready var inventory_panel = $InventoryPanel
-@onready var basket_click_area = $TackleBox/BasketClickArea
+@onready var basket_click_area = $PropContainer/FishBucketClickArea
 @onready var discovery_panel = $DiscoveryPanel
 @onready var discovery_name_label = $DiscoveryPanel/DiscoveryNameLabel
 @onready var discovery_description_label = $DiscoveryPanel/DiscoveryDescriptionLabel
@@ -218,7 +218,7 @@ func show_splash(pos: Vector2) -> void:
 
 func _ready() -> void:
 	state = State.READY
-	inventory_label.text = ""
+	# inventory_label.text = ""
 	inventory_panel.visible = false
 	basket_click_area.input_event.connect(_on_basket_click_area_input_event)
 	bobber.visible = false

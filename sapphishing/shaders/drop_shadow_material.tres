@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c354fimsurde7"]
+
+[ext_resource type="Shader" uid="uid://clhha66cym7hg" path="res://shaders/drop_shadow.gdshader" id="1_417ll"]
+
+[resource]
+shader = ExtResource("1_417ll")
+shader_parameter/shadow_only = false
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 3.0
