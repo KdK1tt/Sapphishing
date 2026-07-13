@@ -334,7 +334,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
-visible = false
 z_index = 5
 offset_right = 1920.0
 offset_bottom = 1080.0

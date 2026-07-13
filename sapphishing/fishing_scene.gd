@@ -52,16 +52,16 @@ var fish_pool = [
 # Mutual Pining Fish:
 # "You know you should just talk to each other about your feelings. Will you? Ha ha, don't be ridiculous."
 
-@onready var bobber = $DefaultView/Bobber
+@onready var bobber = $Bobber
 @onready var status_label = $Panel/StatusLabel
 @onready var fish_reveal = $FishReveal
-@onready var pole = $DefaultView/Pole
+@onready var pole = $Pole
 @onready var splash_particles = $Background/SplashParticles
 @onready var water_surface = $Background/WaterSurface
-@onready var basket = $PropContainer/FishBucketClickArea/FishBucket
+@onready var basket = $PropContainer/FishBucket
 # @onready var inventory_label = $TackleBox/InventoryLabel
 @onready var inventory_panel = $InventoryPanel
-@onready var basket_click_area = $PropContainer/FishBucketClickArea
+@onready var basket_click_area = $PropContainer/FishBucket/FishBucketClickArea
 @onready var discovery_panel = $DiscoveryPanel
 @onready var discovery_name_label = $DiscoveryPanel/DiscoveryNameLabel
 @onready var discovery_description_label = $DiscoveryPanel/DiscoveryDescriptionLabel
@@ -230,7 +230,7 @@ func _ready() -> void:
 	inventory_panel.visible = false
 	fish_preview_panel.visible = false
 	load_song()
-	inventory_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	##inventory_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	inventory_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fish_preview_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
