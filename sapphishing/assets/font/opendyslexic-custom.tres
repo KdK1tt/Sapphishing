@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" format=3 uid="uid://btboquei603hd"]
+
+[ext_resource type="FontFile" uid="uid://chf4aogbere46" path="res://assets/font/OpenDyslexic-Bold.otf" id="1_ms58a"]
+
+[resource]
+base_font = ExtResource("1_ms58a")
+spacing_glyph = -6
+spacing_space = -5
+spacing_top = -10
+spacing_bottom = -10

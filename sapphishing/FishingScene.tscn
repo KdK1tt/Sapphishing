@@ -4,30 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://d2sr12n6fyift" path="res://assets/set/backdrop_fishing-NO_PROPS.png" id="2_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://qvesrrt4sujy" path="res://assets/prop/bobber.png" id="3_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://bqhc4mw8rtvvg" path="res://assets/prop/fishing_rod-basic.png" id="4_hwtv3"]
+[ext_resource type="Texture2D" uid="uid://cwswogh0tog6a" path="res://assets/prop/stool.png" id="4_tobc7"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="5_egw1k"]
 [ext_resource type="Texture2D" uid="uid://5swrn35svbsr" path="res://assets/Splatter_white.png" id="6_0tsyy"]
 [ext_resource type="Shader" uid="uid://d4fqyh4cffj4d" path="res://water_shader.gdshader" id="7_0mh4r"]
 [ext_resource type="AudioStream" uid="uid://bvpmoqs4jfr7r" path="res://fishin_time_wip02.mp3" id="9_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://q2pmky5gcya" path="res://assets/prop/tackle_box.png" id="9_vw2ue"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
-font_size = 30
-font_color = Color(0.6266101, 0.79658437, 0.9862196, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egw1k"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 42.159
-flatness = 0.16
-initial_velocity_min = 80.0
-initial_velocity_max = 160.0
-gravity = Vector3(0, 300, 0)
-scale_min = 0.01
-scale_max = 0.01
-hue_variation_min = -0.04000002
-hue_variation_max = -2.2351742e-08
+[ext_resource type="Texture2D" uid="uid://b77h47lvbb4kw" path="res://assets/prop/bucket.png" id="11_431q5"]
+[ext_resource type="Texture2D" uid="uid://d0tvuq227mylh" path="res://assets/ui/scene_fishing/textbox/fish_inventory-bucket.png" id="12_431q5"]
+[ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="13_qbkyl"]
+[ext_resource type="Texture2D" uid="uid://cqvoi7pfhqr48" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-inventory.png" id="14_iw5jq"]
+[ext_resource type="Shader" uid="uid://clhha66cym7hg" path="res://shaders/drop_shadow.gdshader" id="15_iw5jq"]
+[ext_resource type="Texture2D" uid="uid://dhrgo36cgfyu6" path="res://assets/fish/hurt_comfort_fish.png" id="15_oeva1"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="17_5h3sk"]
+[ext_resource type="FontVariation" uid="uid://btboquei603hd" path="res://assets/font/opendyslexic-custom.tres" id="18_7wprw"]
+[ext_resource type="Texture2D" uid="uid://dpmfwu2ijct6b" path="res://assets/ui/scene_fishing/buttons/back_arrow.png" id="19_7wprw"]
+[ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="19_nmqsw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -44,8 +36,55 @@ shader_parameter/speed = 0.018000000855
 shader_parameter/wave_scale = 500.0
 shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampfc"]
-size = Vector2(233.69624, 266.93585)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egw1k"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 42.159
+flatness = 0.16
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 300, 0)
+scale_min = 0.01
+scale_max = 0.01
+hue_variation_min = -0.04000002
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdsps"]
+texture = ExtResource("12_431q5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5h3sk"]
+texture = ExtResource("14_iw5jq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oeva1"]
+shader = ExtResource("15_iw5jq")
+shader_parameter/debug = false
+shader_parameter/border_scale = 1.0
+shader_parameter/shadow_offset = Vector2(0, 0)
+shader_parameter/color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+shader_parameter/blur_amount = 5.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_151wr"]
+font = ExtResource("17_5h3sk")
+font_size = 46
+font_color = Color(0.54509807, 0.78039217, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0htd"]
+font = ExtResource("18_7wprw")
+font_size = 26
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 26
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_als8v"]
+font = ExtResource("17_5h3sk")
+font_size = 56
+font_color = Color(0.64705884, 0.6901961, 0.9882353, 1)
+outline_size = 48
+outline_color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
 font_size = 20
@@ -61,10 +100,17 @@ shadow_size = 2
 font_size = 25
 font_color = Color(1, 0.4392157, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
+font_size = 30
+font_color = Color(0.6266101, 0.79658437, 0.9862196, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=660654378]
 script = ExtResource("1_hwtv3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=410957344]
+z_index = -5
 texture_filter = 1
 clip_contents = true
 anchors_preset = 15
@@ -77,6 +123,59 @@ grow_vertical = 2
 texture = ExtResource("2_hwtv3")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background" unique_id=1434371393]
+stream = ExtResource("9_hwtv3")
+
+[node name="FishinTimeWip02" type="AudioStreamPlayer2D" parent="Background" unique_id=1875971704]
+visible = false
+position = Vector2(1045, 275)
+stream = ExtResource("9_hwtv3")
+autoplay = true
+
+[node name="WaterShimmer" type="Polygon2D" parent="Background" unique_id=1415136021]
+z_index = -4
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(86.23039, -110.75454)
+scale = Vector2(1.5195655, 1.5447793)
+polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 307.1731, 616.1104, 334.1545, 595.39545, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 819.16156, 608.3423, 843.5106, 596.0428, 869.1759, 593.4534, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
+uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
+
+[node name="WaterShimmer2" type="Polygon2D" parent="Background" unique_id=1748383982]
+z_index = -4
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(317.7838, -145.32373)
+scale = Vector2(1.6756756, 1.6756756)
+polygon = PackedVector2Array(561.69354, 247.25772, 572.4355, 268.7416, 562.8871, 278.28998, 547.9677, 285.45126, 550.9516, 298.5803, 560.5, 302.16095, 579.59674, 274.11255, 602.871, 269.33838, 608.8387, 241.28998, 586.75806, 224.58029)
+
+[node name="WaterShimmer3" type="Polygon2D" parent="Background" unique_id=1452866567]
+z_index = -4
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(131, 4)
+polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
+
+[node name="WaterSurface" type="Marker2D" parent="Background" unique_id=1004312198]
+position = Vector2(963, 605)
+
+[node name="SplashParticles" type="GPUParticles2D" parent="Background" unique_id=172828916]
+top_level = true
+z_index = 2
+texture_filter = 1
+use_parent_material = true
+position = Vector2(961, 531)
+emitting = false
+amount = 12
+texture = ExtResource("6_0tsyy")
+lifetime = 0.47
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_sections = 5
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_egw1k")
 
 [node name="DefaultView" type="Control" parent="." unique_id=1127429938]
 layout_mode = 3
@@ -99,13 +198,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Bobber" type="TextureRect" parent="DefaultView" unique_id=1561712798]
 light_mask = 4737
 visibility_layer = 131073
-z_index = 2
+z_index = -5
 texture_filter = 1
-layout_mode = 0
-offset_left = 1230.0001
-offset_top = 355.00003
-offset_right = 1258.0001
-offset_bottom = 383.00003
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 30.9
+anchor_top = 9.025
+anchor_right = 33.854
+anchor_bottom = 11.978999
+offset_right = -90.160034
+offset_bottom = -90.15997
 scale = Vector2(4.22, 4.22)
 texture = ExtResource("3_hwtv3")
 metadata/_edit_use_anchors_ = true
@@ -116,115 +218,119 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="." unique_id=151346974]
-visible = false
+[node name="Stool" type="TextureRect" parent="PropContainer" unique_id=961520205]
 z_index = 1
-offset_right = 500.0
-offset_bottom = 80.0
-scale = Vector2(1.4368061, 0.7180157)
-metadata/_edit_use_anchors_ = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_tobc7")
 
-[node name="StatusLabel" type="Label" parent="Panel" unique_id=400261725]
+[node name="TackleBoxClickArea" type="Area2D" parent="PropContainer" unique_id=278491331]
+
+[node name="TackleBox" type="Sprite2D" parent="PropContainer/TackleBoxClickArea" unique_id=240076912]
+texture_filter = 1
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("9_vw2ue")
+offset = Vector2(227.48822, 127.96213)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/TackleBoxClickArea" unique_id=1865497840]
+polygon = PackedVector2Array(571, 991, 593, 1021, 758, 928, 768, 858, 671, 692, 493, 760, 489, 794)
+
+[node name="FishBucketClickArea" type="Area2D" parent="PropContainer" unique_id=1204055491]
 z_index = 5
-layout_direction = 2
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.019662963
-anchor_top = 0.08197329
-anchor_right = 0.019662963
-anchor_bottom = 0.20697327
-offset_right = 305.0
-offset_bottom = 32.0
-scale = Vector2(0.6309281, 1.4617296)
-text = "Press Space to cast!"
-label_settings = SubResource("LabelSettings_0xc70")
-metadata/_edit_use_anchors_ = true
+
+[node name="FishBucket" type="Sprite2D" parent="PropContainer/FishBucketClickArea" unique_id=16664044]
+texture_filter = 1
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("11_431q5")
+offset = Vector2(227.48819, 127.96211)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/FishBucketClickArea" unique_id=249239574]
+polygon = PackedVector2Array(296, 1083, 264, 852, 375, 793, 513, 797, 587, 836, 565, 1082)
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
 visible = false
 z_index = 3
 texture_filter = 1
-position = Vector2(981.00006, 378)
+position = Vector2(961, 406)
 scale = Vector2(2.9303126, 2.9303126)
 texture = ExtResource("5_egw1k")
 
-[node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]
-top_level = true
-z_index = 2
-texture_filter = 1
-use_parent_material = true
-position = Vector2(961, 531)
-emitting = false
-amount = 12
-texture = ExtResource("6_0tsyy")
-lifetime = 0.47
-one_shot = true
-explosiveness = 1.0
-trail_enabled = true
-trail_sections = 5
-trail_section_subdivisions = 2
-process_material = SubResource("ParticleProcessMaterial_egw1k")
-
-[node name="WaterSurface" type="Marker2D" parent="." unique_id=1004312198]
-position = Vector2(963, 605)
-
-[node name="WaterShimmer" type="Polygon2D" parent="." unique_id=1415136021]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(86.23039, -110.75454)
-scale = Vector2(1.5195655, 1.5447793)
-polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 307.1731, 616.1104, 334.1545, 595.39545, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 819.16156, 608.3423, 843.5106, 596.0428, 869.1759, 593.4534, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
-uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
-
 [node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
-visible = false
 z_index = 5
-offset_left = 138.0
-offset_top = 95.0
-offset_right = 520.0
-offset_bottom = 456.0
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fdsps")
+
+[node name="InventoryGradient" type="TextureRect" parent="InventoryPanel" unique_id=384512977]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_qbkyl")
 
 [node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1105236757]
 z_index = 5
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 89.0
+offset_top = 643.0
+offset_right = 129.0
+offset_bottom = 683.0
+rotation = -0.12188265
 mouse_filter = 0
 
 [node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=793123300]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.1340001
-anchor_top = 0.163
-anchor_right = 1.1340001
-anchor_bottom = 0.163
-offset_left = -22.188019
-offset_top = -80.843
-offset_right = 334.81198
-offset_bottom = 296.15698
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5h3sk")
 
 [node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1145736346]
 texture_filter = 1
+material = SubResource("ShaderMaterial_oeva1")
 layout_mode = 0
-offset_left = 255.0
-offset_top = 245.0
-offset_right = 366.0
-offset_bottom = 357.0
+offset_left = 656.0
+offset_top = 165.99998
+offset_right = 912.0
+offset_bottom = 422.0
+scale = Vector2(2.11, 2.11)
 mouse_filter = 2
+texture = ExtResource("15_oeva1")
 stretch_mode = 4
 
 [node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=797273961]
 z_index = 5
+texture_filter = 2
 layout_mode = 0
-offset_left = 14.0
-offset_top = 21.0
-offset_right = 293.0
-offset_bottom = 83.0
+offset_left = 820.0
+offset_top = 834.0
+offset_right = 1304.0
+offset_bottom = 907.0
+text = "Hurt/Comfort"
+label_settings = SubResource("LabelSettings_151wr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=1161920724]
+z_index = 5
+layout_mode = 0
+offset_left = 828.0
+offset_top = 886.0
+offset_right = 1363.0
+offset_bottom = 1078.0
+text = "It's not serious or anything but you could really use a hug and a cuddle from a pretty femme until you feel better and you know what? You deserve it."
+label_settings = SubResource("LabelSettings_l0htd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=586123384]
+visible = false
 z_index = 5
 layout_mode = 0
 offset_left = 15.0
@@ -232,59 +338,36 @@ offset_top = 86.0
 offset_right = 228.0
 offset_bottom = 140.0
 
-[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=1161920724]
-z_index = 5
-layout_mode = 0
-offset_left = 21.0
-offset_top = 166.0
-offset_right = 263.0
-offset_bottom = 333.0
-autowrap_mode = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1434371393]
-stream = ExtResource("9_hwtv3")
-
-[node name="FishinTimeWip02" type="AudioStreamPlayer2D" parent="." unique_id=1875971704]
-visible = false
-position = Vector2(1045, 275)
-stream = ExtResource("9_hwtv3")
-autoplay = true
-
-[node name="BasketClickArea" type="Area2D" parent="." unique_id=1204055491]
-z_index = 5
-
-[node name="TackleBox" type="Sprite2D" parent="BasketClickArea" unique_id=16664044]
-z_index = 2
+[node name="InventoryBackButton" type="Button" parent="InventoryPanel" unique_id=1502130353]
 texture_filter = 1
-scale = Vector2(4.22, 4.22)
-texture = ExtResource("9_vw2ue")
-offset = Vector2(227.48819, 127.96211)
+layout_mode = 0
+offset_left = 37.999992
+offset_top = 429.99997
+offset_right = 252.0
+offset_bottom = 548.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("19_7wprw")
+expand_icon = true
 
-[node name="InventoryLabel" type="Label" parent="BasketClickArea/TackleBox" unique_id=651570462]
-visible = false
-offset_left = 16.81585
-offset_top = -19.00003
-offset_right = 56.81585
-offset_bottom = 3.9999695
+[node name="InventoryBackButtonLabel" type="Label" parent="InventoryPanel/InventoryBackButton" unique_id=258036684]
+texture_filter = 2
+layout_mode = 0
+offset_left = 65.00001
+offset_top = 50.000046
+offset_right = 197.0
+offset_bottom = 112.000046
+rotation = -0.13898832
+text = "Back"
+label_settings = SubResource("LabelSettings_als8v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BasketClickArea" unique_id=1532511257]
-z_index = 4
-position = Vector2(627.99994, 856)
-rotation = -0.42569792
-shape = SubResource("RectangleShape2D_ampfc")
-
-[node name="WaterShimmer2" type="Polygon2D" parent="." unique_id=1748383982]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(317.7838, -145.32373)
-scale = Vector2(1.6756756, 1.6756756)
-polygon = PackedVector2Array(561.69354, 247.25772, 572.4355, 268.7416, 562.8871, 278.28998, 547.9677, 285.45126, 550.9516, 298.5803, 560.5, 302.16095, 579.59674, 274.11255, 602.871, 269.33838, 608.8387, 241.28998, 586.75806, 224.58029)
-
-[node name="WaterShimmer3" type="Polygon2D" parent="." unique_id=1452866567]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(131, 4)
-polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
+[node name="ColorRect" type="ColorRect" parent="InventoryPanel/InventoryBackButton/InventoryBackButtonLabel" unique_id=1536012433]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 3.4072618
+offset_top = 4.5155916
+offset_right = 29.177387
+offset_bottom = 44.51559
+color = Color(0.08627451, 0.11372549, 0.14901961, 1)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
 visible = false
@@ -336,4 +419,28 @@ offset_top = 1021.0
 offset_right = 186.0
 offset_bottom = 1072.0
 text = "Set Up Shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=151346974]
+visible = false
+z_index = 1
+offset_right = 500.0
+offset_bottom = 80.0
+scale = Vector2(1.4368061, 0.7180157)
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusLabel" type="Label" parent="Panel" unique_id=400261725]
+z_index = 5
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019662963
+anchor_top = 0.08197329
+anchor_right = 0.019662963
+anchor_bottom = 0.20697327
+offset_right = 305.0
+offset_bottom = 32.0
+scale = Vector2(0.6309281, 1.4617296)
+text = "Press Space to cast!"
+label_settings = SubResource("LabelSettings_0xc70")
 metadata/_edit_use_anchors_ = true
