@@ -1,7 +1,9 @@
 extends Node
 
 var npc_themes := {
-	"Avery": "res://sweet_talk_wip03.mp3"
+	"Avery": "res://sweet_talk_wip03.mp3",
+	"Asani": "res://sweet_talk_wip03.mp3",
+	"Sophia": "res://sweet_talk_wip03.mp3"
 	}
 
 var npc_orders := {
