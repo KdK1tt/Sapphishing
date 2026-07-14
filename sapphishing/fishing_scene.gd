@@ -76,6 +76,8 @@ var fish_pool = [
 @onready var go_to_stall_button = $GoToStallButton
 @onready var inventory_back_button = $InventoryPanel/InventoryBackButton
 @onready var next_button = $DiscoveryPanel/DiscoveryCloseButton
+@onready var cast_line_button = $CastButton
+
 
 
 #not in use yet
@@ -249,6 +251,15 @@ func _ready() -> void:
 	preview_value_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_description.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	go_to_stall_button.pressed.connect(go_to_selling)
+	
+	if not go_to_stall_button.pressed.is_connected(go_to_selling):
+		go_to_stall_button.pressed.connect(go_to_selling)
+
+	if not cast_line_button.pressed.is_connected(_on_cast_line_button_pressed):
+		cast_line_button.pressed.connect(_on_cast_line_button_pressed)
+
+	if not next_button.pressed.is_connected(_on_discovery_close_button_pressed):
+		next_button.pressed.connect(_on_discovery_close_button_pressed)
 
 	
 func toggle_inventory_panel() -> void:
@@ -257,7 +268,7 @@ func toggle_inventory_panel() -> void:
 		return
 		
 	var slide_in_out = create_tween().set_trans(Tween.TRANS_CUBIC)
-
+	   
 	if not inventory_panel.visible:
 		inventory_panel.visible = true
 		
