@@ -54,9 +54,6 @@ font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
 outline_size = 34
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuih2"]
-size = Vector2(228.00002, 354.54626)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nris"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io54k"]
@@ -152,10 +149,13 @@ font_color = Color(0.11372549, 0.7529412, 0.3529412, 1)
 outline_size = 34
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuih2"]
+size = Vector2(228.00002, 354.54626)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8enu"]
 size = Vector2(3.5074263, 11.409588)
 
-[node name="Node2D" type="Node2D" unique_id=1626945183]
+[node name="Node2D2" type="Node2D" unique_id=1626945183]
 script = ExtResource("1_uuih2")
 
 [node name="background" type="TextureRect" parent="." unique_id=1260980911]
@@ -260,15 +260,6 @@ text = "Go
 fishing"
 label_settings = SubResource("LabelSettings_1gsf5")
 
-[node name="BasketClickArea" type="Area2D" parent="DefaultView" unique_id=929506769]
-z_index = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DefaultView/BasketClickArea" unique_id=520239933]
-visible = false
-z_index = 7
-position = Vector2(1046, 841.72687)
-shape = SubResource("RectangleShape2D_uuih2")
-
 [node name="TalkButton" type="Button" parent="DefaultView" unique_id=408874908]
 z_index = 2
 layout_mode = 0
@@ -337,6 +328,15 @@ text = "Talk!"
 label_settings = SubResource("LabelSettings_8yhwy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="InventoryClickHereArrow" type="TextureRect" parent="DefaultView" unique_id=1128754840]
+texture_filter = 1
+layout_mode = 0
+offset_left = 971.0
+offset_top = 535.0
+offset_right = 1089.0
+offset_bottom = 653.0
+texture = ExtResource("17_hkxb1")
 
 [node name="InventoryPanel" type="Panel" parent="." unique_id=121465448]
 z_index = 5
@@ -536,13 +536,13 @@ label_settings = SubResource("LabelSettings_sw82l")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="InventoryClickHereArrow" type="TextureRect" parent="." unique_id=1128754840]
-texture_filter = 1
-offset_left = 971.0
-offset_top = 535.0
-offset_right = 1089.0
-offset_bottom = 653.0
-texture = ExtResource("17_hkxb1")
+[node name="BasketClickArea" type="Area2D" parent="." unique_id=929506769]
+z_index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasketClickArea" unique_id=520239933]
+z_index = 7
+position = Vector2(1046, 841.72687)
+shape = SubResource("RectangleShape2D_uuih2")
 
 [node name="TackleBox" type="Sprite2D" parent="." unique_id=249144824]
 visible = false

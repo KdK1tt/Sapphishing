@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var restart_button = $Button
+@onready var restart_button = $RestartButton
 
 func _ready() -> void:
 	restart_button.pressed.connect(restart_game)

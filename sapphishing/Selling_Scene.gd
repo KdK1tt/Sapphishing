@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var inventory_panel = $InventoryPanel
 @onready var inventory_rows = $InventoryPanel/InventoryRows
-@onready var basket_click_area = $DefaultView/BasketClickArea
+@onready var basket_click_area = $BasketClickArea
 @onready var fish_preview_panel = $InventoryPanel/FishPreview
 @onready var preview_texture = $InventoryPanel/FishPreview/PreviewTexture
 @onready var preview_name_label = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewNameLabel
@@ -16,10 +16,8 @@ extends Node2D
 @onready var tackle_box_click_area = $TackleBox/TackleBoxClickArea
 @onready var talk_button = $DefaultView/TalkButton
 @onready var customer_sprite = $DefaultView/TalkButton/CustomerSprite
-@onready var sell_button = $InventoryPanel/FishPreview/SellButton
-@onready var fish_count = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewCountLabel
-@onready var inventory_close_button = $InventoryPanel/InventoryCloseButton
-@onready var talk_label_1: Label = $DefaultView/TalkButton/TalkLabel1
+@onready var default_view = $DefaultView
+@onready var click_here_arrow = $DefaultView/InventoryClickHereArrow
 
 
 var customer_waiting := false
@@ -34,11 +32,11 @@ func _ready() -> void:
 	fish_preview_panel.visible = false
 	sell_button.disabled = true
 
-	if not sell_button.pressed.is_connected(_on_sell_button_pressed):
-		sell_button.pressed.connect(_on_sell_button_pressed)     
-		
-	if not inventory_close_button.pressed.is_connected(_on_sell_button_pressed):
-		inventory_close_button.pressed.connect(_on_sell_button_pressed)     
+	inventory_panel.position.y = 1080
+
+	var bob = create_tween().set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	bob.tween_property(click_here_arrow, "position:y", 515, 1.0)
+	bob.tween_property(click_here_arrow, "position:y", 535, 1.0)
 
 	if not tackle_box_click_area.input_event.is_connected(_on_tackle_box_click_area_input_event):
 		tackle_box_click_area.input_event.connect(_on_tackle_box_click_area_input_event)
@@ -119,15 +117,28 @@ func update_money_label() -> void:
 	
 		
 func toggle_inventory_panel() -> void:
-	inventory_panel.visible = not inventory_panel.visible
-	back_to_fishing_button.visible = not back_to_fishing_button.visible
+	var slide_in_out = create_tween().set_trans(Tween.TRANS_CUBIC)
 
-	if inventory_panel.visible:
-		shop_panel.visible = false
+	if not inventory_panel.visible:
 		update_inventory_rows()
+		inventory_panel.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_OUT)
+		slide_in_out.tween_property(inventory_panel, "position:y", 0, 0.2)
+		
+		default_view.visible = false
+		shop_panel.visible = false
 		dialogue_label.text = "Choose a fish to serve."
 	else:
+		default_view.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_IN)
+		slide_in_out.tween_property(inventory_panel, "position:y", 1080, 0.2)
+		await slide_in_out.finished
+		
+		inventory_panel.visible = false
 		fish_preview_panel.visible = false
+		
 		update_default_dialogue_text()
 
 func update_inventory_rows() -> void:
