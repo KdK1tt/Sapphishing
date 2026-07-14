@@ -60,7 +60,7 @@ func show_current_line() -> void:
 	var line: Dictionary = dialogue_lines[dialogue_index]
 
 
-	speaker_label.text = line.get("speaker", "")
+	speaker_label.text = line.get("speaker", "  ")
 	dialogue_label.text = line.get("text", "")
 
 	var speaker: String = line.get("speaker", "")
