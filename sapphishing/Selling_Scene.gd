@@ -21,6 +21,7 @@ extends Node2D
 @onready var sell_button = $DefaultView/TalkButton
 @onready var fish_count = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewCountLabel
 @onready var talk_label_1 = $DefaultView/TalkButton/TalkLabel1
+@onready var talk_label_2 = $DefaultView/TalkButton/TalkLabel2
 
 
 var customer_waiting := false
@@ -56,7 +57,8 @@ func _ready() -> void:
 	preview_name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_value_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_description.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+	talk_label_1.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	talk_label_2.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	dialogue_label.text = "Welcome! Click the basket to choose what to serve."
 
