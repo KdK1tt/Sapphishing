@@ -684,17 +684,6 @@ offset_bottom = 42.745296
 rotation = -0.0830889
 color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
-texture_filter = 1
-material = ExtResource("16_d4fho")
-offset_left = 610.0
-offset_top = 19.0
-offset_right = 930.42126
-offset_bottom = 339.42123
-scale = Vector2(2.16902, 2.16902)
-texture = ExtResource("15_oeva1")
-stretch_mode = 4
-
 [node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
 z_index = 5
 texture_filter = 2
@@ -721,6 +710,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="DiscoveryHeaderLabel" type="Label" parent="DiscoveryPanel" unique_id=1083943715]
+visible = false
 offset_left = -8.0
 offset_top = -108.0
 offset_right = 276.0
@@ -751,6 +741,18 @@ text = "Next"
 label_settings = SubResource("LabelSettings_d4fho")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DiscoveryFishTexture" type="TextureRect" parent="." unique_id=872939344]
+visible = false
+texture_filter = 1
+material = ExtResource("16_d4fho")
+offset_left = 610.0
+offset_top = 19.0
+offset_right = 930.42126
+offset_bottom = 339.42123
+scale = Vector2(2.16902, 2.16902)
+texture = ExtResource("15_oeva1")
+stretch_mode = 4
 
 [node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
 visible = false

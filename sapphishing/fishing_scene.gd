@@ -65,7 +65,7 @@ var fish_pool = [
 @onready var discovery_panel = $DiscoveryPanel
 @onready var discovery_name_label = $DiscoveryPanel/DiscoveryNameLabel
 @onready var discovery_description_label = $DiscoveryPanel/DiscoveryDescriptionLabel
-@onready var discovery_fish_texture = $DiscoveryPanel/DiscoveryFishTexture
+@onready var discovery_fish_texture = $DiscoveryFishTexture
 @onready var discovery_header_label = $DiscoveryPanel/DiscoveryHeaderLabel
 @onready var inventory_rows = $InventoryPanel/InventoryRows
 @onready var fish_preview_panel = $InventoryPanel/FishPreview
@@ -162,7 +162,8 @@ func hide_fish_preview() -> void:
 func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	discovery_fish_texture.texture = fish_data["texture"]
 	discovery_panel.visible = true
-	discovery_panel.modulate.a = 0.0
+	discovery_fish_texture.visible = true
+	discovery_fish_texture.modulate.a = 0.0
 
 
 	discovery_header_label.text = "New fish discovered!"
@@ -170,7 +171,8 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	discovery_description_label.text = fish_data["description"]
 
 	var tween := create_tween()
-	tween.tween_property(discovery_panel, "modulate:a", 1.0, 0.35)
+	tween.tween_property(discovery_fish_texture, "modulate:a", 1.0, 0.35)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(discovery_panel, "position:y", 0, 0.2)
 
 	await tween.finished
 
@@ -179,11 +181,13 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	await wait_for_discovery_continue(0.5)
 
 	var out_tween := create_tween()
-	out_tween.tween_property(discovery_panel, "modulate:a", 0.0, 0.25)
+	out_tween.tween_property(discovery_fish_texture, "modulate:a", 0.0, 0.25)
+	out_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC).tween_property(discovery_panel, "position:y", 1080, 0.2)
 
 	await out_tween.finished
 
 	discovery_panel.visible = false
+	discovery_fish_texture.visible = false
 	discovery_skip_allowed = false
 
 #add fish to inventory helper function
@@ -226,6 +230,8 @@ func _ready() -> void:
 	fish_reveal.visible = false
 	fish_reveal_start_position = fish_reveal.global_position
 	fish_reveal_start_scale = fish_reveal.scale
+	discovery_panel.visible = false
+	discovery_panel.position.y = 1080
 	pole_rest_rotation = pole.rotation
 	status_label.text = "Press Space to cast."
 	inventory_panel.visible = false
