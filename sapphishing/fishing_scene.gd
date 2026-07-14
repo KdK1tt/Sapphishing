@@ -220,6 +220,7 @@ func _ready() -> void:
 	state = State.READY
 	# inventory_label.text = ""
 	inventory_panel.visible = false
+	inventory_panel.position.y = 1080
 	basket_click_area.input_event.connect(_on_basket_click_area_input_event)
 	bobber.visible = false
 	fish_reveal.visible = false
@@ -244,12 +245,21 @@ func toggle_inventory_panel() -> void:
 	if state == State.WAITING or state == State.BITE:
 		status_label.text = "Finish fishing first!"
 		return
+		
+	var slide_in_out = create_tween().set_trans(Tween.TRANS_CUBIC)
 
-	inventory_open = not inventory_open
-	inventory_panel.visible = inventory_open
-
-	if inventory_open:
+	if not inventory_panel.visible:
+		inventory_panel.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_OUT).tween_property(inventory_panel, "position:y", 0, 0.2)
+		
 		update_inventory_popup()
+	else:
+		slide_in_out.set_ease(Tween.EASE_IN).tween_property(inventory_panel, "position:y", 1080, 0.2)
+		await slide_in_out.finished
+		
+		inventory_panel.visible = false
+
 	
 func _on_basket_click_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
