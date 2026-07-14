@@ -1,0 +1,36 @@
+shader_type canvas_item;
+uniform sampler2D refraction_map : repeat_enable, filter_linear_mipmap;
+uniform sampler2D screen_tex : hint_screen_texture, filter_linear_mipmap;
+
+uniform float lod: hint_range(0.0, 5) = 0.0;
+
+uniform vec2 refraction_stretch = vec2(1.0, 1.0);
+uniform float refraction_strength : hint_range(0.0, 0.1) = 0.008;
+uniform float speed : hint_range(0.0, 1.0) = 0.025;
+uniform float wave_scale = 900.0;
+
+uniform vec4 water_tint : source_color = vec4(0.45, 0.25, 1.0, 0.12);
+
+varying vec2 globalposition;
+
+void vertex() {
+	globalposition = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
+}
+
+void fragment() {
+	vec2 uv = globalposition / wave_scale;
+	vec2 animated_uv = (uv * refraction_stretch) + vec2(TIME * speed, TIME * speed * 0.035);
+	
+	vec2 refraction_offset = texture(refraction_map, animated_uv).xy - 0.5;
+	vec2 refraction_uv = SCREEN_UV - refraction_offset * refraction_strength;
+	vec4 refraction = texture(
+		screen_tex,
+		refraction_uv
+	);
+
+	vec3 tinted = mix(refraction.rgb, water_tint.rgb, water_tint.a);
+	vec4 color = texture(screen_tex, refraction_uv, lod);
+	
+	//COLOR = vec4(tinted, 1.0);
+	COLOR = (color+vec4(tinted/2.0, 1.0))/2.0;
+}
