@@ -1,33 +1,37 @@
 [gd_scene format=3 uid="uid://dry075uunf0fw"]
 
 [ext_resource type="Script" uid="uid://dt54q3a3fonta" path="res://fishing_scene.gd" id="1_hwtv3"]
-[ext_resource type="Texture2D" uid="uid://bd5choaa3c066" path="res://backdrop_fishing.png" id="2_vw2ue"]
+[ext_resource type="Texture2D" uid="uid://d2sr12n6fyift" path="res://assets/set/backdrop_fishing-NO_PROPS.png" id="2_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://qvesrrt4sujy" path="res://assets/prop/bobber.png" id="3_hwtv3"]
 [ext_resource type="Texture2D" uid="uid://bqhc4mw8rtvvg" path="res://assets/prop/fishing_rod-basic.png" id="4_hwtv3"]
+[ext_resource type="Texture2D" uid="uid://cwswogh0tog6a" path="res://assets/prop/stool.png" id="4_tobc7"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="5_egw1k"]
 [ext_resource type="Texture2D" uid="uid://5swrn35svbsr" path="res://assets/Splatter_white.png" id="6_0tsyy"]
+[ext_resource type="Shader" uid="uid://dpfqkv1cep1gd" path="res://shaders/drop_shadow_canvasgroup.gdshader" id="6_g5n1s"]
+[ext_resource type="Script" uid="uid://dnci81frjgjew" path="res://scripts/prop_container.gd" id="6_redbb"]
 [ext_resource type="Shader" uid="uid://d4fqyh4cffj4d" path="res://water_shader.gdshader" id="7_0mh4r"]
 [ext_resource type="AudioStream" uid="uid://bvpmoqs4jfr7r" path="res://fishin_time_wip02.mp3" id="9_hwtv3"]
-[ext_resource type="Texture2D" uid="uid://dlg1r4i64pbv3" path="res://backdrop_fishing_tackle_separate.png" id="10_431q5"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
-font_size = 30
-font_color = Color(0.6266101, 0.79658437, 0.9862196, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egw1k"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 42.159
-flatness = 0.16
-initial_velocity_min = 80.0
-initial_velocity_max = 160.0
-gravity = Vector3(0, 300, 0)
-scale_min = 0.01
-scale_max = 0.01
-hue_variation_min = -0.04000002
-hue_variation_max = -2.2351742e-08
+[ext_resource type="Texture2D" uid="uid://q2pmky5gcya" path="res://assets/prop/tackle_box.png" id="9_vw2ue"]
+[ext_resource type="Texture2D" uid="uid://b77h47lvbb4kw" path="res://assets/prop/bucket.png" id="11_431q5"]
+[ext_resource type="Texture2D" uid="uid://d0tvuq227mylh" path="res://assets/ui/scene_fishing/textbox/fish_inventory-bucket.png" id="12_431q5"]
+[ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="13_qbkyl"]
+[ext_resource type="Texture2D" uid="uid://cqvoi7pfhqr48" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-inventory.png" id="14_iw5jq"]
+[ext_resource type="Shader" uid="uid://clhha66cym7hg" path="res://shaders/drop_shadow.gdshader" id="15_iw5jq"]
+[ext_resource type="Texture2D" uid="uid://dhrgo36cgfyu6" path="res://assets/fish/hurt_comfort_fish.png" id="15_oeva1"]
+[ext_resource type="Material" uid="uid://c354fimsurde7" path="res://shaders/drop_shadow_material.tres" id="16_d4fho"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="17_5h3sk"]
+[ext_resource type="FontVariation" uid="uid://btboquei603hd" path="res://assets/font/opendyslexic-custom.tres" id="18_7wprw"]
+[ext_resource type="Texture2D" uid="uid://dpmfwu2ijct6b" path="res://assets/ui/scene_fishing/buttons/back_arrow.png" id="19_7wprw"]
+[ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="19_nmqsw"]
+[ext_resource type="Texture2D" uid="uid://nogdau36fm2r" path="res://assets/ui/scene_fishing/textbox/textbox-fish_info-catch.png" id="21_als8v"]
+[ext_resource type="Texture2D" uid="uid://37xmvoe84ukt" path="res://assets/ui/scene_fishing/buttons/fish_catch-new_starburst.png" id="22_rds0p"]
+[ext_resource type="Texture2D" uid="uid://topj5fxutc60" path="res://assets/ui/scene_fishing/textbox/shop_upgrades-tackle_box.png" id="24_g72re"]
+[ext_resource type="Texture2D" uid="uid://dorj5ej8fw4o5" path="res://assets/ui/prompt-spacebar.png" id="24_rds0p"]
+[ext_resource type="Texture2D" uid="uid://buhh7ckj0crtx" path="res://assets/ui/money.png" id="25_lllwo"]
+[ext_resource type="Texture2D" uid="uid://bvunnqmntd1py" path="res://assets/ui/scene_fishing/icons/upgrade-rod-beginner.png" id="26_k1wj7"]
+[ext_resource type="Texture2D" uid="uid://b6w1llknanv2j" path="res://assets/ui/scene_fishing/buttons/to_stall-SMALL.png" id="26_va3sv"]
+[ext_resource type="Texture2D" uid="uid://dbsk6h1qt8n3n" path="res://assets/ui/scene_fishing/icons/upgrade-comfort-supportive_shoes.png" id="27_ggr6f"]
+[ext_resource type="Texture2D" uid="uid://dvrigsxweytpl" path="res://assets/ui/scene_fishing/icons/upgrade-bait-heart_worm.png" id="28_hpe1n"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
 
@@ -44,27 +48,161 @@ shader_parameter/speed = 0.018000000855
 shader_parameter/wave_scale = 500.0
 shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ampfc"]
-size = Vector2(39.04806, 146.9995)
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egw1k"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 42.159
+flatness = 0.16
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 300, 0)
+scale_min = 0.01
+scale_max = 0.01
+hue_variation_min = -0.04000002
+hue_variation_max = -2.2351742e-08
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5n1s"]
+shader = ExtResource("6_g5n1s")
+shader_parameter/original_alpha = 1.0
+shader_parameter/drop_shadow_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+shader_parameter/shadow_offset_x = 2.3290699924238822e-09
+shader_parameter/shadow_offset_y = 0.00800000270906997
+shader_parameter/shadow_scale = Vector2(1, 1)
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 20.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.5699999999999998
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("17_5h3sk")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_g5n1s"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 48
+font_color = Color(0.27450982, 0.39607844, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2mdr"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 56
+font_color = Color(0.27450982, 0.39607844, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjuje"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 36
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 24
+outline_color = Color(0.07058824, 0.08235294, 0.15294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_redbb"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 42
+font_color = Color(0.8666667, 0.41568628, 0.6039216, 1)
+outline_size = 28
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5h3sk"]
+texture = ExtResource("14_iw5jq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_151wr"]
+font = ExtResource("17_5h3sk")
+font_size = 46
+font_color = Color(0.54509807, 0.78039217, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0htd"]
+font = ExtResource("18_7wprw")
+font_size = 26
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 26
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_als8v"]
+font = ExtResource("17_5h3sk")
+font_size = 56
+font_color = Color(0.64705884, 0.6901961, 0.9882353, 1)
+outline_size = 48
+outline_color = Color(0.08627451, 0.11372549, 0.14901961, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_fjeps"]
+base_font = ExtResource("17_5h3sk")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_8624m"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_fjeps")
+font_size = 52
+font_color = Color(0.11372549, 0.7529412, 0.3529412, 1)
+outline_size = 34
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pp1tu"]
+font = ExtResource("17_5h3sk")
+font_size = 64
+font_color = Color(0.9647059, 0.6117647, 0.3372549, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vw2ue"]
-font_size = 20
-outline_size = 1
+font = ExtResource("17_5h3sk")
+font_size = 56
+font_color = Color(0.54509807, 0.78039217, 1, 1)
+outline_size = 32
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_tobc7"]
-font_size = 17
-font_color = Color(0.8674346, 0.88230926, 0.85733706, 1)
-outline_size = 1
-shadow_size = 2
+[sub_resource type="LabelSettings" id="LabelSettings_va3sv"]
+font = ExtResource("18_7wprw")
+font_size = 28
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 24
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_431q5"]
 font_size = 25
 font_color = Color(1, 0.4392157, 1, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_d4fho"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 38
+font_color = Color(0.9411765, 0.96862745, 1, 1)
+outline_size = 34
+outline_color = Color(0.07058824, 0.08235294, 0.15294118, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0htd"]
+shader = ExtResource("15_iw5jq")
+shader_parameter/shadow_only = false
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/blur_std = 0.4
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xc70"]
+font_size = 30
+font_color = Color(0.6266101, 0.79658437, 0.9862196, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=660654378]
 script = ExtResource("1_hwtv3")
 
 [node name="Background" type="TextureRect" parent="." unique_id=410957344]
+z_index = -1
+z_as_relative = false
 texture_filter = 1
 clip_contents = true
 anchors_preset = 15
@@ -74,35 +212,559 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vw2ue")
+texture = ExtResource("2_hwtv3")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background" unique_id=1434371393]
+stream = ExtResource("9_hwtv3")
+
+[node name="FishinTimeWip02" type="AudioStreamPlayer2D" parent="Background" unique_id=1875971704]
+visible = false
+position = Vector2(1045, 275)
+stream = ExtResource("9_hwtv3")
+autoplay = true
+
+[node name="WaterShimmer" type="Polygon2D" parent="Background" unique_id=1415136021]
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(86.23039, -110.75454)
+scale = Vector2(1.5195655, 1.5447793)
+polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 307.1731, 616.1104, 334.1545, 595.39545, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 819.16156, 608.3423, 843.5106, 596.0428, 869.1759, 593.4534, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
+uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
+
+[node name="WaterShimmer2" type="Polygon2D" parent="Background" unique_id=1748383982]
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(317.7838, -145.32373)
+scale = Vector2(1.6756756, 1.6756756)
+polygon = PackedVector2Array(561.69354, 247.25772, 572.4355, 268.7416, 562.8871, 278.28998, 547.9677, 285.45126, 550.9516, 298.5803, 560.5, 302.16095, 579.59674, 274.11255, 602.871, 269.33838, 608.8387, 241.28998, 586.75806, 224.58029)
+
+[node name="WaterShimmer3" type="Polygon2D" parent="Background" unique_id=1452866567]
+z_as_relative = false
+material = SubResource("ShaderMaterial_ampfc")
+position = Vector2(131, 4)
+polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
+
+[node name="WaterSurface" type="Marker2D" parent="Background" unique_id=1004312198]
+position = Vector2(963, 605)
+
+[node name="SplashParticles" type="GPUParticles2D" parent="Background" unique_id=172828916]
+top_level = true
+z_index = 2
+texture_filter = 1
+use_parent_material = true
+position = Vector2(961, 531)
+emitting = false
+amount = 12
+texture = ExtResource("6_0tsyy")
+lifetime = 0.47
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+trail_sections = 5
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_egw1k")
+
+[node name="PropContainer" type="CanvasGroup" parent="." unique_id=1070702693]
+material = SubResource("ShaderMaterial_g5n1s")
+script = ExtResource("6_redbb")
+
+[node name="Stool" type="TextureRect" parent="PropContainer" unique_id=961520205]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_tobc7")
+
+[node name="TackleBox" type="Sprite2D" parent="PropContainer" unique_id=240076912]
+texture_filter = 1
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("9_vw2ue")
+offset = Vector2(227.48822, 127.96213)
+
+[node name="TackleBoxLabel" type="Label" parent="PropContainer/TackleBox" unique_id=1300553842]
+texture_filter = 2
+offset_left = 101.895744
+offset_top = 171.32703
+offset_right = 326.89575
+offset_bottom = 216.32703
+rotation = -0.15760599
+scale = Vector2(0.237, 0.237)
+text = "Upgrades"
+label_settings = SubResource("LabelSettings_g5n1s")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="PropContainer/TackleBox/TackleBoxLabel" unique_id=1813878550]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 43.18062
+offset_top = 14.961702
+offset_right = 174.13863
+offset_bottom = 35.29245
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TackleBoxClickArea" type="Area2D" parent="PropContainer/TackleBox" unique_id=278491331]
+scale = Vector2(0.23696686, 0.23696686)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/TackleBox/TackleBoxClickArea" unique_id=1865497840]
+visible = false
+polygon = PackedVector2Array(571, 991, 593, 1021, 758, 928, 768, 858, 671, 692, 493, 760, 489, 794)
+
+[node name="FishBucket" type="Sprite2D" parent="PropContainer" unique_id=16664044]
+texture_filter = 1
+scale = Vector2(4.2200003, 4.2200003)
+texture = ExtResource("11_431q5")
+offset = Vector2(227.48819, 127.96211)
+
+[node name="FishBucketLabel" type="Label" parent="PropContainer/FishBucket" unique_id=999183857]
+texture_filter = 2
+offset_left = 115.876785
+offset_top = 238.15167
+offset_right = 251.86604
+offset_bottom = 292.15167
+rotation = -0.15760599
+scale = Vector2(0.237, 0.237)
+text = "Fish"
+label_settings = SubResource("LabelSettings_e2mdr")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FishBucketClickArea" type="Area2D" parent="PropContainer/FishBucket" unique_id=1204055491]
+z_index = 5
+scale = Vector2(0.2369668, 0.2369668)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PropContainer/FishBucket/FishBucketClickArea" unique_id=249239574]
+visible = false
+polygon = PackedVector2Array(296, 1083, 264, 852, 375, 793, 513, 797, 587, 836, 565, 1082)
+
+[node name="CastButton" type="Button" parent="." unique_id=1591881128]
+texture_filter = 1
+offset_left = 1817.0
+offset_top = 973.0
+offset_right = 1889.0
+offset_bottom = 1063.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("24_rds0p")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Label" type="Label" parent="CastButton" unique_id=280187061]
+texture_filter = 2
+layout_mode = 0
+offset_left = -8.0
+offset_top = 46.0
+offset_right = 108.0
+offset_bottom = 89.0
+rotation = 0.11408426
+text = "Cast!"
+label_settings = SubResource("LabelSettings_sjuje")
+
+[node name="GoToStallButton" type="Button" parent="." unique_id=1081836556]
+texture_filter = 1
+offset_left = -51.0
+offset_top = 886.0
+offset_right = 202.0
+offset_bottom = 1122.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("26_va3sv")
+expand_icon = true
+
+[node name="GoToStallButtonLabel" type="Label" parent="GoToStallButton" unique_id=1726590858]
+texture_filter = 2
+layout_mode = 0
+offset_left = 97.99999
+offset_top = 95.0
+offset_right = 257.0
+offset_bottom = 194.0
+rotation = -0.16020273
+text = "Set up
+Shop"
+label_settings = SubResource("LabelSettings_redbb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pole" type="TextureRect" parent="." unique_id=94924532]
+texture_filter = 1
+material = ExtResource("16_d4fho")
+offset_left = 1610.9999
+offset_top = 478.99997
+offset_right = 1738.9999
+offset_bottom = 607.0
+scale = Vector2(4.22, 4.22)
+pivot_offset = Vector2(124.948944, 64.000015)
+texture = ExtResource("4_hwtv3")
 
 [node name="Bobber" type="TextureRect" parent="." unique_id=1561712798]
 light_mask = 4737
 visibility_layer = 131073
-z_index = 2
+z_index = -1
+z_as_relative = false
 texture_filter = 1
-offset_left = 1230.0001
-offset_top = 355.00003
-offset_right = 1258.0001
-offset_bottom = 383.00003
+anchors_preset = -1
+anchor_left = 30.9
+anchor_top = 9.025
+anchor_right = 33.854
+anchor_bottom = 11.978999
+offset_left = 1222.0001
+offset_top = 361.0
+offset_right = 1250.0001
+offset_bottom = 389.0
 scale = Vector2(4.22, 4.22)
 texture = ExtResource("3_hwtv3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Pole" type="TextureRect" parent="." unique_id=94924532]
+[node name="InventoryPanel" type="CanvasGroup" parent="." unique_id=1520666997]
+visible = false
+
+[node name="InventoryGradient" type="TextureRect" parent="InventoryPanel" unique_id=384512977]
+show_behind_parent = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("13_qbkyl")
+
+[node name="InventoryBackground" type="TextureRect" parent="InventoryPanel" unique_id=635516108]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_431q5")
+
+[node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1105236757]
+z_index = 5
+offset_left = 89.0
+offset_top = 643.0
+offset_right = 129.0
+offset_bottom = 683.0
+rotation = -0.12188265
+mouse_filter = 0
+
+[node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=793123300]
+show_behind_parent = true
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5h3sk")
+
+[node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1145736346]
+texture_filter = 1
+material = ExtResource("16_d4fho")
+layout_mode = 0
+offset_left = 781.0
+offset_top = 295.0
+offset_right = 1037.0
+offset_bottom = 551.0
+scale = Vector2(2.11, 2.11)
+mouse_filter = 2
+texture = ExtResource("15_oeva1")
+stretch_mode = 4
+
+[node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=797273961]
+z_index = 5
+texture_filter = 2
+layout_mode = 0
+offset_left = 820.0
+offset_top = 834.0
+offset_right = 1304.0
+offset_bottom = 907.0
+text = "Hurt/Comfort"
+label_settings = SubResource("LabelSettings_151wr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=1161920724]
+z_index = 5
+layout_mode = 0
+offset_left = 828.0
+offset_top = 886.0
+offset_right = 1363.0
+offset_bottom = 1078.0
+text = "It's not serious or anything but you could really use a hug and a cuddle from a pretty femme until you feel better and you know what? You deserve it."
+label_settings = SubResource("LabelSettings_l0htd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=586123384]
+visible = false
+z_index = 5
+layout_mode = 0
+offset_left = 15.0
+offset_top = 86.0
+offset_right = 228.0
+offset_bottom = 140.0
+
+[node name="InventoryBackButton" type="Button" parent="InventoryPanel" unique_id=1502130353]
+texture_filter = 1
+offset_left = 37.999992
+offset_top = 429.99997
+offset_right = 252.0
+offset_bottom = 548.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("19_7wprw")
+expand_icon = true
+
+[node name="InventoryBackButtonLabel" type="Label" parent="InventoryPanel/InventoryBackButton" unique_id=258036684]
+texture_filter = 2
+layout_mode = 0
+offset_left = 65.00001
+offset_top = 50.000046
+offset_right = 197.0
+offset_bottom = 112.000046
+rotation = -0.13898832
+text = "Back"
+label_settings = SubResource("LabelSettings_als8v")
+
+[node name="ColorRect" type="ColorRect" parent="InventoryPanel/InventoryBackButton/InventoryBackButtonLabel" unique_id=1536012433]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 3.4072618
+offset_top = 4.5155916
+offset_right = 29.177387
+offset_bottom = 44.51559
+color = Color(0.08627451, 0.11372549, 0.14901961, 1)
+
+[node name="ShopPanel" type="CanvasGroup" parent="." unique_id=1586740328]
+visible = false
+
+[node name="ShopBgGradient" type="TextureRect" parent="ShopPanel" unique_id=1201288886]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("13_qbkyl")
+
+[node name="ShopBackground" type="TextureRect" parent="ShopPanel" unique_id=764270421]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("24_g72re")
+
+[node name="MoneyIcon" type="TextureRect" parent="ShopPanel" unique_id=949434314]
+texture_filter = 1
+offset_left = 1818.0
+offset_top = 962.0
+offset_right = 1936.0
+offset_bottom = 1080.0
+texture = ExtResource("25_lllwo")
+
+[node name="MoneyLabel" type="Label" parent="ShopPanel/MoneyIcon" unique_id=908627767]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.41525373
+anchor_top = 0.28813547
+anchor_right = 0.4063576
+anchor_bottom = 0.81228846
+text = "35"
+label_settings = SubResource("LabelSettings_8624m")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RodUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=703698077]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 430.0
+offset_right = 168.0
+offset_bottom = 458.0
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("26_k1wj7")
+
+[node name="ComfortUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=904061774]
+texture_filter = 1
+offset_left = 140.00002
+offset_top = 569.0
+offset_right = 168.00002
+offset_bottom = 597.0
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("27_ggr6f")
+
+[node name="BaitUpgradeIcon" type="TextureRect" parent="ShopPanel" unique_id=1139369445]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 709.00006
+offset_right = 168.0
+offset_bottom = 737.00006
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("28_hpe1n")
+
+[node name="ShopRows" type="VBoxContainer" parent="ShopPanel" unique_id=1910624042]
+z_index = 1
+offset_left = 252.8001
+offset_top = 466.27246
+offset_right = 746.62665
+offset_bottom = 832.20703
+rotation = 0.06278212
+
+[node name="ShopBackButton" type="Button" parent="ShopPanel" unique_id=1209958232]
+texture_filter = 1
+offset_left = -8.0
+offset_top = 311.0
+offset_right = 206.0
+offset_bottom = 429.00003
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("19_7wprw")
+expand_icon = true
+
+[node name="ShopBackButtonLabel" type="Label" parent="ShopPanel/ShopBackButton" unique_id=940323809]
+texture_filter = 2
+layout_mode = 0
+offset_left = 65.00001
+offset_top = 50.000046
+offset_right = 197.0
+offset_bottom = 112.000046
+rotation = -0.13898832
+text = "Back"
+label_settings = SubResource("LabelSettings_als8v")
+
+[node name="ColorRect" type="ColorRect" parent="ShopPanel/ShopBackButton/ShopBackButtonLabel" unique_id=1412896827]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 3.4072618
+offset_top = 4.5155916
+offset_right = 29.177387
+offset_bottom = 44.51559
+color = Color(0.08627451, 0.11372549, 0.14901961, 1)
+
+[node name="DiscoveryPanel" type="CanvasGroup" parent="." unique_id=1861666563]
+visible = false
+
+[node name="DiscoveryBgGradient" type="TextureRect" parent="DiscoveryPanel" unique_id=1897114689]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_qbkyl")
+
+[node name="DiscoveryTextBox" type="TextureRect" parent="DiscoveryPanel" unique_id=1855492291]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("21_als8v")
+
+[node name="DiscoveryNewStarburst" type="TextureRect" parent="DiscoveryPanel/DiscoveryTextBox" unique_id=110015881]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 351.00006
+offset_top = 489.0001
+offset_right = 479.00006
+offset_bottom = 617.0001
+scale = Vector2(4.22, 4.22)
+texture = ExtResource("22_rds0p")
+
+[node name="DiscoveryNewLabel" type="Label" parent="DiscoveryPanel/DiscoveryTextBox" unique_id=1137053871]
+texture_filter = 2
+layout_mode = 0
+offset_left = 554.99994
+offset_top = 751.0002
+offset_right = 707.99994
+offset_bottom = 822.0002
+rotation = -0.63909876
+text = "New!"
+label_settings = SubResource("LabelSettings_pp1tu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="DiscoveryPanel/DiscoveryTextBox/DiscoveryNewLabel" unique_id=740165912]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 96.62294
+offset_top = 9.342277
+offset_right = 128.86177
+offset_bottom = 24.401848
+rotation = -0.0830889
+color = Color(0.78431374, 0.4509804, 0.3764706, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="DiscoveryPanel/DiscoveryTextBox/DiscoveryNewLabel" unique_id=1270662178]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 50.478027
+offset_top = 17.577816
+offset_right = 70.34433
+offset_bottom = 42.745296
+rotation = -0.0830889
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
+z_index = 5
+texture_filter = 2
+offset_left = 610.0
+offset_top = 730.0
+offset_right = 1304.0
+offset_bottom = 800.0
+text = "Secret Relationship"
+label_settings = SubResource("LabelSettings_vw2ue")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscoveryDescriptionLabel" type="Label" parent="DiscoveryPanel" unique_id=162660082]
+z_index = 5
+texture_filter = 2
+offset_left = 656.0
+offset_top = 782.0
+offset_right = 1259.0
+offset_bottom = 1005.0
+text = "It's not serious or anything but you could really use a hug and a cuddle from a pretty femme until you feel better and you know what? You deserve it"
+label_settings = SubResource("LabelSettings_va3sv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DiscoveryHeaderLabel" type="Label" parent="DiscoveryPanel" unique_id=1083943715]
+visible = false
+offset_left = -8.0
+offset_top = -108.0
+offset_right = 276.0
+offset_bottom = -41.0
+label_settings = SubResource("LabelSettings_431q5")
+
+[node name="DiscoveryCloseButton" type="Button" parent="DiscoveryPanel" unique_id=926156611]
+texture_filter = 1
+offset_left = 1817.0
+offset_top = 973.0
+offset_right = 1889.0
+offset_bottom = 1066.0
+theme = ExtResource("19_nmqsw")
+icon = ExtResource("24_rds0p")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="DiscoveryCloseButtonLabel" type="Label" parent="DiscoveryPanel/DiscoveryCloseButton" unique_id=988734673]
+texture_filter = 2
+layout_mode = 0
+offset_left = -24.0
+offset_top = 43.0
+offset_right = 93.0
+offset_bottom = 91.0
+rotation = 0.04338394
+text = "Next"
+label_settings = SubResource("LabelSettings_d4fho")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiscoveryFishTexture" type="TextureRect" parent="." unique_id=872939344]
+visible = false
+texture_filter = 1
+material = ExtResource("16_d4fho")
+offset_left = 610.0
+offset_top = 19.0
+offset_right = 930.42126
+offset_bottom = 339.42123
+scale = Vector2(2.16902, 2.16902)
+texture = ExtResource("15_oeva1")
+stretch_mode = 4
+
+[node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
+visible = false
 z_index = 3
 texture_filter = 1
-offset_left = 1209.0
-offset_top = 266.0
-offset_right = 1337.0
-offset_bottom = 394.0
-scale = Vector2(4.22, 4.22)
-texture = ExtResource("4_hwtv3")
-metadata/_edit_use_anchors_ = true
+material = SubResource("ShaderMaterial_l0htd")
+position = Vector2(1008, 499)
+scale = Vector2(2.9303126, 2.9303126)
+texture = ExtResource("5_egw1k")
 
 [node name="Panel" type="Panel" parent="." unique_id=151346974]
+visible = false
 z_index = 1
 offset_right = 500.0
 offset_bottom = 80.0
@@ -123,205 +785,4 @@ offset_bottom = 32.0
 scale = Vector2(0.6309281, 1.4617296)
 text = "Press Space to cast!"
 label_settings = SubResource("LabelSettings_0xc70")
-metadata/_edit_use_anchors_ = true
-
-[node name="FishReveal" type="Sprite2D" parent="." unique_id=709258852]
-visible = false
-z_index = 3
-texture_filter = 1
-position = Vector2(981.00006, 378)
-scale = Vector2(2.9303126, 2.9303126)
-texture = ExtResource("5_egw1k")
-
-[node name="SplashParticles" type="GPUParticles2D" parent="." unique_id=172828916]
-top_level = true
-z_index = 2
-texture_filter = 1
-use_parent_material = true
-position = Vector2(961, 531)
-emitting = false
-amount = 12
-texture = ExtResource("6_0tsyy")
-lifetime = 0.47
-one_shot = true
-explosiveness = 1.0
-trail_enabled = true
-trail_sections = 5
-trail_section_subdivisions = 2
-process_material = SubResource("ParticleProcessMaterial_egw1k")
-
-[node name="WaterSurface" type="Marker2D" parent="." unique_id=1004312198]
-position = Vector2(963, 605)
-
-[node name="WaterShimmer" type="Polygon2D" parent="." unique_id=1415136021]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(86.23039, -110.75454)
-scale = Vector2(1.5195655, 1.5447793)
-polygon = PackedVector2Array(382.19455, 494.41016, 363.76825, 517.0671, 350.60657, 540.3714, 360, 567.60535, 374.29758, 592.8061, 428.26038, 581.8013, 500.6495, 586.33264, 555.9284, 614.81573, 600.01996, 626.46783, 652.6666, 629.7046, 730.3204, 612.87366, 779.0185, 612.2263, 782.30896, 599.2795, 763.22455, 577.91724, 763.8826, 537.78204, 771.7796, 519.0091, 804.0257, 499.58887, 771.7796, 453.62762, 717.81683, 379.18335, 686.2288, 379.18335, 676.3576, 372.7099, 675.04144, 353.28967, 686.2288, 351.34766, 686.2288, 345.52155, 663.1959, 317.0385, 646.08575, 316.39117, 644.1115, 300.85498, 650.0343, 299.5603, 649.37616, 285.96613, 623.71094, 252.30435, 596.0715, 254.89372, 554.61224, 256.83575, 522.3662, 250.36234, 505.91415, 278.19803, 506.57224, 297.6183, 509.86264, 318.3332, 482.22318, 320.2752, 472.3519, 344.22687, 488.804, 356.52637, 488.804, 376.59393, 482.88126, 381.7727, 442.0801, 386.30408, 386.80115, 473.04785)
-uv = PackedVector2Array(404, 452.24673, 388, 500.22775, 369, 521.6661, 346, 539.05884, 366, 533.95447, 368, 533.9165, 389, 535.95825, 360, 567.60535, 379, 599.2524, 419, 587.00195, 448, 587.00195, 500, 585.9811, 564, 623.75336, 643, 632.9412, 719, 620.69073, 771, 623.75336, 794, 604.35675, 784, 575.77234, 768, 559.43835, 768, 533.91656, 799, 504.31125, 806, 497.16513, 771, 454.28845, 766, 436.93362, 756, 419.5788, 734, 389.97348, 710, 368.53516, 690, 365.47253, 677, 332.8046, 676, 315.44974, 649, 296.05316, 638, 272.5731, 626, 243.98863, 599, 241.94688, 566, 256.2391, 539, 243.98863, 505, 248.07213, 507, 300.13666, 489, 304.22015, 477, 329.74197, 489, 362.4099, 482, 366.4934, 441, 378.74387, 425, 428.76666)
-
-[node name="InventoryPanel" type="Panel" parent="." unique_id=1945647792]
-visible = false
-z_index = 5
-offset_left = 138.0
-offset_top = 95.0
-offset_right = 520.0
-offset_bottom = 456.0
-mouse_filter = 2
-
-[node name="InventoryRows" type="VBoxContainer" parent="InventoryPanel" unique_id=1105236757]
-z_index = 5
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 0
-
-[node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=793123300]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.1340001
-anchor_top = 0.163
-anchor_right = 1.1340001
-anchor_bottom = 0.163
-offset_left = -22.188019
-offset_top = -80.843
-offset_right = 334.81198
-offset_bottom = 296.15698
-mouse_filter = 2
-
-[node name="PreviewTexture" type="TextureRect" parent="InventoryPanel/FishPreview" unique_id=1145736346]
-texture_filter = 1
-layout_mode = 0
-offset_left = 255.0
-offset_top = 245.0
-offset_right = 366.0
-offset_bottom = 357.0
-mouse_filter = 2
-stretch_mode = 4
-
-[node name="PreviewNameLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=797273961]
-z_index = 5
-layout_mode = 0
-offset_left = 14.0
-offset_top = 21.0
-offset_right = 293.0
-offset_bottom = 83.0
-
-[node name="PreviewValueLabel" type="Label" parent="InventoryPanel/FishPreview" unique_id=586123384]
-z_index = 5
-layout_mode = 0
-offset_left = 15.0
-offset_top = 86.0
-offset_right = 228.0
-offset_bottom = 140.0
-
-[node name="PreviewDescription" type="Label" parent="InventoryPanel/FishPreview" unique_id=1161920724]
-z_index = 5
-layout_mode = 0
-offset_left = 21.0
-offset_top = 166.0
-offset_right = 263.0
-offset_bottom = 333.0
-autowrap_mode = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1434371393]
-stream = ExtResource("9_hwtv3")
-
-[node name="FishinTimeWip02" type="AudioStreamPlayer2D" parent="." unique_id=1875971704]
-visible = false
-position = Vector2(1045, 275)
-stream = ExtResource("9_hwtv3")
-autoplay = true
-
-[node name="TackleBox" type="Sprite2D" parent="." unique_id=16664044]
-z_index = 2
-texture_filter = 1
-position = Vector2(568, 895.99994)
-scale = Vector2(4.22, 4.22)
-texture = ExtResource("10_431q5")
-
-[node name="InventoryLabel" type="Label" parent="TackleBox" unique_id=651570462]
-visible = false
-offset_left = 16.81585
-offset_top = -19.00003
-offset_right = 56.81585
-offset_bottom = 3.9999695
-
-[node name="BasketClickArea" type="Area2D" parent="TackleBox" unique_id=1204055491]
-z_index = 5
-position = Vector2(-23.877495, -17.255035)
-scale = Vector2(0.8468272, 0.3167827)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TackleBox/BasketClickArea" unique_id=1532511257]
-visible = false
-z_index = 4
-position = Vector2(24.918968, 44.07428)
-scale = Vector2(1.5503104, 1.4799333)
-shape = SubResource("RectangleShape2D_ampfc")
-
-[node name="WaterShimmer2" type="Polygon2D" parent="." unique_id=1748383982]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(317.7838, -145.32373)
-scale = Vector2(1.6756756, 1.6756756)
-polygon = PackedVector2Array(561.69354, 247.25772, 572.4355, 268.7416, 562.8871, 278.28998, 547.9677, 285.45126, 550.9516, 298.5803, 560.5, 302.16095, 579.59674, 274.11255, 602.871, 269.33838, 608.8387, 241.28998, 586.75806, 224.58029)
-
-[node name="WaterShimmer3" type="Polygon2D" parent="." unique_id=1452866567]
-z_index = 2
-material = SubResource("ShaderMaterial_ampfc")
-position = Vector2(131, 4)
-polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
-
-[node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
-visible = false
-z_index = 5
-offset_left = 478.0
-offset_top = 780.0
-offset_right = 1546.795
-offset_bottom = 1041.0
-
-[node name="DiscoveryNameLabel" type="Label" parent="DiscoveryPanel" unique_id=968965877]
-z_index = 5
-layout_mode = 0
-offset_left = 7.0
-offset_top = 19.0
-offset_right = 454.0
-offset_bottom = 89.0
-label_settings = SubResource("LabelSettings_vw2ue")
-
-[node name="DiscoveryDescriptionLabel" type="Label" parent="DiscoveryPanel" unique_id=162660082]
-z_index = 5
-layout_mode = 0
-offset_left = 1.0
-offset_top = 74.0
-offset_right = 622.0
-offset_bottom = 144.0
-label_settings = SubResource("LabelSettings_tobc7")
-autowrap_mode = 2
-
-[node name="DiscoveryFishTexture" type="TextureRect" parent="DiscoveryPanel" unique_id=872939344]
-texture_filter = 1
-layout_mode = 0
-offset_left = 272.0
-offset_top = -351.0
-offset_right = 660.36365
-offset_bottom = 9.0
-stretch_mode = 4
-
-[node name="DiscoveryHeaderLabel" type="Label" parent="DiscoveryPanel" unique_id=1083943715]
-layout_mode = 0
-offset_left = -8.0
-offset_top = -108.0
-offset_right = 276.0
-offset_bottom = -41.0
-label_settings = SubResource("LabelSettings_431q5")
-
-[node name="GoToStallButton" type="Button" parent="." unique_id=1081836556]
-offset_left = 8.0
-offset_top = 1021.0
-offset_right = 186.0
-offset_bottom = 1072.0
-text = "Set Up Shop"
 metadata/_edit_use_anchors_ = true

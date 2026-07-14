@@ -56,16 +56,16 @@ var fish_pool = [
 @onready var status_label = $Panel/StatusLabel
 @onready var fish_reveal = $FishReveal
 @onready var pole = $Pole
-@onready var splash_particles = $SplashParticles
-@onready var water_surface = $WaterSurface
-@onready var basket = $TackleBox
-@onready var inventory_label = $TackleBox/InventoryLabel
+@onready var splash_particles = $Background/SplashParticles
+@onready var water_surface = $Background/WaterSurface
+@onready var basket = $PropContainer/FishBucket
+# @onready var inventory_label = $TackleBox/InventoryLabel
 @onready var inventory_panel = $InventoryPanel
-@onready var basket_click_area = $TackleBox/BasketClickArea
+@onready var basket_click_area = $PropContainer/FishBucket/FishBucketClickArea
 @onready var discovery_panel = $DiscoveryPanel
 @onready var discovery_name_label = $DiscoveryPanel/DiscoveryNameLabel
 @onready var discovery_description_label = $DiscoveryPanel/DiscoveryDescriptionLabel
-@onready var discovery_fish_texture = $DiscoveryPanel/DiscoveryFishTexture
+@onready var discovery_fish_texture = $DiscoveryFishTexture
 @onready var discovery_header_label = $DiscoveryPanel/DiscoveryHeaderLabel
 @onready var inventory_rows = $InventoryPanel/InventoryRows
 @onready var fish_preview_panel = $InventoryPanel/FishPreview
@@ -162,7 +162,8 @@ func hide_fish_preview() -> void:
 func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	discovery_fish_texture.texture = fish_data["texture"]
 	discovery_panel.visible = true
-	discovery_panel.modulate.a = 0.0
+	discovery_fish_texture.visible = true
+	discovery_fish_texture.modulate.a = 0.0
 
 
 	discovery_header_label.text = "New fish discovered!"
@@ -170,7 +171,8 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	discovery_description_label.text = fish_data["description"]
 
 	var tween := create_tween()
-	tween.tween_property(discovery_panel, "modulate:a", 1.0, 0.35)
+	tween.tween_property(discovery_fish_texture, "modulate:a", 1.0, 0.35)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(discovery_panel, "position:y", 0, 0.2)
 
 	await tween.finished
 
@@ -179,11 +181,13 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	await wait_for_discovery_continue(0.5)
 
 	var out_tween := create_tween()
-	out_tween.tween_property(discovery_panel, "modulate:a", 0.0, 0.25)
+	# out_tween.tween_property(discovery_fish_texture, "modulate:a", 0.0, 0.25)
+	out_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC).tween_property(discovery_panel, "position:y", 1080, 0.2)
 
 	await out_tween.finished
 
 	discovery_panel.visible = false
+	discovery_fish_texture.visible = false
 	discovery_skip_allowed = false
 
 #add fish to inventory helper function
@@ -218,19 +222,22 @@ func show_splash(pos: Vector2) -> void:
 
 func _ready() -> void:
 	state = State.READY
-	inventory_label.text = ""
+	# inventory_label.text = ""
 	inventory_panel.visible = false
+	inventory_panel.position.y = 1080
 	basket_click_area.input_event.connect(_on_basket_click_area_input_event)
 	bobber.visible = false
 	fish_reveal.visible = false
 	fish_reveal_start_position = fish_reveal.global_position
 	fish_reveal_start_scale = fish_reveal.scale
+	discovery_panel.visible = false
+	discovery_panel.position.y = 1080  
 	pole_rest_rotation = pole.rotation
 	status_label.text = "Press Space to cast."
 	inventory_panel.visible = false
 	fish_preview_panel.visible = false
 	load_song()
-	inventory_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	##inventory_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	inventory_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fish_preview_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -244,12 +251,21 @@ func toggle_inventory_panel() -> void:
 	if state == State.WAITING or state == State.BITE:
 		status_label.text = "Finish fishing first!"
 		return
+		
+	var slide_in_out = create_tween().set_trans(Tween.TRANS_CUBIC)
 
-	inventory_open = not inventory_open
-	inventory_panel.visible = inventory_open
-
-	if inventory_open:
+	if not inventory_panel.visible:
+		inventory_panel.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_OUT).tween_property(inventory_panel, "position:y", 0, 0.2)
+		
 		update_inventory_popup()
+	else:
+		slide_in_out.set_ease(Tween.EASE_IN).tween_property(inventory_panel, "position:y", 1080, 0.2)
+		await slide_in_out.finished
+		
+		inventory_panel.visible = false
+
 	
 func _on_basket_click_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

@@ -90,7 +90,6 @@ offset_bottom = 40.0
 texture = ExtResource("3_1ener")
 
 [node name="BlurObject" type="ColorRect" parent="BackgroundNoBlur" unique_id=1874199840]
-visible = false
 material = SubResource("ShaderMaterial_tqyq0")
 layout_mode = 0
 offset_right = 1920.0
