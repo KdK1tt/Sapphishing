@@ -51,6 +51,14 @@ outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l33r"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_7atq0"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_6pxmj"]
+events = [SubResource("InputEventKey_7atq0")]
+
 [sub_resource type="FontVariation" id="FontVariation_l8rlb"]
 base_font = ExtResource("7_7atq0")
 spacing_bottom = -8
@@ -64,7 +72,7 @@ font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
 outline_size = 34
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1145667539]
+[node name="Node2D2" type="Node2D" unique_id=1145667539]
 script = ExtResource("1_aay13")
 
 [node name="BackgroundBlur" type="TextureRect" parent="." unique_id=2048443529]
@@ -198,6 +206,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_7bp1j")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1ktdt")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q1ciq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3l33r")
+shortcut = SubResource("Shortcut_6pxmj")
 icon = ExtResource("9_l4ahj")
 icon_alignment = 2
 expand_icon = true
