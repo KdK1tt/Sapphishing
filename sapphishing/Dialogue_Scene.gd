@@ -14,6 +14,7 @@ extends Node2D
 @onready var dialogue_label = $DialoguePanel/DialogueLabel
 @onready var next_button = $DialoguePanel/NextButton
 @onready var dialogue_background = $DialoguePanel/DialogueBackground
+@onready var player_dialogue_background = $DialoguePanel/PlayerDialogueBackground
 @onready var dialogue_panel = $DialoguePanel
 
 var dialogue_lines: Array = []
@@ -37,19 +38,19 @@ func load_song() -> void:
 func load_dialogue() -> void:
 	var order: Dictionary = GameState.get_current_npc_order()
 	
-
+	if GameState.current_customer == "Avery":
+		character_portrait.texture = preload("res://assets/portrait/silhouette_purple-blue_NEW.png")
+	elif GameState.current_customer == "Sophia":
+		character_portrait.texture = preload("res://assets/portrait/silhouette_red-purple_NEW.png")
+	else:
+		character_portrait.texture = preload("res://assets/portrait/silhouette_green-blue_NEW.png")
+		
 	if GameState.pending_dialogue_phase == "after":
 		dialogue_lines = order["after_transaction"]
 	else:
 		dialogue_lines = order["before_transaction"]
 
 	dialogue_index = 0
-	
-func set_speaker_label_color(color: Color) -> void:
-	speaker_label.add_theme_color_override("font_color", color)
-	speaker_label.add_theme_color_override("font_outline_color", Color("#ffffff"))
-	speaker_label.add_theme_constant_override("outline_size", 2)
-
 
 
 func show_current_line() -> void:
@@ -66,20 +67,34 @@ func show_current_line() -> void:
 	var speaker: String = line.get("speaker", "")
 	var active_npc: String = GameState.current_customer
 	
-	if speaker == "???" and active_npc == "Avery":
-		set_speaker_label_color(Color("#370076"))
-	elif speaker == "Avery":
-		set_speaker_label_color(Color("#370076"))
-	elif speaker == "???" and active_npc == "Sophia":
-		set_speaker_label_color(Color("#910030"))
-	elif speaker == "Sophia":
-		set_speaker_label_color(Color("#910030"))
-	elif speaker == "???" and active_npc == "Asani":
-		set_speaker_label_color(Color("#007639"))
-	elif speaker == "Asani":
-		set_speaker_label_color(Color("#007639"))
+	if (speaker == "Avery" or speaker == "???") and active_npc == "Avery":
+		dialogue_background.visible = true
+		player_dialogue_background.visible = false
+		speaker_label.add_theme_color_override("font_color", Color(0.299, 0.678, 1.0, 1.0))
+		dialogue_background.texture = preload("res://assets/ui/scene_selling/textbox/dialogue_box_blue-purple.png")
+		character_portrait.modulate.v = 1.0
+	elif (speaker == "Sophia" or speaker == "???") and active_npc == "Sophia":
+		dialogue_background.visible = true
+		player_dialogue_background.visible = false
+		speaker_label.add_theme_color_override("font_color", Color(0.949, 0.2, 0.4, 1.0))
+		dialogue_background.texture = preload("res://assets/ui/scene_selling/textbox/dialogue_box_red-purple.png")
+		character_portrait.modulate.v = 1.0
+	elif (speaker == "Asani" or speaker == "???") and active_npc == "Asani":
+		dialogue_background.visible = true
+		player_dialogue_background.visible = false
+		speaker_label.add_theme_color_override("font_color", Color(0.0, 0.82, 0.6, 1.0))
+		dialogue_background.texture = preload("res://assets/ui/scene_selling/textbox/dialogue_box_green-blue.png")
+		character_portrait.modulate.v = 1.0
+	elif (speaker == "You"):
+		dialogue_background.visible = false
+		player_dialogue_background.visible = true
+		character_portrait.modulate.v = 0.6
 	else:
-		set_speaker_label_color(Color("#222222"))
+		dialogue_background.visible = true
+		player_dialogue_background.visible = false
+		speaker_label.add_theme_color_override("font_color", Color(0.941, 0.969, 1.0, 1.0))
+		dialogue_background.texture = preload("res://assets/ui/scene_selling/textbox/dialogue_box_black.png")
+		character_portrait.modulate.v = 0.6
 
 	if dialogue_index == dialogue_lines.size() - 1:
 		if GameState.pending_dialogue_phase == "before":

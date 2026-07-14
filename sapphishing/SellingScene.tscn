@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bkqri3iebxqb1" path="res://assets/ui/scene_selling/icons/story_prompt-blue-green.png" id="6_hkxb1"]
 [ext_resource type="Texture2D" uid="uid://pl1ewoti1lkg" path="res://assets/ui/scene_selling/textbox/fish_description_box.png" id="6_iwjhy"]
 [ext_resource type="LabelSettings" uid="uid://dir8kbnjp6id3" path="res://assets/font/DialogueText.tres" id="7_4r25k"]
+[ext_resource type="Theme" uid="uid://d37rixh1y6dq4" path="res://assets/font/speaker_label.tres" id="7_8yhwy"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="8_hkxb1"]
 [ext_resource type="Texture2D" uid="uid://tg1toqxsm5hm" path="res://assets/ui/scene_selling/textbox/textbox-fish_inventory.png" id="9_8yhwy"]
 [ext_resource type="Texture2D" uid="uid://buhh7ckj0crtx" path="res://assets/ui/money.png" id="10_71p5w"]
@@ -71,15 +72,6 @@ line_spacing = -5.955
 font = SubResource("FontVariation_fjeps")
 font_size = 39
 font_color = Color(0.95686275, 0.5176471, 0.6039216, 1)
-outline_size = 34
-outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_8yhwy"]
-resource_local_to_scene = true
-resource_name = "ButtonText"
-font = SubResource("FontVariation_fjeps")
-font_size = 80
-font_color = Color(0, 0.82, 0.6013333, 1)
 outline_size = 34
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
@@ -326,8 +318,9 @@ offset_top = 111.0
 offset_right = 289.0409
 offset_bottom = 209.5957
 rotation = 0.13911235
+theme = ExtResource("7_8yhwy")
+theme_override_font_sizes/font_size = 80
 text = "Talk!"
-label_settings = SubResource("LabelSettings_8yhwy")
 horizontal_alignment = 1
 vertical_alignment = 1
 

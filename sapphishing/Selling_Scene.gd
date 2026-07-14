@@ -429,6 +429,15 @@ func check_for_customer() -> void:
 	if GameState.current_customer == "None":
 		dialogue_label.text = "No more customers for now. Great work, fish lady."
 		return
+	elif GameState.current_customer == "Avery":
+		talk_label_1.add_theme_color_override("font_color", Color(0.299, 0.678, 1.0, 1.0))
+		customer_sprite.texture = preload("res://assets/ui/scene_selling/icons/story_prompt-purple-blue.png")
+	elif GameState.current_customer == "Sophia":
+		talk_label_1.add_theme_color_override("font_color", Color(0.95, 0.199, 0.4, 1.0))
+		customer_sprite.texture = preload("res://assets/ui/scene_selling/icons/story_prompt-red-purple.png")
+	else:
+		talk_label_1.add_theme_color_override("font_color", Color(0.0, 0.82, 0.6, 1.0))
+		customer_sprite.texture = preload("res://assets/ui/scene_selling/icons/story_prompt-blue-green.png")
 
 	var order: Dictionary = GameState.get_current_npc_order()
 	var required_fish: String = order["required_fish"]

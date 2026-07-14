@@ -7,10 +7,11 @@
 [ext_resource type="Shader" uid="uid://bbl64bcgcl118" path="res://shaders/bg-blur.gdshader" id="4_l8rlb"]
 [ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="5_7atq0"]
 [ext_resource type="Texture2D" uid="uid://cwe5le6milgdk" path="res://assets/portrait/silhouette_green-blue_NEW.png" id="6_7atq0"]
-[ext_resource type="Texture2D" uid="uid://c32xr46x554lp" path="res://assets/ui/scene_selling/textbox/dialogue_box_green-blue.png" id="7_6pxmj"]
+[ext_resource type="Texture2D" uid="uid://dowgbtwl5mrij" path="res://assets/ui/scene_selling/textbox/dialogue_box_red-purple.png" id="7_6pxmj"]
 [ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="7_7atq0"]
 [ext_resource type="Texture2D" uid="uid://c4wvmcl041u0u" path="res://assets/ui/scene_selling/textbox/dialogue_box_black-FLIPPED.png" id="7_56tns"]
 [ext_resource type="FontFile" uid="uid://chf4aogbere46" path="res://assets/font/OpenDyslexic-Bold.otf" id="8_6pxmj"]
+[ext_resource type="Theme" uid="uid://d37rixh1y6dq4" path="res://assets/font/speaker_label.tres" id="8_l4ahj"]
 [ext_resource type="Texture2D" uid="uid://0xcncxokttd8" path="res://assets/ui/scene_selling/buttons/dialogue-next.png" id="9_l4ahj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqyq0"]
@@ -19,16 +20,9 @@ shader_parameter/lod = 2.54800012103
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rebxy"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_cpghu"]
-font = ExtResource("7_7atq0")
-font_size = 52
-font_color = Color(0.9411765, 0.96862745, 1, 1)
-outline_size = 24
-outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
-
 [sub_resource type="FontVariation" id="FontVariation_yt8w0"]
 base_font = ExtResource("8_6pxmj")
-spacing_glyph = -6
+spacing_glyph = -5
 spacing_space = -6
 spacing_bottom = -14
 
@@ -135,10 +129,8 @@ offset_top = -0.03831482
 offset_right = 165.04427
 offset_bottom = 72.44429
 rotation = -0.29988813
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
-text = "Avery"
-label_settings = SubResource("LabelSettings_cpghu")
+theme = ExtResource("8_l4ahj")
+text = "Asani"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -162,10 +154,8 @@ anchor_bottom = 0.58516246
 offset_right = 35.974976
 offset_bottom = -67.338806
 rotation = 0.27856815
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 25
+theme = ExtResource("8_l4ahj")
 text = "You"
-label_settings = SubResource("LabelSettings_cpghu")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
