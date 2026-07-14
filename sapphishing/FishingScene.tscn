@@ -275,6 +275,7 @@ position = Vector2(131, 4)
 polygon = PackedVector2Array(554, 272, 563, 286, 582, 291, 602, 280, 601, 257, 617, 246, 619, 216, 607, 201, 586, 197, 569, 220, 575, 242, 558, 254)
 
 [node name="DiscoveryPanel" type="Panel" parent="." unique_id=809289767]
+visible = false
 z_index = 5
 offset_left = 478.0
 offset_top = 780.0

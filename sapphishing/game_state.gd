@@ -3,6 +3,7 @@ extends Node
 var fish_inventory := {}
 var money := 0
 var discovered_fish := {}
+var casts_without_story_fish: int = 0
 
 var npc_progress := {
 	"Avery": 0,
