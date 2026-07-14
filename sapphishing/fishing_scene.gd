@@ -181,7 +181,7 @@ func show_new_fish_discovery(fish_data: Dictionary) -> void:
 	await wait_for_discovery_continue(0.5)
 
 	var out_tween := create_tween()
-	out_tween.tween_property(discovery_fish_texture, "modulate:a", 0.0, 0.25)
+	# out_tween.tween_property(discovery_fish_texture, "modulate:a", 0.0, 0.25)
 	out_tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC).tween_property(discovery_panel, "position:y", 1080, 0.2)
 
 	await out_tween.finished
@@ -231,7 +231,7 @@ func _ready() -> void:
 	fish_reveal_start_position = fish_reveal.global_position
 	fish_reveal_start_scale = fish_reveal.scale
 	discovery_panel.visible = false
-	discovery_panel.position.y = 1080
+	discovery_panel.position.y = 1080  
 	pole_rest_rotation = pole.rotation
 	status_label.text = "Press Space to cast."
 	inventory_panel.visible = false
