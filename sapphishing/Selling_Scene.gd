@@ -70,7 +70,6 @@ func _ready() -> void:
 	update_shop_rows()
 
 	talk_button.visible = false
-	customer_sprite.visible = false
 
 	check_for_customer()
 	load_song()
@@ -424,7 +423,6 @@ func check_for_customer() -> void:
 	customer_waiting = false
 	customer_arriving = false
 	talk_button.visible = false
-	customer_sprite.visible = false
 
 	if GameState.current_customer == "None":
 		dialogue_label.text = "No more customers for now. Great work, fish lady."
@@ -448,9 +446,8 @@ func check_for_customer() -> void:
 
 	# MID-SCENE STORY SERVING MODE
 	if GameState.customer_has_talked:
-		customer_sprite.visible = true
-		customer_sprite.position = Vector2(1120, 720)
-		customer_sprite.modulate.a = 1.0
+		talk_button.position = Vector2(1920, 0)
+		talk_button.modulate.a = 1.0
 		customer_waiting = false
 		talk_button.visible = false
 
@@ -493,9 +490,6 @@ func check_for_customer() -> void:
 
 	# Re-check after the delay.
 	if GameState.customer_has_talked:
-		customer_sprite.visible = true
-		customer_sprite.position = Vector2(1120, 375)
-		customer_sprite.modulate.a = 1.0
 		talk_button.visible = false
 
 		if GameState.get_fish_count(required_fish) <= 0:
@@ -527,14 +521,12 @@ func spawn_customer() -> void:
 	talk_button.visible = true
 	talk_button.disabled = true
 	talk_button.z_index = 80
-	talk_button.position = Vector2(1400, 375)
+	talk_button.position = Vector2(1920, 325)
+		  
 
-	customer_sprite.visible = true
-	customer_sprite.modulate.a = 0.0             
+	var target_position := Vector2(1355, 325)
 
-	var target_position := Vector2(900, 375)
-
-	dialogue_label.text = (
+	dialogue_label.text = ( 
 		order["intro"]
 		if order.has("intro")
 		else "A customer approaches..."
@@ -542,8 +534,7 @@ func spawn_customer() -> void:
 
 	var tween := create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(talk_button, "position", target_position, 0.8)
-	tween.tween_property(customer_sprite, "modulate:a", 1.0, 0.8)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC).tween_property(talk_button, "position", target_position, 0.8)
 
 	await tween.finished
 

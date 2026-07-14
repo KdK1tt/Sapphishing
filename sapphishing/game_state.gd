@@ -41,9 +41,6 @@ func get_current_npc_order() -> Dictionary:
 	var orders: Array = StoryDat.npc_orders[current_customer]
 	var progress: int = npc_progress[current_customer]
 
-	
-
-
 
 	if progress >= orders.size():
 		print("No more orders for ", current_customer)
