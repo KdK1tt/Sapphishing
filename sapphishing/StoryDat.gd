@@ -893,11 +893,11 @@ var npc_orders := {
 				  "text": "[ In the short time you've been in charge of the stall, you haven't had to educate someone and correct any misinformation very often. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "That's a bit of an exaggeration. I'm not really sure where you got your info, but the kind of magic done here is more of a guide, or a catalyst for certain experiences."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "There's no guarantees, you just have to be open to the possibilities of what the magic can do for you."
 				},
 				{
@@ -909,7 +909,7 @@ var npc_orders := {
 				  "text": "[ You're taken aback once again. You don't like the accusation of what you do being fake. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, no—"
 				},
 				{
@@ -925,7 +925,7 @@ var npc_orders := {
 				  "text": "Besides, even if you were, I'd take that chance. I'm desperate."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Nice to meet you, Desperate. I'm a potential fraudster. "
 				},
 				{
@@ -949,7 +949,7 @@ var npc_orders := {
 				  "text": "[ You're not sure whether to be irritated or intrigued. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I suppose the only way to properly gain your trust is to let you experience it for yourself. So, what fish do you want?"
 				},
 				{
@@ -957,11 +957,11 @@ var npc_orders := {
 				  "text": "P-Pardon? Fish?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Oh wow, you weren't told much, huh? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "They're magic fish, with the power of tropes that work specifically for sapphics."
 				},
 				{
@@ -969,7 +969,7 @@ var npc_orders := {
 				  "text": "Oh, that's ironic."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "How so?"
 				},
 				{
@@ -977,15 +977,15 @@ var npc_orders := {
 				  "text": "I'm allergic to seafood."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Ah."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, that's not a problem. It's just how the magic takes form. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "They're related in looks and texture but that's as far as it goes. I've never heard of someone with a seafood allergy who had a problem. "
 				},
 				{
@@ -993,7 +993,7 @@ var npc_orders := {
 				  "text": "You're really asking for a lot of trust here, aren't you?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hey, you're the one who said you were desperate. "
 				},
 				{
@@ -1005,7 +1005,7 @@ var npc_orders := {
 				  "text": "But I concede. Do you have a menu, or...?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Just there."
 				},
 				{
@@ -1013,19 +1013,19 @@ var npc_orders := {
 				  "text": "...What is... Flower Shop... \"ow\"?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "A-U. Alternate Universe. It's based on a trope. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Don't think about it too much. It won't actually bring you into a different reality. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's supposed to evoke the experience of finding a connection somewhere you might have business with. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sweet. Light. Fluffy. It's a popular one. "
 				},
 				{
@@ -1033,11 +1033,11 @@ var npc_orders := {
 				  "text": "Fish that aren't actually fish that cause people to meet other people in specific ways? What exactly is the science behind that?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's magic. Magic is famously not science. It can't be explained in a way that can be understood very easily. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sometimes, it just works like that and that's okay. "
 				},
 				{
@@ -1045,7 +1045,7 @@ var npc_orders := {
 				  "text": "As a scientist, this is a concept I struggle with. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Then we definitely come from different worlds, I guess. "
 				},
 				{
@@ -1053,7 +1053,7 @@ var npc_orders := {
 				  "text": "Quite the pair are we, no?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's fine. I hold a lot of respect for science. "
 				},
 				{
@@ -1061,7 +1061,7 @@ var npc_orders := {
 				  "text": "Then I hope you respect that I'm going to buy this magical fish and consume it as soon as I get a chance just to see what happens, as is the scientist thing to do. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I absolutely respect that. Especially since it means a purchase. "
 				},
 				{
@@ -1075,7 +1075,7 @@ var npc_orders := {
 				  "text": "Well, if this works, I guess I won't need your services again. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Who knows? A lot of people come back. There's a lot of sapphic experiences to be had. "
 				},
 				{
@@ -1083,7 +1083,7 @@ var npc_orders := {
 				  "text": "Heh. Well if I ever find myself back here, maybe that wouldn't be so bad. You've piqued my curiosity, Cupcake."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'll be curious if my scam works or not. "
 				},
 				{
@@ -1113,7 +1113,7 @@ var npc_orders := {
 				  "text": "[ Damn. She caught you unawares again. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Remember? It's magic. It just sort of works. "
 				},
 				{
@@ -1133,7 +1133,7 @@ var npc_orders := {
 				  "text": "[ It's now you notice that Sophia is holding a small bouquet of various flowers in her hand. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, it looks like you caught someone's attention."
 				},
 				{
@@ -1145,15 +1145,15 @@ var npc_orders := {
 				  "text": "That's part of why I ended up buying a fish while I have a seafood allergy. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Gee, thanks. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Did you actually go to a flower shop? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's not that literal, you know. It's just based on the trope name but it's more about the vibe. "
 				},
 				{
@@ -1169,7 +1169,7 @@ var npc_orders := {
 				  "text": "And I don't know what your fish believe I'm into but burly dudes with what looked like mustard in his beard is a strange choice for me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Aw. Sounds like you'll make a lovely couple. "
 				},
 				{
@@ -1185,19 +1185,19 @@ var npc_orders := {
 				  "text": "I'm glad you can find the humour among the mounting evidence that you might be running a scam here. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Look. I'm sorry it didn't work out this time. I told you it's not guaranteed. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "The magic sort of just encourages the experiences to happen. But there's more than one person involved and other people you could encounter have to be open to it, too."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I can't just sell fish that force a connection. Then we'd be contending with issues of consent. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Besides, you'd want a genuine connection, wouldn't you?"
 				},
 				{
@@ -1213,11 +1213,11 @@ var npc_orders := {
 				  "text": "Story of my life, I guess. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hey, no. It's not a you thing. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's more of, everyone has got something going on in their lives and sometimes the stars just have to align, even with the help of magic fish."
 				},
 				{
@@ -1253,19 +1253,19 @@ var npc_orders := {
 				  "text": "[ It's yet another thing you feel you need to figure out about her.]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Here, look at it this way. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It was your first attempt using a magical method, and would a scientist ever stop after just one failed attempt, or would they do a bit more experimenting? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I've had many customers find success with another fish after others haven't worked out. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's too early to throw in the towel. "
 				},
 				{
@@ -1285,11 +1285,11 @@ var npc_orders := {
 				  "text": "[ You don't know her very well, but still, seeing Sophia frown feels wrong. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "About that. I have a policy. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "If a fish's magic is ineffective for someone, then the next fish is 50% off. "
 				},
 				{
@@ -1301,7 +1301,7 @@ var npc_orders := {
 				  "text": "How would you be able to verify they weren't just lying to get cheaper fish?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I have my ways."
 				},
 				{
@@ -1309,7 +1309,7 @@ var npc_orders := {
 				  "text": "Let me guess. Magic?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You're starting to get it. "
 				},
 				{
@@ -1325,15 +1325,15 @@ var npc_orders := {
 				  "text": "Then in all your magical insight, be honest: am I doomed to be alone?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Definitely not. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "There's someone out there for you. And it'll be worth the wait. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I can feel it. "
 				},
 				{
@@ -1345,11 +1345,11 @@ var npc_orders := {
 				  "text": "The idea that it's out of my hands and I can't logic or rationalize about it. I just have to let it happen. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, you're not completely devoid of control. You still have some influence. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Like the fish. "
 				},
 				{
@@ -1365,11 +1365,11 @@ var npc_orders := {
 				  "text": "I'm still gathering early data. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It just so happens that today I have a Coffee Shop AU on the menu. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Or Coffee Shop ow, as some people might call it. "
 				},
 				{
@@ -1381,11 +1381,11 @@ var npc_orders := {
 				  "text": "And wait, how is that different than the Flower Shop AU? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Similar principle, but the Flower Shop AU invites a brighter and lighter encounter. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "The Coffee Shop AU is more... sensual. Has more depth. "
 				},
 				{
@@ -1393,11 +1393,11 @@ var npc_orders := {
 				  "text": "Damn, what are you trying to get me into?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You wanted to gather more data. This is the same framing, but different variables. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Great for cross-analysing results. "
 				},
 				{
@@ -1405,7 +1405,7 @@ var npc_orders := {
 				  "text": "Okay, now you're speaking my language. Guess you don't just know magic, huh?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I go on Wikipedia deep dives sometimes just like everybody else. "
 				},
 				{
@@ -1417,11 +1417,11 @@ var npc_orders := {
 				  "text": "I'm already going to buy the fish, you can tone it down. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Gotta still secure you as a repeat customer, don't I? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Here, I'll ring you up. "
 				},
 			],
@@ -1431,7 +1431,7 @@ var npc_orders := {
 				  "text": "For the record, I don't think you're actually running a scam here. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I appreciate that. Considering I've not really given you a reason to trust me yet. "
 				},
 				{
@@ -1443,7 +1443,7 @@ var npc_orders := {
 				  "text": "That gives you some credibility. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Is that part of your scientific method? "
 				},
 				{
@@ -1455,7 +1455,7 @@ var npc_orders := {
 				  "text": "Now I'm going to take this to the lab and do some more experimenting."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I hope that means you're going to eat it and not dissect it for science."
 				},
 				{
@@ -1463,11 +1463,11 @@ var npc_orders := {
 				  "text": "Well now that you've given me the idea..."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "No no. I don't know what would happen. Magic, remember? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "And I'd really prefer it if you didn't end up in an imploding fishy magical portal thing. "
 				},
 				{
@@ -1475,7 +1475,7 @@ var npc_orders := {
 				  "text": "As intriguing as that is, alright. Wouldn't want you to lose out on more 50% sales from me, right?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Right, you get it."
 				},
 				{
@@ -1513,15 +1513,15 @@ var npc_orders := {
 				  "text": "[ Confirmation of her return. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, well, well. Hi there. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I see you have a half-eaten croissant in your hand. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Would that happen to be from a brand new girlfriend you happened to meet at a coffee shop or bakery or something adjacent? "
 				},
 				{
@@ -1537,11 +1537,11 @@ var npc_orders := {
 				  "text": "Again, not my style. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Wow, that good, huh? Should I be jealous? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I take pride in my cooking, you know. "
 				},
 				{
@@ -1553,7 +1553,7 @@ var npc_orders := {
 				  "text": "You didn't hear that from me, though. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well I'm glad you like the taste at least. It sounds like it's falling short in the actual magic area. "
 				},
 				{
@@ -1581,7 +1581,7 @@ var npc_orders := {
 				  "text": "Or wanted by the law in 48 countries. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Damn. Either the fish you ate took sensual and full of depth too far, or you really do have some bad luck. "
 				},
 				{
@@ -1597,7 +1597,7 @@ var npc_orders := {
 				  "text": "I just get stuck in my own head. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Really? My impression has been you're pretty confident when it comes to announcing yourself. "
 				},
 				{
@@ -1613,7 +1613,7 @@ var npc_orders := {
 				  "text": "And it's easy when there's no expectations! When it's suddenly framed as potentially romantic, I lose my nerve. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I get that. Then let's do a bit of practice. "
 				},
 				{
@@ -1625,11 +1625,11 @@ var npc_orders := {
 				  "text": "Now what in the hell do you mean by that? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Role play. Just like they do in those coming-of-age movies. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I pretend I'm an unassuming random sapphic person. You pretend you think I'm pretty and want to strike up a conversation. "
 				},
 				{
@@ -1637,23 +1637,23 @@ var npc_orders := {
 				  "text": "I don't have to pretend to think you're pretty."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Great. The first step is already over. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Now begin."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Oh, what a normal day this is, "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "where I'm doing my normal things, normally, just like any old day, standing here, "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "not expecting anyone to approach me and strike up a very engaging conversation while demonstrating their endearing qualities~"
 				},
 				{
@@ -1665,11 +1665,11 @@ var npc_orders := {
 				  "text": "Okay. Uh, hey, come here often?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Oh, my! I didn't see you there! "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well of course I do! I work here!"
 				},
 				{
@@ -1681,15 +1681,15 @@ var npc_orders := {
 				  "text": "I'm so sorry, I don't mean to bother you while you're on the clock. Let me just purchase something quick. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "...I'm starting to understand why the Flower and Coffee Shop fish weren't a good fit. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Uh, ehem, oh it's not a problem, ma'am! "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I get off work in about an hour if you'd like to chat about something else? If you'll still be around. "
 				},
 				{
@@ -1697,7 +1697,7 @@ var npc_orders := {
 				  "text": "Oh, yeah? So if I stuck around, you wouldn't find it creepy? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I am giving you verbal confirmation that I am okay talking to you after I'm done my shift about whatever you want. "
 				},
 				{
@@ -1705,7 +1705,7 @@ var npc_orders := {
 				  "text": "Oh,  I must've made an impression on you then if you're willing to spend your free time off the clock talking to little old me, hmm?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Ah, and I'm sure I haven't made an impression, the way you're going to wait an hour just to talk to me. "
 				},
 				{
@@ -1713,7 +1713,7 @@ var npc_orders := {
 				  "text": "Maybe I just have something important to say. Aren't you curious about what that might be? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I have a feeling that no matter what it is, it'll be worth my time. "
 				},
 				{
@@ -1721,7 +1721,7 @@ var npc_orders := {
 				  "text": "Guess you'll find out in an hour, no?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'll be counting the minutes. "
 				},
 				{
@@ -1729,11 +1729,11 @@ var npc_orders := {
 				  "text": "...Wow, you're good at this. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You pick up on things only interacting with mainly sapphics all day. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "And don't count yourself out. You hit a pretty good flow there. "
 				},
 				{
@@ -1753,15 +1753,15 @@ var npc_orders := {
 				  "text": "I just... have to find the right person, I guess. Easier said than done. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hmm. Tell you what. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I actually have a really special fish on the menu today. I don't offer it lightly. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "If you want to pay another 50% discount. "
 				},
 				{
@@ -1773,7 +1773,7 @@ var npc_orders := {
 				  "text": "What's the fish?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Soulmates."
 				},
 				{
@@ -1781,15 +1781,15 @@ var npc_orders := {
 				  "text": "Soulmates? Isn't that a little heavy for a trope? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, it's based on those tropes that you're tied to someone by fate, or you have a clock counting down until you meet your person. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "So if there's someone out there for you, this fish may give you the opportunity to meet. Then, at least, you'll know you'll hit it off with the person. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's a hard fish to catch, so I only offer it to special cases. "
 				},
 				{
@@ -1797,7 +1797,7 @@ var npc_orders := {
 				  "text": "I'm special, huh? I'll believe you meant it as a compliment rather than implying I'm such a hard customer to appease."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Both things can be true. "
 				},
 				{
@@ -1813,11 +1813,11 @@ var npc_orders := {
 				  "text": "Either I finally meet a person and experience the love I've always wanted to, or it doesn't work and I have to face that I'm fundamentally broken. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Love often comes with risk. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sometimes the hardest journeys result in the best payoffs. "
 				},
 				{
@@ -1835,7 +1835,7 @@ var npc_orders := {
 			 ],
 			"after_transaction": [
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, you know where to find me if it doesn't work out."
 				},
 				{
@@ -1843,11 +1843,11 @@ var npc_orders := {
 				  "text": "I don't know. After this, I might just give up entirely and adopt 12 cats. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "That's assuming it fails. If it works out, then bring your girlfriend by. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You can get a fish together. "
 				},
 				{
@@ -1859,11 +1859,11 @@ var npc_orders := {
 				  "text": "If it works. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "When. You gotta want it. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Repeat after me. \"I want it\"."
 				},
 				{
@@ -1871,7 +1871,7 @@ var npc_orders := {
 				  "text": "I want it."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Then it's gonna happen. "
 				},
 				{
@@ -1879,7 +1879,7 @@ var npc_orders := {
 				  "text": "Alright. I'll trust the magic. And you. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "That's the spirit."
 				},
 				{
@@ -1891,7 +1891,7 @@ var npc_orders := {
 				  "text": "Well, I better get going. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Good luck, Sophia. "
 				},
 				{
@@ -1961,11 +1961,11 @@ var npc_orders := {
 				  "text": "[ Or not. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Huh? Okay, objectively not true, first of all. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Second of all, you didn't find someone? Even after the Soulmate fish?"
 				},
 				{
@@ -1977,7 +1977,7 @@ var npc_orders := {
 				  "text": "And she was great. She was kind, smart, funny, but she wasn't my soulmate. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "What made you decide that?"
 				},
 				{
@@ -2005,7 +2005,7 @@ var npc_orders := {
 				  "text": "[ You stare blankly at her. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You... what?"
 				},
 				{
@@ -2065,7 +2065,7 @@ var npc_orders := {
 				  "text": "[ OH. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Excuse me. I told you, my fish do work."
 				},
 				{
@@ -2073,11 +2073,11 @@ var npc_orders := {
 				  "text": "That's what you're focusing on right now? I'm confessing!"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Yeah, to me, at my place of business. Who you couldn't stop thinking about even after you found someone nice. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's almost like magic. "
 				},
 				{
@@ -2089,7 +2089,7 @@ var npc_orders := {
 				  "text": ".....................oh."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "My thoughts exactly."
 				},
 				{
@@ -2101,11 +2101,11 @@ var npc_orders := {
 				  "text": "Would you like to go out sometime?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I dunno... "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You kept calling me a scammer and insisting my fish don't work... "
 				},
 				{
@@ -2113,11 +2113,11 @@ var npc_orders := {
 				  "text": "Listen. I can change. Just give me a chance. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Heh. I know a place. It's a popular restaurant among other witches. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "No seafood. "
 				},
 				{
@@ -2125,7 +2125,7 @@ var npc_orders := {
 				  "text": "Sounds perfect. Here, you take these and... I'll take your number so we can plan?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Easiest sale I could ever make. "
 				},
 				{
@@ -2143,7 +2143,7 @@ var npc_orders := {
 				  "text": "It just works, huh?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sometimes love is the same. Even when you don't understand it. "
 				},
 				{
@@ -2151,7 +2151,7 @@ var npc_orders := {
 				  "text": "I wish science were that easy. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Trust me. It's not easy. There's a lot of effort that goes along with it to make the magic last. "
 				},
 				{
@@ -2159,7 +2159,7 @@ var npc_orders := {
 				  "text": "Heh. Then I look forward to doing a lot of data collection with you this time. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I have a feeling the results will be pretty stellar."
 				},
 				{
@@ -2175,7 +2175,7 @@ var npc_orders := {
 				  "text": "I'll text you later?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I can't wait. "
 				},
 				{
@@ -2223,7 +2223,7 @@ var npc_orders := {
 				  "text": "[ Just on their own, seeming to exude effort to look small in this moment. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hello, welcome! I've seen you around before."
 				},
 				{
@@ -2239,7 +2239,7 @@ var npc_orders := {
 				  "text": "My friends love this place but I've never built up the nerve to try it."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Decided the day is today?"
 				},
 				{
@@ -2247,11 +2247,11 @@ var npc_orders := {
 				  "text": "I think so. I was nearby and I decided to just impulsively... browse. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "There's no pressure. I know it can seem daunting but you'll only get out of the fish as much or as little as you want. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's worth trying at least once, if you're curious about it. "
 				},
 				{
@@ -2259,11 +2259,11 @@ var npc_orders := {
 				  "text": "Yeah, but, would it work? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "No guarantees. There's a bunch of factors involved and the magic doesn't exactly fit into a nice box. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "But it... inspires life to happen in a certain way, I would say."
 				},
 				{
@@ -2275,7 +2275,7 @@ var npc_orders := {
 				  "text": "But I never tried it because they told me they weren't sure if it would work for me specifically, and I'm scared it won't. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I see. Well these fish do only work for sapphics, so if you're straight—"
 				},
 				{
@@ -2291,7 +2291,7 @@ var npc_orders := {
 				  "text": "I'm gay as hell. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Then I don't see the problem. You can peruse the menu and prove your friends wrong. "
 				},
 				{
@@ -2303,11 +2303,11 @@ var npc_orders := {
 				  "text": "I just don't know what I'll do if they're right. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hm. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, if you want to take the plunge and give it a shot, I can start you with a fish with a very, very high success rate. "
 				},
 				{
@@ -2315,7 +2315,7 @@ var npc_orders := {
 				  "text": "That is tempting. Which one is that? It feels like sapphic experiences never come easy. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "True, but the magic will be most effective if you put in a little effort, too. That goes with anything. "
 				},
 				{
@@ -2327,11 +2327,11 @@ var npc_orders := {
 				  "text": "My friends will often text the group chat about how they're \"going fishing\", which means they're going out to try and see if the fish magic will happen. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'm certain I've sold this fish to them before. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's called Meet Cute. "
 				},
 				{
@@ -2339,11 +2339,11 @@ var npc_orders := {
 				  "text": "Oh yeah! It's one of my friends' favourites. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Thought so. It's a great one because it's low stress. You run into people everywhere. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "If you're worried about it not working for you, then this has the highest probability of putting you in a situation where it will work. "
 				},
 				{
@@ -2351,11 +2351,11 @@ var npc_orders := {
 				  "text": "Ah, god, if it doesn't work after this pitch, then I really am in trouble. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Maybe your friends can help you, since they know how this works and know you best. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hopefully they want it to work for you despite their initial opinions. "
 				},
 				{
@@ -2367,11 +2367,11 @@ var npc_orders := {
 				  "text": "I didn't tell them I was thinking of coming here because I didn't want them to talk me out of it. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sounds like you want it for yourself, then. And that's probably enough. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You can't let your friends dictate things for you, after all. "
 				},
 				{
@@ -2387,17 +2387,17 @@ var npc_orders := {
 				  "text": "One Meet Cute fish please!"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'll whip that up for you right now."
 				},
 			],
 			"after_transaction": [
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Here you go. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Eat it while it's fresh, put yourself out there, and after a few days if nothing happens, come back here and we'll figure out something that will work for you. "
 				},
 				{
@@ -2409,7 +2409,7 @@ var npc_orders := {
 				  "text": "And me some mental turmoil. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hey. These fish will work for you. I promise. "
 				},
 				{
@@ -2429,11 +2429,11 @@ var npc_orders := {
 				  "text": "Whether it works or not, I'll let you know. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Please. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I am invested in proving your friends wrong. "
 				},
 				{
@@ -2445,7 +2445,7 @@ var npc_orders := {
 				  "text": "I don't know. We'll find out. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You sure will. "
 				},
 				{
@@ -2495,7 +2495,7 @@ var npc_orders := {
 				  "text": "[ If anything, Asani just looked more confused than before. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hey again! How'd it go?"
 				},
 				{
@@ -2511,7 +2511,7 @@ var npc_orders := {
 				  "text": "How can I be sure the fish actually worked for me? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Well, did you have a meet cute?"
 				},
 				{
@@ -2527,7 +2527,7 @@ var npc_orders := {
 				  "text": "I kept running into cute people cutely everywhere. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I mean, that sounds pretty conclusive. "
 				},
 				{
@@ -2547,11 +2547,11 @@ var npc_orders := {
 				  "text": "That she can have a meet cute all the time even without a fish, and that's probably what happened for me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Huh? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Why go out of her way to tell you reasons it couldn't have worked even though all signs point toward it working?"
 				},
 				{
@@ -2563,7 +2563,7 @@ var npc_orders := {
 				  "text": "They don't want me to waste my money. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "...Feel free to not answer if this is too personal, but, why are they so convinced the fish won't work for you? "
 				},
 				{
@@ -2595,7 +2595,7 @@ var npc_orders := {
 				  "text": "So they had concerns about me actually being... sapphic. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "..................Huh. "
 				},
 				{
@@ -2603,11 +2603,11 @@ var npc_orders := {
 				  "text": "What? Is that really a problem? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "No, not at all. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'm just trying really hard to not say a bunch of rude things about your friends. "
 				},
 				{
@@ -2623,15 +2623,15 @@ var npc_orders := {
 				  "text": "They're just looking out for me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "By invalidating you? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sorry, I just... "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I find it really strange that someone believes a part of you cancels out another part of you instead of seeing it as part of your whole. "
 				},
 				{
@@ -2659,7 +2659,7 @@ var npc_orders := {
 				  "text": "And I figured if anything could parse this gender fuckery, it'd be magical fish."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "So you're trying to figure out if you really are sapphic?"
 				},
 				{
@@ -2671,7 +2671,7 @@ var npc_orders := {
 				  "text": "It might sound stupid, but it's important to me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Because being sapphic is important to you? "
 				},
 				{
@@ -2691,7 +2691,7 @@ var npc_orders := {
 				  "text": "I just need to know. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You were scared of it not working before."
 				},
 				{
@@ -2707,15 +2707,15 @@ var npc_orders := {
 				  "text": "That's... that's fine. I can live with that. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Asani, you don't need a fish to tell you you're sapphic. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You're a femme. You're attracted to femmes. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You're also masc but the literal entry level requirements are there. "
 				},
 				{
@@ -2723,7 +2723,7 @@ var npc_orders := {
 				  "text": "I just... I won't feel like I belong until I'm sure. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Do your friends make you feel like you don't belong? "
 				},
 				{
@@ -2747,11 +2747,11 @@ var npc_orders := {
 				  "text": "but I wish I didn't feel excluded from the sapphic experience because of that. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I say the fish caters to sapphics for a reason. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You're included."
 				},
 				{
@@ -2763,11 +2763,11 @@ var npc_orders := {
 				  "text": "But sometimes I worry my friends are right and I can't just... be both without feeling excluded one way or another."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Alright. That's it. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'm going to give you a fish so specific that they won't be able to argue that it didn't work for you. "
 				},
 				{
@@ -2779,7 +2779,7 @@ var npc_orders := {
 				  "text": "I'd actually prefer something vague again. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "What? Why? "
 				},
 				{
@@ -2791,7 +2791,7 @@ var npc_orders := {
 				  "text": "Then I can keep believing. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Asani..."
 				},
 				{
@@ -2815,15 +2815,15 @@ var npc_orders := {
 				  "text": "I want to enjoy the fish with my friends. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Repeat after me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You are sapphic. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "The fish will work for you. "
 				},
 				{
@@ -2835,7 +2835,7 @@ var npc_orders := {
 				  "text": "I think I'll always have a voice in my head feeding me doubts. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Does the voice belong to you, or your friends?"
 				},
 				{
@@ -2851,7 +2851,7 @@ var npc_orders := {
 				  "text": "It's funny, because my sexuality and gender are in a situationship. Get it? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You don't have to do this to yourself. "
 				},
 				{
@@ -2863,7 +2863,7 @@ var npc_orders := {
 				  "text": "Please?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "There are way better fish—"
 				},
 				{
@@ -2875,21 +2875,21 @@ var npc_orders := {
 				  "text": "[ You sigh. The customer is always right. ]"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Coming right up. "
 				},
 				],
 							"after_transaction": [
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Just promise me. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "If you magically end up in a situationship after this, "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "then maybe consider that your feelings are right about something that you and only you can ever truly feel for yourself? "
 				},
 				{
@@ -2943,7 +2943,7 @@ var npc_orders := {
 				  "text": "Guess what."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You got in a situationship? "
 				},
 				{
@@ -2951,7 +2951,7 @@ var npc_orders := {
 				  "text": "Sure did. Guess with who?"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I couldn't begin to imagine. Lady Gaga?"
 				},
 				{
@@ -2963,7 +2963,7 @@ var npc_orders := {
 				  "text": "No, it was one of my friends. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I have mixed feelings on this. "
 				},
 				{
@@ -2991,7 +2991,7 @@ var npc_orders := {
 				  "text": "The fish did its work. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "So you admit the sapphic fish that works for sapphic people worked because you're sapphic? "
 				},
 				{
@@ -3003,7 +3003,7 @@ var npc_orders := {
 				  "text": "I just felt so connected to myself and how I was feeling. And then something liberating happened. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "What?"
 				},
 				{
@@ -3011,7 +3011,7 @@ var npc_orders := {
 				  "text": "I got rejected! It was incredible. You'll never believe how it played out. It involved you, actually. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Me??"
 				},
 				{
@@ -3023,7 +3023,7 @@ var npc_orders := {
 				  "text": "But then she decided against it, because she thought dating someone who was also a man would mean she wasn't sapphic anymore. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "That's... awful. "
 				},
 				{
@@ -3031,11 +3031,11 @@ var npc_orders := {
 				  "text": "I know, right?! It was amazing! "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'm shocked you seem so happy about it. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I'd be pissed. "
 				},
 				{
@@ -3051,7 +3051,7 @@ var npc_orders := {
 				  "text": "That's when I realized: my friends are assholes. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "God, I'm glad you said it. "
 				},
 				{
@@ -3063,7 +3063,7 @@ var npc_orders := {
 				  "text": "I was just trying to prove it to my friends. And I decided I wasn't going to live like that anymore!"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Damn right."
 				},
 				{
@@ -3071,7 +3071,7 @@ var npc_orders := {
 				  "text": "So I cut them out of my life. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Hell yeah you did. "
 				},
 				{
@@ -3079,7 +3079,7 @@ var npc_orders := {
 				  "text": "And then I came here."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "And now you're here!"
 				},
 				{
@@ -3087,7 +3087,7 @@ var npc_orders := {
 				  "text": "And now I'm going to order a Friends to Lovers fish!"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You've lost me. "
 				},
 				{
@@ -3099,7 +3099,7 @@ var npc_orders := {
 				  "text": "But when we first talked, you said the fish can give us as little or as much as we want, right? "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Right. "
 				},
 				{
@@ -3127,11 +3127,11 @@ var npc_orders := {
 				  "text": "and don't decide that there are parts that need to be alienated because they don't fit in a certain box for them. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "A little unconventional, but I dig it. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Luckily, I happen to have one on the menu. "
 				},
 				{
@@ -3139,11 +3139,11 @@ var npc_orders := {
 				  "text": "Ugh, I love kismet. I just hope these new friends won't end up like the last ones. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Like I said, you get what you want out of the fish, whatever that might look like. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "But you have to put yourself out there too, and in the right spaces where that can happen. "
 				},
 				{
@@ -3151,13 +3151,13 @@ var npc_orders := {
 				  "text": "Well, I've been eying some inclusive communities I've been waiting to join. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Sounds like a perfect way to start. "
 				},
 			],
 			"after_transaction": [
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "I know we don't know each other very well, but I'm proud of you. "
 				},
 				{
@@ -3169,11 +3169,11 @@ var npc_orders := {
 				  "text": "Thank you for validating me when no one else would. And your fish. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "You were always exactly who you are, but yes,"
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "it's nice to surround yourself with voices in your head that are telling you validating things from time to time. "
 				},
 				{
@@ -3185,7 +3185,7 @@ var npc_orders := {
 				  "text": "They don't know me as well as I do. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Now go enjoy your grand gay life. My fish will be here if you need them. "
 				},
 				{
@@ -3197,7 +3197,7 @@ var npc_orders := {
 				  "text": "If you see my old friends, just enjoy taking their money."
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "No promises I won't give them a piece of my mind. "
 				},
 				{
@@ -3209,11 +3209,11 @@ var npc_orders := {
 				  "text": "I guess I've already found a new friend. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Always happy to help a fellow sapphic. We gotta look out for each other. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "It's why your ex-friends pissed me off so much. "
 				},
 				{
@@ -3225,7 +3225,7 @@ var npc_orders := {
 				  "text": "But also, exactly who I always was? I don't know. Gender fuckery. "
 				},
 				{
-				  "speaker": "Player",
+				  "speaker": "You",
 				  "text": "Cheers to that, friend. "
 				},
 				{
