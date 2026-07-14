@@ -1,24 +1,71 @@
 [gd_scene format=3 uid="uid://c1b2qb2jk222r"]
 
 [ext_resource type="Script" uid="uid://b8766kk843n2x" path="res://Credits_Scene.gd" id="1_s6n57"]
+[ext_resource type="Texture2D" uid="uid://d2i4fspaqngti" path="res://assets/set/backdrop_fishing_water.png" id="2_fm3pd"]
+[ext_resource type="FontFile" uid="uid://cpfojt44dnkp3" path="res://assets/font/Vanilla Caramel.otf" id="2_iifub"]
+[ext_resource type="Theme" uid="uid://cr7yoofm8ef1m" path="res://assets/themes/empty_button.tres" id="3_10qhu"]
+[ext_resource type="Shader" uid="uid://dpghmnp4winlg" path="res://shaders/water_blur.gdshader" id="4_1nxwf"]
+[ext_resource type="Texture2D" uid="uid://dx58t2slpawaq" path="res://assets/ui/scene_selling/buttons/go_fishing.png" id="4_fm3pd"]
+[ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="7_fm3pd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0mh4r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ampfc"]
+noise = SubResource("FastNoiseLite_0mh4r")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_natep"]
+shader = ExtResource("4_1nxwf")
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_ampfc")
+shader_parameter/lod = 2.0450000971375
+shader_parameter/refraction_stretch = Vector2(1, 1)
+shader_parameter/refraction_strength = 0.0290000013775
+shader_parameter/speed = 0.018000000855
+shader_parameter/wave_scale = 2000.0
+shader_parameter/water_tint = Color(0.45, 0.25, 1, 0.12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1y5m3"]
+line_spacing = 0.0
+font = ExtResource("2_iifub")
+font_size = 34
+outline_size = 24
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_l8rlb"]
+base_font = ExtResource("7_fm3pd")
+spacing_bottom = -8
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nxwf"]
+resource_local_to_scene = true
+resource_name = "ButtonText"
+font = SubResource("FontVariation_l8rlb")
+font_size = 58
+font_color = Color(0.27450982, 0.39607844, 1, 1)
+outline_size = 42
+outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1086555157]
 script = ExtResource("1_s6n57")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1491448934]
+[node name="BackgroundNoBlur" type="TextureRect" parent="." unique_id=1243421071]
+offset_top = -133.0
+offset_right = 1919.9998
+offset_bottom = 947.0
+scale = Vector2(4.25, 4.25)
+pivot_offset = Vector2(960.0903, 647.8017)
+texture = ExtResource("2_fm3pd")
+
+[node name="BlurObject" type="ColorRect" parent="." unique_id=1191588055]
+material = SubResource("ShaderMaterial_natep")
+offset_right = 1919.9999
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="CreditsText" type="Label" parent="." unique_id=81284836]
+z_index = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.19463652, 0.11387692, 0.22489682, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="." unique_id=81284836]
-z_index = 2
-offset_left = 481.0
-offset_top = 111.0
-offset_right = 1152.0
-offset_bottom = 706.0
-scale = Vector2(1.3753445, 1.3753445)
-text = "Sapphishing
+text = "Thanks for playing Sapphishing!
 
 A tiny VN / fishing minigame about magical trope fish,
 queer connection, and helping sapphics find the story they need.
@@ -36,18 +83,43 @@ earthtoalice
 
 Programming
 Kdk1tt
+earthtoalice
 
 Music
-Melody / pocketjawa
+Melody (pocketjawa)"
+label_settings = SubResource("LabelSettings_1y5m3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-Thanks for playing, look for the full version soon!"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="." unique_id=245498347]
-offset_left = 1647.0
-offset_top = 944.0
-offset_right = 1814.0
-offset_bottom = 1021.0
+[node name="RestartButton" type="Button" parent="." unique_id=245498347]
+self_modulate = Color(0.64705884, 0.6901961, 0.9882353, 1)
+texture_filter = 1
+offset_left = -23.0
+offset_top = 864.0
+offset_right = 213.0
+offset_bottom = 1100.0
+theme = ExtResource("3_10qhu")
 action_mode = 0
-text = "Restart"
+icon = ExtResource("4_fm3pd")
+expand_icon = true
 metadata/_edit_use_anchors_ = true
+
+[node name="RestartButtonLabel" type="Label" parent="RestartButton" unique_id=904123668]
+texture_filter = 2
+layout_mode = 0
+offset_left = 41.0
+offset_top = 148.0
+offset_right = 259.0
+offset_bottom = 204.0
+rotation = -0.1027411
+text = "Restart"
+label_settings = SubResource("LabelSettings_1nxwf")
+
+[node name="ColorRect" type="ColorRect" parent="RestartButton/RestartButtonLabel" unique_id=707160977]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 9.229344
+offset_top = 7.9886913
+offset_right = 32.771973
+offset_bottom = 29.619
+color = Color(0.050980393, 0.08235294, 0.1254902, 1)

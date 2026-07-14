@@ -381,10 +381,49 @@ func catch_fish() -> void:
 	skip_reward_pause = false
 	discovery_skip_allowed = true
 
-	var fish_name: String = fish_pool.pick_random()
+	var order: Dictionary = GameState.get_current_npc_order()
+	var required_fish: String = order.get("required_fish", "")
+
+	var fish_name: String
+
+	# Only boost the story fish when there actually is one
+	# and the player does not already have it.
+	var should_boost_story_fish: bool = (
+		not required_fish.is_empty()
+		and required_fish in fish_pool
+		and GameState.get_fish_count(required_fish) <= 0
+	)
+
+	if should_boost_story_fish:
+		# Guarantee the story fish after enough misses.
+		if GameState.casts_without_story_fish >= 6:
+			fish_name = required_fish
+		else:
+			var weighted_pool: Array[String] = []
+
+			for possible_fish in fish_pool:
+				var weight: int = 10
+
+				if possible_fish == required_fish:
+					weight += GameState.casts_without_story_fish * 5
+
+				for i in range(weight):
+					weighted_pool.append(possible_fish)
+
+			fish_name = weighted_pool.pick_random()
+
+		if fish_name == required_fish:
+			GameState.casts_without_story_fish = 0
+		else:
+			GameState.casts_without_story_fish += 1
+	else:
+		fish_name = fish_pool.pick_random()
+		GameState.casts_without_story_fish = 0
+
 	caught_fish = GameState.get_fish_data(fish_name).duplicate()
 	caught_fish["name"] = fish_name
-	var is_new_fish = not GameState.has_discovered_fish(fish_name)
+
+	var is_new_fish: bool = not GameState.has_discovered_fish(fish_name)
 
 	if is_new_fish:
 		GameState.discover_fish(fish_name)
@@ -409,7 +448,12 @@ func catch_fish() -> void:
 		fish_reveal.visible = true
 
 		var reveal_tween := create_tween()
-		reveal_tween.tween_property(fish_reveal, "modulate:a", 1.0, 0.4)
+		reveal_tween.tween_property(
+			fish_reveal,
+			"modulate:a",
+			1.0,
+			0.4
+		)
 
 		await reveal_tween.finished
 		await wait_for_seconds_or_skip(2.0)
@@ -419,9 +463,26 @@ func catch_fish() -> void:
 	fly_tween.set_trans(Tween.TRANS_SINE)
 	fly_tween.set_ease(Tween.EASE_IN_OUT)
 
-	fly_tween.tween_property(fish_reveal, "global_position", basket.global_position, 0.6)
-	fly_tween.tween_property(fish_reveal, "scale", Vector2(0.2, 0.2), 0.6)
-	fly_tween.tween_property(fish_reveal, "modulate:a", 0.0, 0.6)
+	fly_tween.tween_property(
+		fish_reveal,
+		"global_position",
+		basket.global_position,
+		0.6
+	)
+
+	fly_tween.tween_property(
+		fish_reveal,
+		"scale",
+		Vector2(0.2, 0.2),
+		0.6
+	)
+
+	fly_tween.tween_property(
+		fish_reveal,
+		"modulate:a",
+		0.0,
+		0.6
+	)
 
 	await fly_tween.finished
 
@@ -432,11 +493,13 @@ func catch_fish() -> void:
 	bobber.visible = false
 	fish_reveal.visible = false
 
-	status_label.text = "Added to the inventory! Press Space to cast again."
+	status_label.text = (
+		"Added to the inventory! Press Space to cast again."
+	)
 
 	reward_animating = false
 	skip_reward_pause = false
-	discovery_skip_allowed = false
+	discovery_skip_allowed = false     
 
 func update_inventory_popup_label() -> void:
 	update_inventory_popup()

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var inventory_panel = $InventoryPanel
 @onready var inventory_rows = $InventoryPanel/InventoryRows
-@onready var basket_click_area = $DefaultView/BasketClickArea
+@onready var basket_click_area = $BasketClickArea
 @onready var fish_preview_panel = $InventoryPanel/FishPreview
 @onready var preview_texture = $InventoryPanel/FishPreview/PreviewTexture
 @onready var preview_name_label = $InventoryPanel/FishPreview/PreviewDescriptionBackground/PreviewNameLabel
@@ -16,17 +16,27 @@ extends Node2D
 @onready var tackle_box_click_area = $TackleBox/TackleBoxClickArea
 @onready var talk_button = $DefaultView/TalkButton
 @onready var customer_sprite = $DefaultView/TalkButton/CustomerSprite
+@onready var default_view = $DefaultView
+@onready var click_here_arrow = $DefaultView/InventoryClickHereArrow
 
 
 var customer_waiting := false
 var customer_arriving := false
+var selected_fish_name: String = ""
+var selected_inventory_row: Button = null
 
 func _ready() -> void:
 	inventory_panel.visible = false
 	fish_preview_panel.visible = false
 	shop_panel.visible = false
+	fish_preview_panel.visible = false
+	sell_button.disabled = true
 
-	
+	inventory_panel.position.y = 1080
+
+	var bob = create_tween().set_loops().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	bob.tween_property(click_here_arrow, "position:y", 515, 1.0)
+	bob.tween_property(click_here_arrow, "position:y", 535, 1.0)
 
 	if not tackle_box_click_area.input_event.is_connected(_on_tackle_box_click_area_input_event):
 		tackle_box_click_area.input_event.connect(_on_tackle_box_click_area_input_event)
@@ -37,11 +47,13 @@ func _ready() -> void:
 	if not talk_button.pressed.is_connected(start_customer_dialogue):
 		talk_button.pressed.connect(start_customer_dialogue)
 
-	fish_preview_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	sell_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	preview_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_value_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	preview_description.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
 
 	dialogue_label.text = "Welcome! Click the basket to choose what to serve."
 
@@ -70,6 +82,9 @@ func _on_tackle_box_click_area_input_event(_viewport, event, _shape_idx) -> void
 func _on_basket_click_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Basket clicked!")
+		toggle_inventory_panel()
+		
+func _on_inventory_close_button_pressed() -> void:
 		toggle_inventory_panel()
 		
 func update_default_dialogue_text() -> void:
@@ -102,26 +117,46 @@ func update_money_label() -> void:
 	
 		
 func toggle_inventory_panel() -> void:
-	inventory_panel.visible = not inventory_panel.visible
-	back_to_fishing_button.visible = not back_to_fishing_button.visible
+	var slide_in_out = create_tween().set_trans(Tween.TRANS_CUBIC)
 
-	if inventory_panel.visible:
-		shop_panel.visible = false
+	if not inventory_panel.visible:
 		update_inventory_rows()
+		inventory_panel.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_OUT)
+		slide_in_out.tween_property(inventory_panel, "position:y", 0, 0.2)
+		
+		default_view.visible = false
+		shop_panel.visible = false
 		dialogue_label.text = "Choose a fish to serve."
 	else:
+		default_view.visible = true
+		
+		slide_in_out.set_ease(Tween.EASE_IN)
+		slide_in_out.tween_property(inventory_panel, "position:y", 1080, 0.2)
+		await slide_in_out.finished
+		
+		inventory_panel.visible = false
 		fish_preview_panel.visible = false
+		
 		update_default_dialogue_text()
 
 func update_inventory_rows() -> void:
+	selected_fish_name = ""
+	selected_inventory_row = null
+	selected_fish_name = ""
+	fish_preview_panel.visible = false
+	sell_button.disabled = true
+
 	for child in inventory_rows.get_children():
 		child.queue_free()
 
 	if GameState.fish_inventory.is_empty():
 		var empty_label := Label.new()
-		empty_label.text = "No fish to sell. Time to go fishing!"
+		empty_label.text = "No fish to sell.\n Time to go fishing!"
 		empty_label.custom_minimum_size = Vector2(500, 32)
 		inventory_rows.add_child(empty_label)
+		empty_label.add_theme_color_override("font_color", Color.BLACK)
 		return
 
 	var order: Dictionary = GameState.get_current_npc_order()
@@ -136,31 +171,106 @@ func update_inventory_rows() -> void:
 
 		var row := Button.new()
 		row.custom_minimum_size = Vector2(500, 36)
-		
+		row.toggle_mode = true
+		row.focus_mode = Control.FOCUS_ALL
+		row.alignment = HORIZONTAL_ALIGNMENT_LEFT
+
+		apply_inventory_row_style(row)
 
 		if story_sell_mode:
 			if fish_name == required_fish:
-				row.text = fish_name + " x" + str(count) + "  ($" + str(value) + ") - This is the fish!"
+				row.text = make_inventory_row_text(
+					row,
+					"★ " + fish_name,
+					value
+					)
 				row.disabled = false
+				fish_count.text = "x" + str(count)
+			else:
+				row.text = make_inventory_row_text(
+					row,
+					"- " + fish_name,
+					value
+					)
+				row.disabled = true
 
-				row.pressed.connect(func():
-					sell_selected_fish(fish_name)
-				)
 		elif customer_waiting_mode:
 			if fish_name == required_fish:
-				row.text = fish_name + " x" + str(count) + "  - Talk first"
-				row.disabled = true
+				row.text = make_inventory_row_text(
+				row,
+				"- ! " + fish_name,
+				value
+				)
+				fish_count.text = "x" + str(count)
 			else:
-				row.text = fish_name + " x" + str(count)
-				row.disabled = true
+				row.text = make_inventory_row_text(row, fish_name, value)
+				fish_count.text = "x" + str(count)
+
+			row.disabled = true
+
 		else:
-			row.text = fish_name + " x" + str(count) + "  ($" + str(value) + ")"
+			row.text = make_inventory_row_text(row, fish_name, value)
 			row.disabled = false
-			row.pressed.connect(func():
-				sell_selected_fish(fish_name)
+			fish_count.text = "x" + str(count)  
+
+		if not row.disabled:
+			row.pressed.connect(
+				func() -> void:
+					select_inventory_row(fish_name, row)
 			)
 
 		inventory_rows.add_child(row)
+		
+		
+		
+		
+func select_inventory_row(fish_name: String, row: Button) -> void:
+	if selected_inventory_row != null and selected_inventory_row != row:
+		selected_inventory_row.button_pressed = false
+
+	selected_fish_name = fish_name
+	selected_inventory_row = row
+	row.button_pressed = true
+
+	show_fish_preview(fish_name)
+	sell_button.disabled = false
+	
+func apply_inventory_row_style(row: Button) -> void:
+	var normal_style := StyleBoxEmpty.new()
+
+	var hover_style := StyleBoxFlat.new()
+	hover_style.bg_color = Color(1.0, 1.0, 1.0, 0.10)
+	hover_style.corner_radius_top_left = 4
+	hover_style.corner_radius_top_right = 4
+	hover_style.corner_radius_bottom_left = 4
+	hover_style.corner_radius_bottom_right = 4
+
+	var selected_style := StyleBoxFlat.new()
+	selected_style.bg_color = Color(1.0, 1.0, 1.0, 0.20)
+	selected_style.corner_radius_top_left = 4
+	selected_style.corner_radius_top_right = 4
+	selected_style.corner_radius_bottom_left = 4
+	selected_style.corner_radius_bottom_right = 4
+
+	var focus_style := StyleBoxFlat.new()
+	focus_style.bg_color = Color(1.0, 1.0, 1.0, 0.08)
+	focus_style.border_width_left = 2
+	focus_style.border_width_right = 2
+	focus_style.border_width_top = 2
+	focus_style.border_width_bottom = 2
+	focus_style.border_color = Color(1.0, 1.0, 1.0, 0.4)
+
+	row.add_theme_stylebox_override("normal", normal_style)
+	row.add_theme_stylebox_override("hover", hover_style)
+	row.add_theme_stylebox_override("pressed", selected_style)
+	row.add_theme_stylebox_override("hover_pressed", selected_style)
+	row.add_theme_stylebox_override("focus", focus_style)
+	row.add_theme_color_override("font_color", Color.BLACK)
+	row.add_theme_color_override("font_hover_color", Color.BLACK)
+	row.add_theme_color_override("font_pressed_color", Color.BLACK)
+	row.add_theme_color_override("font_focus_color", Color.BLACK)
+	row.add_theme_color_override("font_disabled_color", Color(0.4, 0.4, 0.4))
+	row.add_theme_color_override("font_hover_pressed_color", Color.BLACK)
 
 
 		
@@ -187,7 +297,48 @@ func update_shop_rows() -> void:
 		)
 
 		shop_rows.add_child(row)
-		
+
+func make_inventory_row_text(
+	row: Button,
+	left_text: String,
+	value: int
+) -> String:
+	var price_text: String = "$" + str(value)
+
+	var font: Font = row.get_theme_font("font")
+	var font_size: int = row.get_theme_font_size("font_size")
+
+	var target_width: float = 200.0
+
+	var left_width: float = font.get_string_size(
+		left_text,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		font_size
+	).x
+
+	var price_width: float = font.get_string_size(
+		price_text,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		font_size
+	).x
+
+	var space_width: float = font.get_string_size(
+		" ",
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		font_size
+	).x
+
+	var remaining_width: float = target_width - left_width - price_width
+	var spaces_needed: int = maxi(
+		1,
+		int(remaining_width / space_width)
+	)
+
+	return left_text + " ".repeat(spaces_needed) + price_text
+
 func buy_shop_item(item_name: String) -> void:
 	var item_data: Dictionary = GameState.shop_items[item_name]
 	var price: int = item_data["price"]
@@ -252,7 +403,12 @@ func show_fish_preview(fish_name: String) -> void:
 
 	fish_preview_panel.visible = true
 	
+func _on_sell_button_pressed() -> void:
 
+	if selected_fish_name.is_empty():
+		return
+
+	sell_selected_fish(selected_fish_name)
 	
 func go_back_to_fishing() -> void:
 	get_tree().change_scene_to_file("res://FishingScene.tscn")
@@ -322,7 +478,7 @@ func check_for_customer() -> void:
 	# Re-check after the delay.
 	if GameState.customer_has_talked:
 		customer_sprite.visible = true
-		customer_sprite.position = Vector2(1120, 720)
+		customer_sprite.position = Vector2(1120, 375)
 		customer_sprite.modulate.a = 1.0
 		talk_button.visible = false
 
@@ -352,31 +508,35 @@ func spawn_customer() -> void:
 
 	var order: Dictionary = GameState.get_current_npc_order()
 
-	customer_sprite.visible = true
-	customer_sprite.modulate.a = 0.0
-	customer_sprite.z_index = 20
+	talk_button.visible = true
+	talk_button.disabled = true
 	talk_button.z_index = 80
-	talk_button.position = customer_sprite.position + Vector2(20, -190)
+	talk_button.position = Vector2(1400, 375)
 
+	customer_sprite.visible = true
+	customer_sprite.modulate.a = 0.0             
 
-	customer_sprite.position = Vector2(1400, 720)
-	var target_position := Vector2(900, 720)
+	var target_position := Vector2(900, 375)
 
-	dialogue_label.text = order["intro"] if order.has("intro") else "A customer approaches..."
+	dialogue_label.text = (
+		order["intro"]
+		if order.has("intro")
+		else "A customer approaches..."
+	)
 
 	var tween := create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(customer_sprite, "position", target_position, 0.8)
+	tween.tween_property(talk_button, "position", target_position, 0.8)
 	tween.tween_property(customer_sprite, "modulate:a", 1.0, 0.8)
 
 	await tween.finished
- 
+
 	customer_arriving = false
 	customer_waiting = true
 
-	talk_button.visible = true
 	talk_button.disabled = false
-	talk_button.position = customer_sprite.position + Vector2(10, -120)
+	talk_label_1.visible = true
+	talk_label_1.modulate.a = 1.0
 
 	dialogue_label.text = "A customer is waiting. Click Talk."
 	
