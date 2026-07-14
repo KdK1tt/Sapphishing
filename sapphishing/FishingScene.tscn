@@ -414,7 +414,7 @@ offset_left = 1222.0001
 offset_top = 361.0
 offset_right = 1250.0001
 offset_bottom = 389.0
-scale = Vector2(4.22, 4.22)
+scale = Vector2(5.751642, 5.8478284)
 texture = ExtResource("3_hwtv3")
 metadata/_edit_use_anchors_ = true
 

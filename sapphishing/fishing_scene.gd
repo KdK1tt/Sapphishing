@@ -17,7 +17,7 @@ var fish_reveal_start_scale: Vector2
 var inventory_open := false
 var skip_reward_pause := false
 var discovery_skip_allowed := false
-@export var bobber_start_position := Vector2(1450, 620)        
+@export var bobber_start_position := Vector2(1350, 520)        
 @export var cast_position := Vector2(925, 405)
 @export var cast_arc_height := 90.0
 
@@ -325,7 +325,7 @@ func cast_line() -> void:
 
 	bobber.visible = true
 	bobber.global_position = bobber_start_position
-	bobber.scale = Vector2.ONE
+	bobber.scale = Vector2(2.25, 2.25)
 	
 	play_cast_animation()
 
@@ -346,9 +346,9 @@ func cast_line() -> void:
 
 	show_splash(bobber.global_position)
 
-	bobber.scale = Vector2(1.2, 0.8)
+	bobber.scale = Vector2(2.25, 2.25)
 	var land_tween := create_tween()
-	land_tween.tween_property(bobber, "scale", Vector2.ONE, 0.45)
+	land_tween.tween_property(bobber, "scale", Vector2(2.25, 2.25), 0.45)
 
 	status_label.text = "Waiting..."
 
