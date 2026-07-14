@@ -18,6 +18,9 @@ extends Node2D
 @onready var customer_sprite = $DefaultView/TalkButton/CustomerSprite
 @onready var default_view = $DefaultView
 @onready var click_here_arrow = $DefaultView/InventoryClickHereArrow
+@onready var sell_button = $DefaultView/TalkButton
+@onready var fish_count = $DefaultView/FishPreview/PreviewCountLable
+@onready var talk_label_1 = $DefaultView/TalkButton/TalkLabel1
 
 
 var customer_waiting := false

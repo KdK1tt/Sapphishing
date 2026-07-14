@@ -354,7 +354,6 @@ scale = Vector2(30.539366, -25.84477)
 texture = ExtResource("4_1gsf5")
 
 [node name="FishPreview" type="Panel" parent="InventoryPanel" unique_id=90160618]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_right = 1920.0
