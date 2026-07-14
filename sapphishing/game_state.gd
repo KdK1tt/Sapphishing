@@ -5,11 +5,18 @@ var money := 0
 var discovered_fish := {}
 var casts_without_story_fish: int = 0
 
+var npc_sequence: Array[String] = [
+	"Asani",
+	"Avery",
+	"Sophia"
+]
+
 var npc_progress := {
 	"Avery": 0,
 	"Sophia": 0,
 	"Asani": 0
 }
+
 
 var current_customer := "Asani"
 
@@ -244,5 +251,21 @@ func get_inventory_text() -> String:
 
 	return "\n".join(lines)
 	
+func advance_to_next_customer() -> bool:
+	var current_index := npc_sequence.find(current_customer)
+
+	if current_index == -1:
+		push_error("Current customer is not in npc_sequence: " + current_customer)
+		return false
+
+	var next_index := current_index + 1
+
+	if next_index >= npc_sequence.size():
+		return false
+
+	current_customer = npc_sequence[next_index]
+	customer_has_talked = false
+
+	return true
 	
 	

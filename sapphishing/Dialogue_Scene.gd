@@ -110,14 +110,20 @@ func advance_dialogue() -> void:
 	show_current_line()
 
 
+
+	
 func finish_dialogue() -> void:
 	if GameState.pending_dialogue_phase == "after":
 		GameState.complete_current_npc_order()
 		GameState.customer_has_talked = false
-		GameState.force_npc_music = false 
+		GameState.force_npc_music = false
 		GameState.pending_dialogue_phase = ""
 
 		if GameState.has_more_current_customer_orders():
+			get_tree().change_scene_to_file(GameState.pending_return_scene)
+			return
+
+		if GameState.advance_to_next_customer():
 			get_tree().change_scene_to_file(GameState.pending_return_scene)
 		else:
 			get_tree().change_scene_to_file("res://Credits_Scene.tscn")

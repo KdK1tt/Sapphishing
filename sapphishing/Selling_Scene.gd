@@ -469,6 +469,8 @@ func check_for_customer() -> void:
 			GameState.force_npc_music = true
 			dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
 			inventory_panel.visible = true
+			inventory_panel.position.y = 0
+			default_view.visible = false
 			shop_panel.visible = false
 			back_to_fishing_button.visible = false
 			update_inventory_rows()
@@ -500,7 +502,10 @@ func check_for_customer() -> void:
 
 		dialogue_label.text = "Serve the requested fish from your basket: " + required_fish
 		inventory_panel.visible = true
+		inventory_panel.position.y = 0
+		default_view.visible = false
 		shop_panel.visible = false
+		back_to_fishing_button.visible = false
 		update_inventory_rows()
 		return
 		
