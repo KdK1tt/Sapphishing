@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="5_fmo5r"]
 [ext_resource type="Texture2D" uid="uid://c2pd0ha718ymy" path="res://assets/ui/scene_selling/buttons/fish_inventory-sell_button-starburst.png" id="5_iwjhy"]
 [ext_resource type="LabelSettings" uid="uid://bbyqrcfne6jit" path="res://assets/font/ButtonText.tres" id="5_ppyp5"]
-[ext_resource type="Texture2D" uid="uid://btbhq0il65l1t" path="res://assets/ui/scene_selling/icons/story_prompt-purple-blue.png" id="6_4r25k"]
+[ext_resource type="Texture2D" uid="uid://bkqri3iebxqb1" path="res://assets/ui/scene_selling/icons/story_prompt-blue-green.png" id="6_hkxb1"]
 [ext_resource type="Texture2D" uid="uid://pl1ewoti1lkg" path="res://assets/ui/scene_selling/textbox/fish_description_box.png" id="6_iwjhy"]
 [ext_resource type="LabelSettings" uid="uid://dir8kbnjp6id3" path="res://assets/font/DialogueText.tres" id="7_4r25k"]
 [ext_resource type="Texture2D" uid="uid://o4hy4d4vhlxo" path="res://assets/fish/flower_shop_au_fish.png" id="8_hkxb1"]
@@ -79,7 +79,7 @@ resource_local_to_scene = true
 resource_name = "ButtonText"
 font = SubResource("FontVariation_fjeps")
 font_size = 80
-font_color = Color(0.25, 0.57500005, 1, 1)
+font_color = Color(0, 0.82, 0.6013333, 1)
 outline_size = 34
 outline_color = Color(0.050980393, 0.08235294, 0.1254902, 1)
 
@@ -288,7 +288,7 @@ z_index = 3
 texture_filter = 1
 position = Vector2(164.00002, 173)
 scale = Vector2(4.22, 4.22)
-texture = ExtResource("6_4r25k")
+texture = ExtResource("6_hkxb1")
 flip_h = true
 
 [node name="TalkLabel2" type="Label" parent="DefaultView/TalkButton" unique_id=1742800495]

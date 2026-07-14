@@ -11,7 +11,7 @@ var npc_progress := {
 	"Asani": 0
 }
 
-var current_customer := "Avery"
+var current_customer := "Asani"
 
 var pending_dialogue_npc := ""
 var pending_dialogue_phase := "" # "before" or "after"

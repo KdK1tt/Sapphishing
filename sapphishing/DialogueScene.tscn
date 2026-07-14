@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://1kafk1nl3vq0" path="res://sweet_talk_wip03.mp3" id="4_gtste"]
 [ext_resource type="Shader" uid="uid://bbl64bcgcl118" path="res://shaders/bg-blur.gdshader" id="4_l8rlb"]
 [ext_resource type="Texture2D" uid="uid://cymv4q6crx43b" path="res://assets/ui/bottom_gradient.png" id="5_7atq0"]
-[ext_resource type="Texture2D" uid="uid://bajd5ckmiy63w" path="res://assets/portrait/silhouette_purple-blue_NEW.png" id="6_7atq0"]
-[ext_resource type="Texture2D" uid="uid://cv26rral788pv" path="res://assets/ui/scene_selling/textbox/dialogue_box_blue-purple.png" id="6_56tns"]
+[ext_resource type="Texture2D" uid="uid://cwe5le6milgdk" path="res://assets/portrait/silhouette_green-blue_NEW.png" id="6_7atq0"]
+[ext_resource type="Texture2D" uid="uid://c32xr46x554lp" path="res://assets/ui/scene_selling/textbox/dialogue_box_green-blue.png" id="7_6pxmj"]
 [ext_resource type="FontFile" uid="uid://cfrk7v8kudyly" path="res://assets/font/Cute Dino.otf" id="7_7atq0"]
 [ext_resource type="Texture2D" uid="uid://c4wvmcl041u0u" path="res://assets/ui/scene_selling/textbox/dialogue_box_black-FLIPPED.png" id="7_56tns"]
 [ext_resource type="FontFile" uid="uid://chf4aogbere46" path="res://assets/font/OpenDyslexic-Bold.otf" id="8_6pxmj"]
@@ -120,7 +120,7 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("6_56tns")
+texture = ExtResource("7_6pxmj")
 
 [node name="SpeakerLabel" type="Label" parent="DialoguePanel/DialogueBackground" unique_id=869800314]
 texture_filter = 2
