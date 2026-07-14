@@ -3,16 +3,16 @@ extends Node2D
 var can_start := false
 
 func _ready() -> void:
-	var label = $"Click to Begin"
+	var label = $BeginPrompt
 	label.visible = false
 
 	await get_tree().create_timer(2.0).timeout
 
 	label.visible = true
-	label.modulate.a = 0.0
+	label.self_modulate.a = 0.0
 
 	var tween = create_tween()
-	tween.tween_property(label, "modulate:a", 1.0, 2.0)
+	tween.tween_property(label, "self_modulate:a", 1.0, 2.0)
 
 	await tween.finished
 
@@ -20,8 +20,8 @@ func _ready() -> void:
 
 	var pulse = create_tween()
 	pulse.set_loops()
-	pulse.tween_property(label, "modulate:a", 0.5, 2.0)
-	pulse.tween_property(label, "modulate:a", 1.0, 2.0)
+	pulse.tween_property(label, "self_modulate:a", 0.5, 2.0)
+	pulse.tween_property(label, "self_modulate:a", 1.0, 2.0)
 
 
 func _input(event):
