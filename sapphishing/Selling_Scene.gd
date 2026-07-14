@@ -24,6 +24,7 @@ extends Node2D
 @onready var talk_label_2 = $DefaultView/TalkButton/TalkLabel2
 
 
+
 var customer_waiting := false
 var customer_arriving := false
 var selected_fish_name: String = ""
@@ -87,6 +88,7 @@ func _on_tackle_box_click_area_input_event(_viewport, event, _shape_idx) -> void
 func _on_basket_click_area_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Basket clicked!")
+		click_here_arrow.hide()
 		toggle_inventory_panel()
 		
 func _on_inventory_close_button_pressed() -> void:

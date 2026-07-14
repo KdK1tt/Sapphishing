@@ -74,6 +74,8 @@ var fish_pool = [
 @onready var preview_value_label = $InventoryPanel/FishPreview/PreviewValueLabel
 @onready var preview_description = $InventoryPanel/FishPreview/PreviewDescription
 @onready var go_to_stall_button = $GoToStallButton
+@onready var inventory_back_button = $InventoryPanel/InventoryBackButton
+@onready var next_button = $DiscoveryPanel/DiscoveryCloseButton
 
 
 #not in use yet
@@ -123,7 +125,9 @@ func update_inventory_popup() -> void:
 		inventory_rows.add_child(row)
 
 	print("Inventory rows created: ", inventory_rows.get_child_count())
-	
+
+func _on_inventory_back_button_pressed() -> void:
+		toggle_inventory_panel()
 	
 func load_song() -> void:
 	if GameState.force_npc_music:
@@ -136,7 +140,7 @@ func show_fish_preview(fish_name: String) -> void:
 	var fish_data := GameState.get_fish_data(fish_name)
 
 	preview_name_label.text = fish_name
-	preview_value_label.text = "$" + str(fish_data["value"])
+	#preview_value_label.text = "$" + str(fish_data["value"])
 	preview_description.text = fish_data["description"]
 	preview_texture.texture = fish_data["texture"]
 
@@ -290,22 +294,36 @@ func wait_until_inventory_closed() -> void:
 		await get_tree().process_frame
 			
 func _input(event) -> void:
+	if event.is_action_pressed("fish"):
+		handle_fish_action()
+
+
+func _on_cast_line_button_pressed() -> void:
+	handle_fish_action()
+
+
+func _on_discovery_close_button_pressed() -> void:
+	handle_fish_action()
+
+
+func handle_fish_action() -> void:
 	if inventory_open:
 		return
 
-	if event.is_action_pressed("fish"):
-		if reward_animating:
-			if discovery_skip_allowed:
-				skip_reward_pause = true
-			return
+	if reward_animating:
+		if discovery_skip_allowed:
+			skip_reward_pause = true
+		return
 
-		match state:
-			State.READY:
-				cast_line()
-			State.BITE:
-				catch_fish()
-			State.RESULT: 
-				reset_cast()
+	match state:
+		State.READY:
+			cast_line()
+
+		State.BITE:
+			catch_fish()
+
+		State.RESULT:
+			reset_cast()
 				
 #helper function for skippping animations
 func wait_for_seconds_or_skip(seconds: float) -> void:
